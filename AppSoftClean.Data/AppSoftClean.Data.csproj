@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{203D8C9A-1947-4F50-A454-5A5523C227DB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AppSoftClean.Data</RootNamespace>
+    <AssemblyName>AppSoftClean.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0.6\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Infraestructure\IAreaUsoRepository.cs" />
+    <Compile Include="Infraestructure\ICepInBasRepository.cs" />
+    <Compile Include="Infraestructure\IDetalleLevantamientoRepository.cs" />
+    <Compile Include="Infraestructure\IDivisionesRepository.cs" />
+    <Compile Include="Infraestructure\IDosEstLimRepository.cs" />
+    <Compile Include="Infraestructure\IDosLavRepository.cs" />
+    <Compile Include="Infraestructure\ILevantamientoEquiposRepository.cs" />
+    <Compile Include="Infraestructure\IModEqDosRepository.cs" />
+    <Compile Include="Infraestructure\IModJabRepository.cs" />
+    <Compile Include="Infraestructure\IPedidosAreaRepository.cs" />
+    <Compile Include="Infraestructure\IPortGalonRepository.cs" />
+    <Compile Include="Infraestructure\IProdQuimRepository.cs" />
+    <Compile Include="Infraestructure\ITipMaqLavRepository.cs" />
+    <Compile Include="Model\AdmCepInBas.cs">
+      <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AdmDivisiones.cs">
+      <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AdmDosEstLim.cs">
+      <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AdmDosLav.cs">
+      <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AdmModEqDos.cs">
+      <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AdmModJab.cs">
+      <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AdmPortGalon.cs">
+      <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AdmProdQuim.cs">
+      <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AdmTipMaqLav.cs">
+      <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AreaUso.cs">
+      <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DetalleLevantamiento.cs">
+      <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LevantamientoEquipos.cs">
+      <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PedidosArea.cs">
+      <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SoftCleanEntityWeb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SoftCleanEntityWeb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SoftCleanEntityWeb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SoftCleanEntityWeb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SoftCleanEntityWeb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\RepositoryAreaUso.cs" />
+    <Compile Include="Repository\RepositoryCepInsBas.cs" />
+    <Compile Include="Repository\RepositoryDetalleLevantamiento.cs" />
+    <Compile Include="Repository\RepositoryDivisiones.cs" />
+    <Compile Include="Repository\RepositoryDosEstLimp.cs" />
+    <Compile Include="Repository\RepositoryDosLav.cs" />
+    <Compile Include="Repository\RepositoryLevantamientoEquipos.cs" />
+    <Compile Include="Repository\RepositoryModEqDos.cs" />
+    <Compile Include="Repository\RepositoryModJab.cs" />
+    <Compile Include="Repository\RepositoryPedidosArea.cs" />
+    <Compile Include="Repository\RepositoryPortGalon.cs" />
+    <Compile Include="Repository\RepositoryProdQuim.cs" />
+    <Compile Include="Repository\RepositoryTipMaqLav.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="Model\SoftCleanEntityWeb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SoftCleanEntityWeb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\SoftCleanEntityWeb.edmx.diagram">
+      <DependentUpon>SoftCleanEntityWeb.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\SoftCleanEntityWeb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SoftCleanEntityWeb.edmx</DependentUpon>
+      <LastGenOutput>SoftCleanEntityWeb.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\SoftCleanEntityWeb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SoftCleanEntityWeb.edmx</DependentUpon>
+      <LastGenOutput>SoftCleanEntityWeb.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
