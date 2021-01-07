@@ -187,6 +187,14 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Vistas\FormAreaUso.aspx" />
+    <Content Include="Vistas\FormCepInBas.aspx" />
+    <Content Include="Vistas\FormDosEstLim.aspx" />
+    <Content Include="Vistas\FormDosLav.aspx" />
+    <Content Include="Vistas\FormModEqDos.aspx" />
+    <Content Include="Vistas\FormModJab.aspx" />
+    <Content Include="Vistas\FormPorGalon.aspx" />
+    <Content Include="Vistas\FormProdQuim.aspx" />
+    <Content Include="Vistas\FormTipMaqLav.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -254,6 +262,62 @@
     </Compile>
     <Compile Include="Vistas\FormAreaUso.aspx.designer.cs">
       <DependentUpon>FormAreaUso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FormCepInBas.aspx.cs">
+      <DependentUpon>FormCepInBas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\FormCepInBas.aspx.designer.cs">
+      <DependentUpon>FormCepInBas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FormDosEstLim.aspx.cs">
+      <DependentUpon>FormDosEstLim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\FormDosEstLim.aspx.designer.cs">
+      <DependentUpon>FormDosEstLim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FormDosLav.aspx.cs">
+      <DependentUpon>FormDosLav.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\FormDosLav.aspx.designer.cs">
+      <DependentUpon>FormDosLav.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FormModEqDos.aspx.cs">
+      <DependentUpon>FormModEqDos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\FormModEqDos.aspx.designer.cs">
+      <DependentUpon>FormModEqDos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FormModJab.aspx.cs">
+      <DependentUpon>FormModJab.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\FormModJab.aspx.designer.cs">
+      <DependentUpon>FormModJab.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FormPorGalon.aspx.cs">
+      <DependentUpon>FormPorGalon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\FormPorGalon.aspx.designer.cs">
+      <DependentUpon>FormPorGalon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FormProdQuim.aspx.cs">
+      <DependentUpon>FormProdQuim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\FormProdQuim.aspx.designer.cs">
+      <DependentUpon>FormProdQuim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FormTipMaqLav.aspx.cs">
+      <DependentUpon>FormTipMaqLav.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\FormTipMaqLav.aspx.designer.cs">
+      <DependentUpon>FormTipMaqLav.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
