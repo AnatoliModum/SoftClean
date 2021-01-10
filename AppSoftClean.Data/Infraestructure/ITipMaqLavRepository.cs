@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Infraestructure
 {
-    interface ITipMaqLavRepository
+    public interface ITipMaqLavRepository
     {
         bool InsertarLavavajillas(AdmTipMaqLav Lavavajillas);
         List<AdmTipMaqLav> GetAllLavavajillas();

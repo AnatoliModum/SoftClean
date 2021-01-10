@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Repository
 {
-    class RepositoryPortGalon : IPortGalonRepository
+    public class RepositoryPortGalon : IPortGalonRepository
     {
         private ServiceForHotelEntities conn = new ServiceForHotelEntities();
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Infraestructure
 {
-    interface IDetalleLevantamientoRepository
+    public interface IDetalleLevantamientoRepository
     {
         bool InsertarDetalles(DetalleLevantamiento Detalles);
         List<DetalleLevantamiento> GetAllDetalles();

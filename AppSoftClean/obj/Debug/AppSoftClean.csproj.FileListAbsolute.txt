@@ -175,3 +175,9 @@ C:\Users\aeder\source\repos\SoftClean\AppSoftClean\obj\Debug\AppSoftClean.csproj
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\obj\Debug\AppSoftClean.dll
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\obj\Debug\AppSoftClean.pdb
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AjaxControlToolkit.dll
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AppSoftClean.Data.dll
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AppSoftClean.Data.pdb
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AppSoftClean.Data.dll.config
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AppSoftClean.Web.dll
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AppSoftClean.Web.pdb
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AppSoftClean.Web.dll.config

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Repository
 {
-    class RepositoryDetalleLevantamiento : IDetalleLevantamientoRepository
+    public class RepositoryDetalleLevantamiento : IDetalleLevantamientoRepository
     {
         private ServiceForHotelEntities conn = new ServiceForHotelEntities();
 

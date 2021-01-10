@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Infraestructure
 {
-    interface IProdQuimRepository
+    public interface IProdQuimRepository
     {
         bool InsertarQuimico(AdmProdQuim Quimico);
         List<AdmProdQuim> GetAllQuimicos();

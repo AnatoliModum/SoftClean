@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Repository
 {
-    class RepositoryTipMaqLav : ITipMaqLavRepository
+    public class RepositoryTipMaqLav : ITipMaqLavRepository
     {
         private ServiceForHotelEntities conn = new ServiceForHotelEntities();
 

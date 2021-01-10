@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Repository
 {
-    class RepositoryCepInsBas : ICepInBasRepository
+    public class RepositoryCepInsBas : ICepInBasRepository
     {
         private ServiceForHotelEntities conn = new ServiceForHotelEntities();
 

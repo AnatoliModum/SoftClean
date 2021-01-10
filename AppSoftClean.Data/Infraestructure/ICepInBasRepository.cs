@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Infraestructure
 {
-    interface ICepInBasRepository
+    public interface ICepInBasRepository
     {
         bool InsertarConsumibles(AdmCepInBas Consumibles);
         List<AdmCepInBas> GetAllConsumibles();

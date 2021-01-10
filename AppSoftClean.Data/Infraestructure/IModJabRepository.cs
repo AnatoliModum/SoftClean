@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Infraestructure
 {
-    interface IModJabRepository
+    public interface IModJabRepository
     {
         bool InsertarJabonera(AdmModJab Jabonera);
         List<AdmModJab> GetAllJaboneras();

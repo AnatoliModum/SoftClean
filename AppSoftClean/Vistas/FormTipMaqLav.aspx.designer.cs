@@ -10,7 +10,7 @@
 namespace AppSoftClean.Vistas {
     
     
-    public partial class FormAreaUso {
+    public partial class FormTipMaqLav {
         
         /// <summary>
         /// Control TextEquipo.

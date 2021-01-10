@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Infraestructure
 {
-    interface IDosLavRepository
+    public interface IDosLavRepository
     {
         bool InsertarDosificador(AdmDosLav Dosificador);
         List<AdmDosLav> GetAllDosificadores();

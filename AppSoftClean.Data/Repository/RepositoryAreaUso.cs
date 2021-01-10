@@ -16,6 +16,7 @@ namespace AppSoftClean.Data.Repository
         public bool ActualizarAreaUso(AreaUso Area)
         {
             bool res = false;
+            String areaTest = Area.Area.ToString();
 
             try
             {

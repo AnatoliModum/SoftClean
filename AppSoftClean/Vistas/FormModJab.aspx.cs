@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace AppSoftClean.Vistas
 {
-    public partial class FormAreaUso : System.Web.UI.Page
+    public partial class FormModJab : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

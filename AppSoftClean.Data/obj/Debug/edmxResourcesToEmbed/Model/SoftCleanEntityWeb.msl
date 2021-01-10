@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ServiceForHotelModelStoreContainer" CdmEntityContainer="ServiceForHotelEntities">
+    <EntitySetMapping Name="AdmCepInBas">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmCepInBas">
+        <MappingFragment StoreEntitySet="AdmCepInBas">
+          <ScalarProperty Name="IdAdmCepInBas" ColumnName="IdAdmCepInBas" />
+          <ScalarProperty Name="Objeto" ColumnName="Objeto" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmDivisiones">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmDivisiones">
+        <MappingFragment StoreEntitySet="AdmDivisiones">
+          <ScalarProperty Name="IdAdmDivisiones" ColumnName="IdAdmDivisiones" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmDosEstLim">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmDosEstLim">
+        <MappingFragment StoreEntitySet="AdmDosEstLim">
+          <ScalarProperty Name="IdAdmDosEstLim" ColumnName="IdAdmDosEstLim" />
+          <ScalarProperty Name="DosEstLimp" ColumnName="DosEstLimp" />
+          <ScalarProperty Name="EqDisponibles" ColumnName="EqDisponibles" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmDosLav">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmDosLav">
+        <MappingFragment StoreEntitySet="AdmDosLav">
+          <ScalarProperty Name="IdAdmDosLav" ColumnName="IdAdmDosLav" />
+          <ScalarProperty Name="Equipo" ColumnName="Equipo" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmModEqDos">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmModEqDos">
+        <MappingFragment StoreEntitySet="AdmModEqDos">
+          <ScalarProperty Name="IdAdmModEqDos" ColumnName="IdAdmModEqDos" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="EqDisponibles" ColumnName="EqDisponibles" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmModJab">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmModJab">
+        <MappingFragment StoreEntitySet="AdmModJab">
+          <ScalarProperty Name="IdAdmModJab" ColumnName="IdAdmModJab" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmPortGalon">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmPortGalon">
+        <MappingFragment StoreEntitySet="AdmPortGalon">
+          <ScalarProperty Name="IdAdmPortGalon" ColumnName="IdAdmPortGalon" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmProdQuim">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmProdQuim">
+        <MappingFragment StoreEntitySet="AdmProdQuim">
+          <ScalarProperty Name="IdAdmProdQuim" ColumnName="IdAdmProdQuim" />
+          <ScalarProperty Name="Quimico" ColumnName="Quimico" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="IdAreaUso" ColumnName="IdAreaUso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmTipMaqLav">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmTipMaqLav">
+        <MappingFragment StoreEntitySet="AdmTipMaqLav">
+          <ScalarProperty Name="IdAdmTipMaqLav" ColumnName="IdAdmTipMaqLav" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AreaUso">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AreaUso">
+        <MappingFragment StoreEntitySet="AreaUso">
+          <ScalarProperty Name="IdAreaUso" ColumnName="IdAreaUso" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleLevantamiento">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.DetalleLevantamiento">
+        <MappingFragment StoreEntitySet="DetalleLevantamiento">
+          <ScalarProperty Name="IdDetalleLevantamiento" ColumnName="IdDetalleLevantamiento" />
+          <ScalarProperty Name="IdLevantamiento" ColumnName="IdLevantamiento" />
+          <ScalarProperty Name="IdPedidosArea" ColumnName="IdPedidosArea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LevantamientoEquipos">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.LevantamientoEquipos">
+        <MappingFragment StoreEntitySet="LevantamientoEquipos">
+          <ScalarProperty Name="IdLevantamientosEquipos" ColumnName="IdLevantamientosEquipos" />
+          <ScalarProperty Name="IdDivision" ColumnName="IdDivision" />
+          <ScalarProperty Name="dteFecha" ColumnName="dteFecha" />
+          <ScalarProperty Name="NumHoja" ColumnName="NumHoja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PedidosArea">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.PedidosArea">
+        <MappingFragment StoreEntitySet="PedidosArea">
+          <ScalarProperty Name="IdPedidosArea" ColumnName="IdPedidosArea" />
+          <ScalarProperty Name="AreaIns" ColumnName="AreaIns" />
+          <ScalarProperty Name="IdModEqDos" ColumnName="IdModEqDos" />
+          <ScalarProperty Name="IdDosEstLim" ColumnName="IdDosEstLim" />
+          <ScalarProperty Name="IdProdQuim" ColumnName="IdProdQuim" />
+          <ScalarProperty Name="IdModJab" ColumnName="IdModJab" />
+          <ScalarProperty Name="IdCepInBas" ColumnName="IdCepInBas" />
+          <ScalarProperty Name="IdTipMaqLav" ColumnName="IdTipMaqLav" />
+          <ScalarProperty Name="IdDosLav" ColumnName="IdDosLav" />
+          <ScalarProperty Name="IdPorGalon" ColumnName="IdPorGalon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

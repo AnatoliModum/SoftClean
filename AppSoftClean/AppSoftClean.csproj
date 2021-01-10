@@ -195,6 +195,13 @@
     <Content Include="Vistas\FormPorGalon.aspx" />
     <Content Include="Vistas\FormProdQuim.aspx" />
     <Content Include="Vistas\FormTipMaqLav.aspx" />
+    <Content Include="Vistas\PantallasDePrueba\testAreaUso.aspx" />
+    <Content Include="Vistas\PantallasDePrueba\testDosLav.aspx" />
+    <Content Include="Vistas\PantallasDePrueba\testEstacionDosificadora.aspx" />
+    <Content Include="Vistas\PantallasDePrueba\testModEqDos.aspx" />
+    <Content Include="Vistas\PantallasDePrueba\testSuministros.aspx" />
+    <Content Include="Vistas\popupFailed.aspx" />
+    <Content Include="Vistas\popupSuccesful.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -319,6 +326,55 @@
     <Compile Include="Vistas\FormTipMaqLav.aspx.designer.cs">
       <DependentUpon>FormTipMaqLav.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\PantallasDePrueba\testAreaUso.aspx.cs">
+      <DependentUpon>testAreaUso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\PantallasDePrueba\testAreaUso.aspx.designer.cs">
+      <DependentUpon>testAreaUso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\PantallasDePrueba\testDosLav.aspx.cs">
+      <DependentUpon>testDosLav.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\PantallasDePrueba\testDosLav.aspx.designer.cs">
+      <DependentUpon>testDosLav.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\PantallasDePrueba\testEstacionDosificadora.aspx.cs">
+      <DependentUpon>testEstacionDosificadora.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\PantallasDePrueba\testEstacionDosificadora.aspx.designer.cs">
+      <DependentUpon>testEstacionDosificadora.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\PantallasDePrueba\testModEqDos.aspx.cs">
+      <DependentUpon>testModEqDos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\PantallasDePrueba\testModEqDos.aspx.designer.cs">
+      <DependentUpon>testModEqDos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\PantallasDePrueba\testSuministros.aspx.cs">
+      <DependentUpon>testSuministros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\PantallasDePrueba\testSuministros.aspx.designer.cs">
+      <DependentUpon>testSuministros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\popupFailed.aspx.cs">
+      <DependentUpon>popupFailed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\popupFailed.aspx.designer.cs">
+      <DependentUpon>popupFailed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\popupSuccesful.aspx.cs">
+      <DependentUpon>popupSuccesful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\popupSuccesful.aspx.designer.cs">
+      <DependentUpon>popupSuccesful.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -333,6 +389,16 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppSoftClean.Data\AppSoftClean.Data.csproj">
+      <Project>{203d8c9a-1947-4f50-a454-5a5523c227db}</Project>
+      <Name>AppSoftClean.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppSoftClean.Web\AppSoftClean.Web.csproj">
+      <Project>{ca6d44a3-d371-4cd1-a571-e0f850aa287e}</Project>
+      <Name>AppSoftClean.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Repository
 {
-    class RepositoryModJab : IModJabRepository
+    public class RepositoryModJab : IModJabRepository
     {
         private ServiceForHotelEntities conn = new ServiceForHotelEntities();
 
