@@ -181,3 +181,9 @@ C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AppSoftClean.Da
 C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AppSoftClean.Web.dll
 C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AppSoftClean.Web.pdb
 C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AppSoftClean.Web.dll.config
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AppSoftClean.Data.dll
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AppSoftClean.Web.dll
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AppSoftClean.Data.pdb
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AppSoftClean.Data.dll.config
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AppSoftClean.Web.pdb
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AppSoftClean.Web.dll.config

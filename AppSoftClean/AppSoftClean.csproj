@@ -199,7 +199,8 @@
     <Content Include="Vistas\PantallasDePrueba\testDosLav.aspx" />
     <Content Include="Vistas\PantallasDePrueba\testEstacionDosificadora.aspx" />
     <Content Include="Vistas\PantallasDePrueba\testModEqDos.aspx" />
-    <Content Include="Vistas\PantallasDePrueba\testSuministros.aspx" />
+    <Content Include="Vistas\PantallasDePrueba\testModJab.aspx" />
+    <Content Include="Vistas\PantallasDePrueba\testCepInBas.aspx" />
     <Content Include="Vistas\popupFailed.aspx" />
     <Content Include="Vistas\popupSuccesful.aspx" />
     <Content Include="Web.config" />
@@ -354,12 +355,19 @@
     <Compile Include="Vistas\PantallasDePrueba\testModEqDos.aspx.designer.cs">
       <DependentUpon>testModEqDos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\PantallasDePrueba\testSuministros.aspx.cs">
-      <DependentUpon>testSuministros.aspx</DependentUpon>
+    <Compile Include="Vistas\PantallasDePrueba\testModJab.aspx.cs">
+      <DependentUpon>testModJab.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\PantallasDePrueba\testSuministros.aspx.designer.cs">
-      <DependentUpon>testSuministros.aspx</DependentUpon>
+    <Compile Include="Vistas\PantallasDePrueba\testModJab.aspx.designer.cs">
+      <DependentUpon>testModJab.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\PantallasDePrueba\testCepInBas.aspx.cs">
+      <DependentUpon>testCepInBas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\PantallasDePrueba\testCepInBas.aspx.designer.cs">
+      <DependentUpon>testCepInBas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\popupFailed.aspx.cs">
       <DependentUpon>popupFailed.aspx</DependentUpon>

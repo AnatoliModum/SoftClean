@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormProdQuim.aspx.cs" Inherits="AppSoftClean.Vistas.FormAreaUso" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormProdQuim.aspx.cs" Inherits="AppSoftClean.Vistas.FormProdQuim" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Encabezado" runat="server">
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
@@ -15,7 +15,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
         <div class="col-lg-12">
-            <h1>Productos Químicos <span class="badge bg-secondary">Nuevo</span></h1>
+            <h1>Productos Químicos <span class="badge bg-secondary"><asp:Label ID="lblAccion" runat="server" Text="Accion"></asp:Label></span></h1>
         </div>
     </div>
     <div class="panel panel-info panel-inicial">
@@ -48,11 +48,11 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-1 col-lg-offset-9">
-            <a class="btn btn-success" href="#"><i class="fas fa-trash-alt"></i>&nbsp;Guardar</a>
+        <div class="col-lg-1">
+            <asp:Button ID="btnGuardar" class="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
         </div>
         <div class="col-lg-2">
-            <a class="btn btn-danger" href="#"><i class="fas fa-trash-alt"></i>&nbsp;Cancelar</a>
+            <asp:Button ID="btnCancelar" class="btn btn-danger" runat="server" Text="Cancelar" />
         </div>
     </div>
 

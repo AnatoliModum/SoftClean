@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace AppSoftClean.Vistas.PantallasDePrueba
 {
-    public partial class testEstacionDosificadora : System.Web.UI.Page
+    public partial class testDosEstLim : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

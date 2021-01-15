@@ -10,7 +10,7 @@
 namespace AppSoftClean.Vistas.PantallasDePrueba {
     
     
-    public partial class testSuministros {
+    public partial class testDosEstLim {
         
         /// <summary>
         /// Control form1.

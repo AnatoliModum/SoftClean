@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="testEstacionDosificadora.aspx.cs" Inherits="AppSoftClean.Vistas.PantallasDePrueba.testEstacionDosificadora" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="testDosEstLim.aspx.cs" Inherits="AppSoftClean.Vistas.PantallasDePrueba.testDosEstLim" %>
 
 <!DOCTYPE html>
 

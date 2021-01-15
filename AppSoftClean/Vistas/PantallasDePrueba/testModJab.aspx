@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="testSuministros.aspx.cs" Inherits="AppSoftClean.Vistas.PantallasDePrueba.testSuministros" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="testModJab.aspx.cs" Inherits="AppSoftClean.Vistas.PantallasDePrueba.testModJab" %>
 
 <!DOCTYPE html>
 

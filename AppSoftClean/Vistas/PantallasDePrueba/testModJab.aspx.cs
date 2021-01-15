@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace AppSoftClean.Vistas.PantallasDePrueba
 {
-    public partial class testSuministros : System.Web.UI.Page
+    public partial class testModJab : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,7 +27,7 @@ namespace AppSoftClean.Vistas.PantallasDePrueba
                 id = Int32.Parse(txtId.Text.ToString());
             }
 
-            Response.Redirect("../FormCepInBas.aspx?id=" + id);
+            Response.Redirect("../FormModJab.aspx?id=" + id);
         }
 
     }
