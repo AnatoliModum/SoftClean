@@ -14,7 +14,7 @@ namespace AppSoftClean.Data.Model
     
     public partial class DetalleLevantamiento
     {
-        public int IdDetalleLevantamiento { get; set; }
+        public int Id { get; set; }
         public Nullable<int> IdLevantamiento { get; set; }
         public Nullable<int> IdPedidosArea { get; set; }
     

@@ -18,7 +18,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmDivisiones divisionObj = conn.AdmDivisiones.Where(c => c.IdAdmDivisiones == Division.IdAdmDivisiones).FirstOrDefault<AdmDivisiones>();
+                AdmDivisiones divisionObj = conn.AdmDivisiones.Where(c => c.Id == Division.Id).FirstOrDefault<AdmDivisiones>();
 
                 divisionObj.Nombre = Division.Nombre;
                 
@@ -42,7 +42,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmDivisiones divisionObj = conn.AdmDivisiones.Where(c => c.IdAdmDivisiones == id).FirstOrDefault<AdmDivisiones>();
+                AdmDivisiones divisionObj = conn.AdmDivisiones.Where(c => c.Id == id).FirstOrDefault<AdmDivisiones>();
                 conn.AdmDivisiones.Remove(divisionObj);
                 conn.SaveChanges();
                 res = true;
@@ -74,7 +74,7 @@ namespace AppSoftClean.Data.Repository
             List<AdmDivisiones> divisionObj = null;
             try
             {
-                divisionObj = conn.AdmDivisiones.Where(c => c.IdAdmDivisiones == id).ToList<AdmDivisiones>();
+                divisionObj = conn.AdmDivisiones.Where(c => c.Id == id).ToList<AdmDivisiones>();
             }
             catch (Exception ex)
             {

@@ -18,7 +18,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                DetalleLevantamiento detallesObj = conn.DetalleLevantamiento.Where(c => c.IdDetalleLevantamiento == Detalles.IdDetalleLevantamiento).FirstOrDefault<DetalleLevantamiento>();
+                DetalleLevantamiento detallesObj = conn.DetalleLevantamiento.Where(c => c.Id == Detalles.Id).FirstOrDefault<DetalleLevantamiento>();
 
                 detallesObj.IdLevantamiento = Detalles.IdLevantamiento;
                 detallesObj.IdPedidosArea = Detalles.IdPedidosArea;
@@ -43,7 +43,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                LevantamientoEquipos levantamientoObj = conn.LevantamientoEquipos.Where(c => c.IdLevantamientosEquipos == id).FirstOrDefault<LevantamientoEquipos>();
+                LevantamientoEquipos levantamientoObj = conn.LevantamientoEquipos.Where(c => c.Id == id).FirstOrDefault<LevantamientoEquipos>();
                 conn.LevantamientoEquipos.Remove(levantamientoObj);
                 conn.SaveChanges();
                 res = true;
@@ -75,7 +75,7 @@ namespace AppSoftClean.Data.Repository
             List<DetalleLevantamiento> levantamientoObj = null;
             try
             {
-                levantamientoObj = conn.DetalleLevantamiento.Where(c => c.IdDetalleLevantamiento == id).ToList<DetalleLevantamiento>();
+                levantamientoObj = conn.DetalleLevantamiento.Where(c => c.Id == id).ToList<DetalleLevantamiento>();
             }
             catch (Exception ex)
             {
