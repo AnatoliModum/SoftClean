@@ -20,7 +20,7 @@ namespace AppSoftClean.Data.Model
             this.DetalleLevantamiento = new HashSet<DetalleLevantamiento>();
         }
     
-        public int IdPedidosArea { get; set; }
+        public int Id { get; set; }
         public string AreaIns { get; set; }
         public Nullable<int> IdModEqDos { get; set; }
         public Nullable<int> IdDosEstLim { get; set; }
@@ -37,9 +37,9 @@ namespace AppSoftClean.Data.Model
         public virtual AdmModEqDos AdmModEqDos { get; set; }
         public virtual AdmModJab AdmModJab { get; set; }
         public virtual AdmPortGalon AdmPortGalon { get; set; }
+        public virtual AdmProdQuim AdmProdQuim { get; set; }
         public virtual AdmTipMaqLav AdmTipMaqLav { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalleLevantamiento> DetalleLevantamiento { get; set; }
-        public virtual AdmProdQuim AdmProdQuim { get; set; }
     }
 }

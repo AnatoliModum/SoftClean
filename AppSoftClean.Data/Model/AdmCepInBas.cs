@@ -20,7 +20,7 @@ namespace AppSoftClean.Data.Model
             this.PedidosArea = new HashSet<PedidosArea>();
         }
     
-        public int IdAdmCepInBas { get; set; }
+        public int Id { get; set; }
         public string Objeto { get; set; }
         public Nullable<int> Stock { get; set; }
     

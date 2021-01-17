@@ -18,7 +18,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmProdQuim quimicoObj = conn.AdmProdQuim.Where(c => c.IdAdmProdQuim == Quimico.IdAdmProdQuim).FirstOrDefault<AdmProdQuim>();
+                AdmProdQuim quimicoObj = conn.AdmProdQuim.Where(c => c.Id == Quimico.Id).FirstOrDefault<AdmProdQuim>();
 
                 quimicoObj.Quimico = Quimico.Quimico;
                 quimicoObj.Stock = Quimico.Stock;
@@ -44,7 +44,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmProdQuim quimicoObj = conn.AdmProdQuim.Where(c => c.IdAdmProdQuim == id).FirstOrDefault<AdmProdQuim>();
+                AdmProdQuim quimicoObj = conn.AdmProdQuim.Where(c => c.Id == id).FirstOrDefault<AdmProdQuim>();
                 conn.AdmProdQuim.Remove(quimicoObj);
                 conn.SaveChanges();
                 res = true;
@@ -76,7 +76,7 @@ namespace AppSoftClean.Data.Repository
             List<AdmProdQuim> quimicoObj = null;
             try
             {
-                quimicoObj = conn.AdmProdQuim.Where(c => c.IdAdmProdQuim == id).ToList<AdmProdQuim>();
+                quimicoObj = conn.AdmProdQuim.Where(c => c.Id == id).ToList<AdmProdQuim>();
             }
             catch (Exception ex)
             {

@@ -18,7 +18,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmDosLav dosificadorObj = conn.AdmDosLav.Where(c => c.IdAdmDosLav == Dosificador.IdAdmDosLav).FirstOrDefault<AdmDosLav>();
+                AdmDosLav dosificadorObj = conn.AdmDosLav.Where(c => c.Id == Dosificador.Id).FirstOrDefault<AdmDosLav>();
 
                 dosificadorObj.Equipo = Dosificador.Equipo;
                 dosificadorObj.Stock = Dosificador.Stock;
@@ -43,7 +43,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmDosEstLim estacionObj = conn.AdmDosEstLim.Where(c => c.IdAdmDosEstLim == id).FirstOrDefault<AdmDosEstLim>();
+                AdmDosEstLim estacionObj = conn.AdmDosEstLim.Where(c => c.Id == id).FirstOrDefault<AdmDosEstLim>();
                 conn.AdmDosEstLim.Remove(estacionObj);
                 conn.SaveChanges();
                 res = true;
@@ -75,7 +75,7 @@ namespace AppSoftClean.Data.Repository
             List<AdmDosLav> dosificadorObj = null;
             try
             {
-                dosificadorObj = conn.AdmDosLav.Where(c => c.IdAdmDosLav == id).ToList<AdmDosLav>();
+                dosificadorObj = conn.AdmDosLav.Where(c => c.Id == id).ToList<AdmDosLav>();
             }
             catch (Exception ex)
             {

@@ -18,7 +18,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmModJab jaboneraObj = conn.AdmModJab.Where(c => c.IdAdmModJab == Jabonera.IdAdmModJab).FirstOrDefault<AdmModJab>();
+                AdmModJab jaboneraObj = conn.AdmModJab.Where(c => c.Id == Jabonera.Id).FirstOrDefault<AdmModJab>();
 
                 jaboneraObj.Modelo = Jabonera.Modelo;
                 jaboneraObj.Stock = Jabonera.Stock;
@@ -43,7 +43,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmModJab jaboneraObj = conn.AdmModJab.Where(c => c.IdAdmModJab == id).FirstOrDefault<AdmModJab>();
+                AdmModJab jaboneraObj = conn.AdmModJab.Where(c => c.Id == id).FirstOrDefault<AdmModJab>();
                 conn.AdmModJab.Remove(jaboneraObj);
                 conn.SaveChanges();
                 res = true;
@@ -75,7 +75,7 @@ namespace AppSoftClean.Data.Repository
             List<AdmModJab> jaboneraObj = null;
             try
             {
-                jaboneraObj = conn.AdmModJab.Where(c => c.IdAdmModJab == id).ToList<AdmModJab>();
+                jaboneraObj = conn.AdmModJab.Where(c => c.Id == id).ToList<AdmModJab>();
             }
             catch (Exception ex)
             {
