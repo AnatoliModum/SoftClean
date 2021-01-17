@@ -155,6 +155,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Imagenes\editar.png" />
+    <Content Include="Imagenes\eliminar.png" />
     <Content Include="login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -195,12 +197,15 @@
     <Content Include="Vistas\FormPorGalon.aspx" />
     <Content Include="Vistas\FormProdQuim.aspx" />
     <Content Include="Vistas\FormTipMaqLav.aspx" />
-    <Content Include="Vistas\PantallasDePrueba\testAreaUso.aspx" />
-    <Content Include="Vistas\PantallasDePrueba\testDosLav.aspx" />
-    <Content Include="Vistas\PantallasDePrueba\testEstacionDosificadora.aspx" />
-    <Content Include="Vistas\PantallasDePrueba\testModEqDos.aspx" />
-    <Content Include="Vistas\PantallasDePrueba\testModJab.aspx" />
-    <Content Include="Vistas\PantallasDePrueba\testCepInBas.aspx" />
+    <Content Include="Vistas\Listas\testAreaUso.aspx" />
+    <Content Include="Vistas\Listas\testDosLav.aspx" />
+    <Content Include="Vistas\Listas\testDosEstLim.aspx" />
+    <Content Include="Vistas\Listas\testModEqDos.aspx" />
+    <Content Include="Vistas\Listas\testTipMaqLav.aspx" />
+    <Content Include="Vistas\Listas\testProdQuim.aspx" />
+    <Content Include="Vistas\Listas\testPorGalon.aspx" />
+    <Content Include="Vistas\Listas\testModJab.aspx" />
+    <Content Include="Vistas\Listas\testCepInBas.aspx" />
     <Content Include="Vistas\popupFailed.aspx" />
     <Content Include="Vistas\popupSuccesful.aspx" />
     <Content Include="Web.config" />
@@ -327,46 +332,67 @@
     <Compile Include="Vistas\FormTipMaqLav.aspx.designer.cs">
       <DependentUpon>FormTipMaqLav.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\PantallasDePrueba\testAreaUso.aspx.cs">
+    <Compile Include="Vistas\Listas\testAreaUso.aspx.cs">
       <DependentUpon>testAreaUso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\PantallasDePrueba\testAreaUso.aspx.designer.cs">
+    <Compile Include="Vistas\Listas\testAreaUso.aspx.designer.cs">
       <DependentUpon>testAreaUso.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\PantallasDePrueba\testDosLav.aspx.cs">
+    <Compile Include="Vistas\Listas\testDosLav.aspx.cs">
       <DependentUpon>testDosLav.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\PantallasDePrueba\testDosLav.aspx.designer.cs">
+    <Compile Include="Vistas\Listas\testDosLav.aspx.designer.cs">
       <DependentUpon>testDosLav.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\PantallasDePrueba\testEstacionDosificadora.aspx.cs">
-      <DependentUpon>testEstacionDosificadora.aspx</DependentUpon>
+    <Compile Include="Vistas\Listas\testDosEstLim.aspx.cs">
+      <DependentUpon>testDosEstLim.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\PantallasDePrueba\testEstacionDosificadora.aspx.designer.cs">
-      <DependentUpon>testEstacionDosificadora.aspx</DependentUpon>
+    <Compile Include="Vistas\Listas\testDosEstLim.aspx.designer.cs">
+      <DependentUpon>testDosEstLim.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\PantallasDePrueba\testModEqDos.aspx.cs">
+    <Compile Include="Vistas\Listas\testModEqDos.aspx.cs">
       <DependentUpon>testModEqDos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\PantallasDePrueba\testModEqDos.aspx.designer.cs">
+    <Compile Include="Vistas\Listas\testModEqDos.aspx.designer.cs">
       <DependentUpon>testModEqDos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\PantallasDePrueba\testModJab.aspx.cs">
+    <Compile Include="Vistas\Listas\testTipMaqLav.aspx.cs">
+      <DependentUpon>testTipMaqLav.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\testTipMaqLav.aspx.designer.cs">
+      <DependentUpon>testTipMaqLav.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\testProdQuim.aspx.cs">
+      <DependentUpon>testProdQuim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\testProdQuim.aspx.designer.cs">
+      <DependentUpon>testProdQuim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\testPorGalon.aspx.cs">
+      <DependentUpon>testPorGalon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\testPorGalon.aspx.designer.cs">
+      <DependentUpon>testPorGalon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\testModJab.aspx.cs">
       <DependentUpon>testModJab.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\PantallasDePrueba\testModJab.aspx.designer.cs">
+    <Compile Include="Vistas\Listas\testModJab.aspx.designer.cs">
       <DependentUpon>testModJab.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\PantallasDePrueba\testCepInBas.aspx.cs">
+    <Compile Include="Vistas\Listas\testCepInBas.aspx.cs">
       <DependentUpon>testCepInBas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\PantallasDePrueba\testCepInBas.aspx.designer.cs">
+    <Compile Include="Vistas\Listas\testCepInBas.aspx.designer.cs">
       <DependentUpon>testCepInBas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\popupFailed.aspx.cs">

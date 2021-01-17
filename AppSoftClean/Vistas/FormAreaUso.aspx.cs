@@ -23,7 +23,7 @@ namespace AppSoftClean.Vistas
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("../Vistas/Listas/testAreaUso.aspx");
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -32,12 +32,14 @@ namespace AppSoftClean.Vistas
             
             if (this.lblAccion.Text.ToString() == "Actualizar")
             {
-                areaObj.IdAreaUso = Int32.Parse(Request.QueryString["id"]);
+                areaObj.id = Int32.Parse(Request.QueryString["id"]);
                 this.actualizarParametros(areaObj);
+                Response.Redirect("../Vistas/Listas/testAreaUso.aspx");
             }
             else
             {
                 this.insertarParametros(areaObj);
+                Response.Redirect("../Vistas/Listas/testAreaUso.aspx");
             }
         }
 

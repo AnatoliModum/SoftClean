@@ -32,11 +32,11 @@ namespace AppSoftClean.Data.Model
         public virtual DbSet<AdmModEqDos> AdmModEqDos { get; set; }
         public virtual DbSet<AdmModJab> AdmModJab { get; set; }
         public virtual DbSet<AdmPortGalon> AdmPortGalon { get; set; }
-        public virtual DbSet<AdmProdQuim> AdmProdQuim { get; set; }
         public virtual DbSet<AdmTipMaqLav> AdmTipMaqLav { get; set; }
-        public virtual DbSet<AreaUso> AreaUso { get; set; }
         public virtual DbSet<DetalleLevantamiento> DetalleLevantamiento { get; set; }
         public virtual DbSet<LevantamientoEquipos> LevantamientoEquipos { get; set; }
         public virtual DbSet<PedidosArea> PedidosArea { get; set; }
+        public virtual DbSet<AdmProdQuim> AdmProdQuim { get; set; }
+        public virtual DbSet<AreaUso> AreaUso { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace AppSoftClean.Vistas.PantallasDePrueba
 {
-    public partial class testAreaUso : System.Web.UI.Page
+    public partial class testProdQuim : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,12 +21,14 @@ namespace AppSoftClean.Vistas.PantallasDePrueba
             if (txtId.Text.ToString() == "")
             {
                 id = 0;
-            }else
+            }
+            else
             {
                 id = Int32.Parse(txtId.Text.ToString());
             }
 
-            Response.Redirect("../FormAreaUso.aspx?id=" + id);
+            Response.Redirect("../FormProdQuim.aspx?id=" + id);
         }
+
     }
 }

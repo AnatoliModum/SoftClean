@@ -63,31 +63,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AdmProdQuim">
-      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmProdQuim">
-        <MappingFragment StoreEntitySet="AdmProdQuim">
-          <ScalarProperty Name="IdAdmProdQuim" ColumnName="IdAdmProdQuim" />
-          <ScalarProperty Name="Quimico" ColumnName="Quimico" />
-          <ScalarProperty Name="Stock" ColumnName="Stock" />
-          <ScalarProperty Name="IdAreaUso" ColumnName="IdAreaUso" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="AdmTipMaqLav">
       <EntityTypeMapping TypeName="ServiceForHotelModel.AdmTipMaqLav">
         <MappingFragment StoreEntitySet="AdmTipMaqLav">
           <ScalarProperty Name="IdAdmTipMaqLav" ColumnName="IdAdmTipMaqLav" />
           <ScalarProperty Name="Tipo" ColumnName="Tipo" />
           <ScalarProperty Name="Stock" ColumnName="Stock" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AreaUso">
-      <EntityTypeMapping TypeName="ServiceForHotelModel.AreaUso">
-        <MappingFragment StoreEntitySet="AreaUso">
-          <ScalarProperty Name="IdAreaUso" ColumnName="IdAreaUso" />
-          <ScalarProperty Name="Area" ColumnName="Area" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -123,6 +104,25 @@
           <ScalarProperty Name="IdTipMaqLav" ColumnName="IdTipMaqLav" />
           <ScalarProperty Name="IdDosLav" ColumnName="IdDosLav" />
           <ScalarProperty Name="IdPorGalon" ColumnName="IdPorGalon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmProdQuim">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmProdQuim">
+        <MappingFragment StoreEntitySet="AdmProdQuim">
+          <ScalarProperty Name="IdAreaUso" ColumnName="IdAreaUso" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Quimico" ColumnName="Quimico" />
+          <ScalarProperty Name="IdAdmProdQuim" ColumnName="IdAdmProdQuim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AreaUso">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AreaUso">
+        <MappingFragment StoreEntitySet="AreaUso">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

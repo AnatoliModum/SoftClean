@@ -10,7 +10,16 @@
 namespace AppSoftClean.Vistas.PantallasDePrueba {
     
     
-    public partial class testAreaUso {
+    public partial class testPorGalon {
+        
+        /// <summary>
+        /// Control form1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// Control btnAccion.

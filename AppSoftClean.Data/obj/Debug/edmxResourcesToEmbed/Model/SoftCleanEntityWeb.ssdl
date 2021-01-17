@@ -74,9 +74,9 @@
   </EntityType>
   <EntityType Name="AreaUso">
     <Key>
-      <PropertyRef Name="IdAreaUso" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="IdAreaUso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Area" Type="varchar" MaxLength="100" />
     <Property Name="Descripcion" Type="varchar" MaxLength="100" />
   </EntityType>
@@ -117,7 +117,7 @@
     <End Role="AdmProdQuim" Type="Self.AdmProdQuim" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AreaUso">
-        <PropertyRef Name="IdAreaUso" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="AdmProdQuim">
         <PropertyRef Name="IdAreaUso" />

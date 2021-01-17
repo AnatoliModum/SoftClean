@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ServiceForHotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ServiceForHotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AdmCepInBas">
           <Key>
             <PropertyRef Name="IdAdmCepInBas" />
@@ -79,9 +79,9 @@
         </EntityType>
         <EntityType Name="AreaUso">
           <Key>
-            <PropertyRef Name="IdAreaUso" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="IdAreaUso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Area" Type="varchar" MaxLength="100" />
           <Property Name="Descripcion" Type="varchar" MaxLength="100" />
         </EntityType>
@@ -122,7 +122,7 @@
           <End Role="AdmProdQuim" Type="Self.AdmProdQuim" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AreaUso">
-              <PropertyRef Name="IdAreaUso" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="AdmProdQuim">
               <PropertyRef Name="IdAreaUso" />
@@ -324,8 +324,7 @@
             <End Role="PedidosArea" EntitySet="PedidosArea" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ServiceForHotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -391,17 +390,6 @@
           <Property Name="Stock" Type="Int32" />
           <NavigationProperty Name="PedidosArea" Relationship="Self.FK_PortaGalones" FromRole="AdmPortGalon" ToRole="PedidosArea" />
         </EntityType>
-        <EntityType Name="AdmProdQuim">
-          <Key>
-            <PropertyRef Name="IdAdmProdQuim" />
-          </Key>
-          <Property Name="IdAdmProdQuim" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Quimico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Stock" Type="Int32" />
-          <Property Name="IdAreaUso" Type="Int32" />
-          <NavigationProperty Name="AreaUso" Relationship="Self.FK_AreaDeUso" FromRole="AdmProdQuim" ToRole="AreaUso" />
-          <NavigationProperty Name="PedidosArea" Relationship="Self.FK_ProductosQuimicos" FromRole="AdmProdQuim" ToRole="PedidosArea" />
-        </EntityType>
         <EntityType Name="AdmTipMaqLav">
           <Key>
             <PropertyRef Name="IdAdmTipMaqLav" />
@@ -410,15 +398,6 @@
           <Property Name="Tipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Stock" Type="Int32" />
           <NavigationProperty Name="PedidosArea" Relationship="Self.FK_MaquinasLavavajillas" FromRole="AdmTipMaqLav" ToRole="PedidosArea" />
-        </EntityType>
-        <EntityType Name="AreaUso">
-          <Key>
-            <PropertyRef Name="IdAreaUso" />
-          </Key>
-          <Property Name="IdAreaUso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Area" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="AdmProdQuim" Relationship="Self.FK_AreaDeUso" FromRole="AreaUso" ToRole="AdmProdQuim" />
         </EntityType>
         <EntityType Name="DetalleLevantamiento">
           <Key>
@@ -461,9 +440,9 @@
           <NavigationProperty Name="AdmModEqDos" Relationship="Self.FK_ModeloEquipoDosificador" FromRole="PedidosArea" ToRole="AdmModEqDos" />
           <NavigationProperty Name="AdmModJab" Relationship="Self.FK_ModeloJabonera" FromRole="PedidosArea" ToRole="AdmModJab" />
           <NavigationProperty Name="AdmPortGalon" Relationship="Self.FK_PortaGalones" FromRole="PedidosArea" ToRole="AdmPortGalon" />
-          <NavigationProperty Name="AdmProdQuim" Relationship="Self.FK_ProductosQuimicos" FromRole="PedidosArea" ToRole="AdmProdQuim" />
           <NavigationProperty Name="AdmTipMaqLav" Relationship="Self.FK_MaquinasLavavajillas" FromRole="PedidosArea" ToRole="AdmTipMaqLav" />
           <NavigationProperty Name="DetalleLevantamiento" Relationship="Self.FK_PedidosPorArea" FromRole="PedidosArea" ToRole="DetalleLevantamiento" />
+          <NavigationProperty Name="AdmProdQuim" Relationship="ServiceForHotelModel.FK_ProductosQuimicos" FromRole="PedidosArea" ToRole="AdmProdQuim" />
         </EntityType>
         <Association Name="FK_CepillosInsertosYBases">
           <End Role="AdmCepInBas" Type="Self.AdmCepInBas" Multiplicity="0..1" />
@@ -549,30 +528,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_AreaDeUso">
-          <End Role="AreaUso" Type="Self.AreaUso" Multiplicity="0..1" />
-          <End Role="AdmProdQuim" Type="Self.AdmProdQuim" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AreaUso">
-              <PropertyRef Name="IdAreaUso" />
-            </Principal>
-            <Dependent Role="AdmProdQuim">
-              <PropertyRef Name="IdAreaUso" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductosQuimicos">
-          <End Role="AdmProdQuim" Type="Self.AdmProdQuim" Multiplicity="0..1" />
-          <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AdmProdQuim">
-              <PropertyRef Name="IdAdmProdQuim" />
-            </Principal>
-            <Dependent Role="PedidosArea">
-              <PropertyRef Name="IdProdQuim" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_MaquinasLavavajillas">
           <End Role="AdmTipMaqLav" Type="Self.AdmTipMaqLav" Multiplicity="0..1" />
           <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
@@ -617,9 +572,7 @@
           <EntitySet Name="AdmModEqDos" EntityType="Self.AdmModEqDos" />
           <EntitySet Name="AdmModJab" EntityType="Self.AdmModJab" />
           <EntitySet Name="AdmPortGalon" EntityType="Self.AdmPortGalon" />
-          <EntitySet Name="AdmProdQuim" EntityType="Self.AdmProdQuim" />
           <EntitySet Name="AdmTipMaqLav" EntityType="Self.AdmTipMaqLav" />
-          <EntitySet Name="AreaUso" EntityType="Self.AreaUso" />
           <EntitySet Name="DetalleLevantamiento" EntityType="Self.DetalleLevantamiento" />
           <EntitySet Name="LevantamientoEquipos" EntityType="Self.LevantamientoEquipos" />
           <EntitySet Name="PedidosArea" EntityType="Self.PedidosArea" />
@@ -651,14 +604,6 @@
             <End Role="AdmPortGalon" EntitySet="AdmPortGalon" />
             <End Role="PedidosArea" EntitySet="PedidosArea" />
           </AssociationSet>
-          <AssociationSet Name="FK_AreaDeUso" Association="Self.FK_AreaDeUso">
-            <End Role="AreaUso" EntitySet="AreaUso" />
-            <End Role="AdmProdQuim" EntitySet="AdmProdQuim" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductosQuimicos" Association="Self.FK_ProductosQuimicos">
-            <End Role="AdmProdQuim" EntitySet="AdmProdQuim" />
-            <End Role="PedidosArea" EntitySet="PedidosArea" />
-          </AssociationSet>
           <AssociationSet Name="FK_MaquinasLavavajillas" Association="Self.FK_MaquinasLavavajillas">
             <End Role="AdmTipMaqLav" EntitySet="AdmTipMaqLav" />
             <End Role="PedidosArea" EntitySet="PedidosArea" />
@@ -671,7 +616,61 @@
             <End Role="PedidosArea" EntitySet="PedidosArea" />
             <End Role="DetalleLevantamiento" EntitySet="DetalleLevantamiento" />
           </AssociationSet>
+          <EntitySet Name="AdmProdQuim" EntityType="ServiceForHotelModel.AdmProdQuim" />
+          <EntitySet Name="AreaUso" EntityType="ServiceForHotelModel.AreaUso" />
+          <AssociationSet Name="FK_AreaDeUso" Association="ServiceForHotelModel.FK_AreaDeUso">
+            <End Role="AreaUso" EntitySet="AreaUso" />
+            <End Role="AdmProdQuim" EntitySet="AdmProdQuim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductosQuimicos" Association="ServiceForHotelModel.FK_ProductosQuimicos">
+            <End Role="AdmProdQuim" EntitySet="AdmProdQuim" />
+            <End Role="PedidosArea" EntitySet="PedidosArea" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="AdmProdQuim">
+          <Key>
+            <PropertyRef Name="IdAdmProdQuim" />
+          </Key>
+          <Property Name="IdAdmProdQuim" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quimico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Stock" Type="Int32" />
+          <Property Name="IdAreaUso" Type="Int32" />
+          <NavigationProperty Name="AreaUso" Relationship="ServiceForHotelModel.FK_AreaDeUso" FromRole="AdmProdQuim" ToRole="AreaUso" />
+          <NavigationProperty Name="PedidosArea" Relationship="ServiceForHotelModel.FK_ProductosQuimicos" FromRole="AdmProdQuim" ToRole="PedidosArea" />
+        </EntityType>
+        <EntityType Name="AreaUso">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Area" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AdmProdQuim" Relationship="ServiceForHotelModel.FK_AreaDeUso" FromRole="AreaUso" ToRole="AdmProdQuim" />
+        </EntityType>
+        <Association Name="FK_AreaDeUso">
+          <End Type="ServiceForHotelModel.AreaUso" Role="AreaUso" Multiplicity="0..1" />
+          <End Type="ServiceForHotelModel.AdmProdQuim" Role="AdmProdQuim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AreaUso">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AdmProdQuim">
+              <PropertyRef Name="IdAreaUso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductosQuimicos">
+          <End Type="ServiceForHotelModel.AdmProdQuim" Role="AdmProdQuim" Multiplicity="0..1" />
+          <End Type="ServiceForHotelModel.PedidosArea" Role="PedidosArea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmProdQuim">
+              <PropertyRef Name="IdAdmProdQuim" />
+            </Principal>
+            <Dependent Role="PedidosArea">
+              <PropertyRef Name="IdProdQuim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -740,31 +739,12 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AdmProdQuim">
-            <EntityTypeMapping TypeName="ServiceForHotelModel.AdmProdQuim">
-              <MappingFragment StoreEntitySet="AdmProdQuim">
-                <ScalarProperty Name="IdAdmProdQuim" ColumnName="IdAdmProdQuim" />
-                <ScalarProperty Name="Quimico" ColumnName="Quimico" />
-                <ScalarProperty Name="Stock" ColumnName="Stock" />
-                <ScalarProperty Name="IdAreaUso" ColumnName="IdAreaUso" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AdmTipMaqLav">
             <EntityTypeMapping TypeName="ServiceForHotelModel.AdmTipMaqLav">
               <MappingFragment StoreEntitySet="AdmTipMaqLav">
                 <ScalarProperty Name="IdAdmTipMaqLav" ColumnName="IdAdmTipMaqLav" />
                 <ScalarProperty Name="Tipo" ColumnName="Tipo" />
                 <ScalarProperty Name="Stock" ColumnName="Stock" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AreaUso">
-            <EntityTypeMapping TypeName="ServiceForHotelModel.AreaUso">
-              <MappingFragment StoreEntitySet="AreaUso">
-                <ScalarProperty Name="IdAreaUso" ColumnName="IdAreaUso" />
-                <ScalarProperty Name="Area" ColumnName="Area" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -800,6 +780,25 @@
                 <ScalarProperty Name="IdTipMaqLav" ColumnName="IdTipMaqLav" />
                 <ScalarProperty Name="IdDosLav" ColumnName="IdDosLav" />
                 <ScalarProperty Name="IdPorGalon" ColumnName="IdPorGalon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdmProdQuim">
+            <EntityTypeMapping TypeName="ServiceForHotelModel.AdmProdQuim">
+              <MappingFragment StoreEntitySet="AdmProdQuim">
+                <ScalarProperty Name="IdAreaUso" ColumnName="IdAreaUso" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Quimico" ColumnName="Quimico" />
+                <ScalarProperty Name="IdAdmProdQuim" ColumnName="IdAdmProdQuim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AreaUso">
+            <EntityTypeMapping TypeName="ServiceForHotelModel.AreaUso">
+              <MappingFragment StoreEntitySet="AreaUso">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

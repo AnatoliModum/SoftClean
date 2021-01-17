@@ -4,3 +4,7 @@
 .panel-inicial {
     margin-top: 17px;
 }
+
+.margen-titulo {
+    margin-top: 0px!important;
+}
