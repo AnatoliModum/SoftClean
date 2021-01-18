@@ -43,8 +43,8 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmDosEstLim estacionObj = conn.AdmDosEstLim.Where(c => c.id == id).FirstOrDefault<AdmDosEstLim>();
-                conn.AdmDosEstLim.Remove(estacionObj);
+                AdmDosLav estacionObj = conn.AdmDosLav.Where(c => c.id == id).FirstOrDefault<AdmDosLav>();
+                conn.AdmDosLav.Remove(estacionObj);
                 conn.SaveChanges();
                 res = true;
             }

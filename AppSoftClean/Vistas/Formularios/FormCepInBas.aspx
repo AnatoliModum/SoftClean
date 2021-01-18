@@ -39,7 +39,6 @@
                     </div>
                 </div>
                 <div class="col-lg-1">
-                    <%--<a class="btn btn-success" href="#"><i class="fas fa-trash-alt"></i>&nbsp;Guardar</a>--%>
                     <asp:Button ID="btnGuardar" class="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
                 </div>
                 <div class="col-lg-2">

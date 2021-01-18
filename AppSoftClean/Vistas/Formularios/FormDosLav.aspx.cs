@@ -1,4 +1,5 @@
 ﻿using AppSoftClean.Data.Model;
+using AppSoftClean.Data.Recursos;
 using AppSoftClean.Data.Repository;
 using System;
 using System.Collections.Generic;
@@ -26,10 +27,12 @@ namespace AppSoftClean.Vistas
             {
                 dosificadorObj.id = Int32.Parse(Request.QueryString["id"]);
                 this.actualizarParametros(dosificadorObj);
+                Response.Redirect(direcciones.ViewDosLav);
             }
             else
             {
                 this.insertarParametros(dosificadorObj);
+                Response.Redirect(direcciones.ViewDosLav);
             }
         }
 
@@ -101,5 +104,9 @@ namespace AppSoftClean.Vistas
             ScriptManager.RegisterStartupScript(this, this.GetType(), "popup", vtn, true);
         }
 
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(direcciones.ViewDosLav);
+        }
     }
 }

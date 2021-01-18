@@ -88,6 +88,15 @@ namespace AppSoftClean.Data.Recursos {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ~/Vistas/Formularios/FormDosLav.aspx?id=.
+        /// </summary>
+        public static string FormDosLav {
+            get {
+                return ResourceManager.GetString("FormDosLav", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ~/Vistas/Listas/ViewAreaUso.aspx.
         /// </summary>
         public static string ViewAreaUso {
@@ -111,6 +120,15 @@ namespace AppSoftClean.Data.Recursos {
         public static string ViewDosEstLim {
             get {
                 return ResourceManager.GetString("ViewDosEstLim", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ~/Vistas/Listas/ViewDosLav.aspx.
+        /// </summary>
+        public static string ViewDosLav {
+            get {
+                return ResourceManager.GetString("ViewDosLav", resourceCulture);
             }
         }
     }
