@@ -18,7 +18,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                PedidosArea pedidoObj = conn.PedidosArea.Where(c => c.Id == Pedido.Id).FirstOrDefault<PedidosArea>();
+                PedidosArea pedidoObj = conn.PedidosArea.Where(c => c.id == Pedido.id).FirstOrDefault<PedidosArea>();
 
                 pedidoObj.AreaIns = Pedido.AreaIns;
                 pedidoObj.IdModEqDos = Pedido.IdModEqDos;
@@ -50,7 +50,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                PedidosArea pedidoObj = conn.PedidosArea.Where(c => c.Id == id).FirstOrDefault<PedidosArea>();
+                PedidosArea pedidoObj = conn.PedidosArea.Where(c => c.id == id).FirstOrDefault<PedidosArea>();
                 conn.PedidosArea.Remove(pedidoObj);
                 conn.SaveChanges();
                 res = true;
@@ -82,7 +82,7 @@ namespace AppSoftClean.Data.Repository
             List<PedidosArea> pedidoObj = null;
             try
             {
-                pedidoObj = conn.PedidosArea.Where(c => c.Id == id).ToList<PedidosArea>();
+                pedidoObj = conn.PedidosArea.Where(c => c.id == id).ToList<PedidosArea>();
             }
             catch (Exception ex)
             {

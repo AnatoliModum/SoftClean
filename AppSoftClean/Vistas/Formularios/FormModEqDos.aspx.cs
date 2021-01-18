@@ -9,56 +9,53 @@ using System.Web.UI.WebControls;
 
 namespace AppSoftClean.Vistas
 {
-    public partial class FormCepInBas : System.Web.UI.Page
+    public partial class FormModEqDos : System.Web.UI.Page
     {
-        private RepositoryCepInsBas RECIB = new RepositoryCepInsBas();
+        private RepositoryModEqDos REP = new RepositoryModEqDos();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                this.eleccionCargaDeDatos();
-            }
+            if (!IsPostBack) this.eleccionCargaDeDatos();
         }
-        
+
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            AdmCepInBas suministroObj = this.GetViewData();
+            AdmModEqDos equipoObj = this.GetViewData();
 
             if (this.lblAccion.Text.ToString() == "Actualizar")
             {
-                suministroObj.IdAdmCepInBas = Int32.Parse(Request.QueryString["id"]);
-                this.actualizarParametros(suministroObj);
+                equipoObj.id = Int32.Parse(Request.QueryString["id"]);
+                this.actualizarParametros(equipoObj);
             }
             else
             {
-                this.insertarParametros(suministroObj);
+                this.insertarParametros(equipoObj);
             }
         }
 
-        protected AdmCepInBas GetViewData()
+        protected AdmModEqDos GetViewData()
         {
-            AdmCepInBas suministrosObj = new AdmCepInBas
+            AdmModEqDos equipoObj = new AdmModEqDos
             {
-                Objeto = TextObjeto.Text,
-                Stock = Int32.Parse(TextStock.Text)
+                Modelo = TextModelo.Text,
+                EqDisponibles = Int32.Parse(TextEquiDis.Text)
             };
-            
-            return suministrosObj;
+
+            return equipoObj;
         }
 
         protected void eleccionCargaDeDatos()
         {
-            AdmCepInBas suministroObj = new AdmCepInBas();
+            AdmModEqDos equipoObj = new AdmModEqDos();
 
             try
             {
                 int id = Int32.Parse(Request.QueryString["id"]);
 
-                suministroObj = RECIB.GetConsumiblesByID(id).First();
+                equipoObj = REP.GetEquipoDosificadorByID(id).First();
 
-                TextObjeto.Text = suministroObj.Objeto.ToString();
-                TextStock.Text = suministroObj.Stock.ToString();
+                TextModelo.Text = equipoObj.Modelo.ToString();
+                TextEquiDis.Text = equipoObj.EqDisponibles.ToString();
 
                 lblAccion.Text = "Actualizar";
             }
@@ -68,9 +65,9 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected void insertarParametros(AdmCepInBas suministroObj)
+        protected void insertarParametros(AdmModEqDos equipoObj)
         {
-            if (RECIB.InsertarConsumibles(suministroObj))
+            if (REP.InsertarEquipoDosificador(equipoObj))
             {
                 this.popupTodoBien();
             }
@@ -80,9 +77,9 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected void actualizarParametros(AdmCepInBas suministroObj)
+        protected void actualizarParametros(AdmModEqDos equipoObj)
         {
-            if (RECIB.ActualizarConsumibles(suministroObj))
+            if (REP.ActualizarEquipoDosificador(equipoObj))
             {
                 this.popupTodoBien();
             }

@@ -4,20 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="66e175b3e5ff4c09b6bd7ce2a1365c40" Name="Diagram1">
-        <EntityTypeShape EntityType="ServiceForHotelModel.AdmCepInBas" Width="1.5" PointX="3" PointY="13.5" />
-        <EntityTypeShape EntityType="ServiceForHotelModel.AdmDivisiones" Width="1.5" PointX="3" PointY="24.625" />
-        <EntityTypeShape EntityType="ServiceForHotelModel.AdmDosEstLim" Width="1.5" PointX="3" PointY="8.5" />
-        <EntityTypeShape EntityType="ServiceForHotelModel.AdmDosLav" Width="1.5" PointX="3" PointY="18.625" />
-        <EntityTypeShape EntityType="ServiceForHotelModel.AdmModEqDos" Width="1.5" PointX="3" PointY="11" />
-        <EntityTypeShape EntityType="ServiceForHotelModel.AdmModJab" Width="1.5" PointX="3" PointY="21.125" />
-        <EntityTypeShape EntityType="ServiceForHotelModel.AdmPortGalon" Width="1.5" PointX="3" PointY="16.125" />
-        <EntityTypeShape EntityType="ServiceForHotelModel.AdmProdQuim" Width="1.5" PointX="3" PointY="2.25" />
-        <EntityTypeShape EntityType="ServiceForHotelModel.AdmTipMaqLav" Width="1.5" PointX="3" PointY="5.875" />
+      <Diagram DiagramId="66e175b3e5ff4c09b6bd7ce2a1365c40" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="ServiceForHotelModel.AdmCepInBas" Width="1.5" PointX="7.875" PointY="7.5" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.AdmDivisiones" Width="1.5" PointX="11.625" PointY="3.5" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.AdmDosEstLim" Width="1.5" PointX="3.375" PointY="5.625" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.AdmDosLav" Width="1.5" PointX="3.375" PointY="9.625" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.AdmModEqDos" Width="1.5" PointX="7.875" PointY="9.5" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.AdmModJab" Width="1.5" PointX="0.75" PointY="0.5" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.AdmPortGalon" Width="1.5" PointX="7.875" PointY="5.5" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.AdmProdQuim" Width="1.5" PointX="3.375" PointY="3.25" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.AdmTipMaqLav" Width="1.5" PointX="3.375" PointY="7.625" />
         <EntityTypeShape EntityType="ServiceForHotelModel.AreaUso" Width="1.5" PointX="0.75" PointY="2.5" />
-        <EntityTypeShape EntityType="ServiceForHotelModel.DetalleLevantamiento" Width="1.5" PointX="7.5" PointY="2.375" />
-        <EntityTypeShape EntityType="ServiceForHotelModel.LevantamientoEquipos" Width="1.5" PointX="5.25" PointY="24.25" />
-        <EntityTypeShape EntityType="ServiceForHotelModel.PedidosArea" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.DetalleLevantamiento" Width="1.5" PointX="7.875" PointY="3.375" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.LevantamientoEquipos" Width="1.5" PointX="9.75" PointY="3.25" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.PedidosArea" Width="1.5" PointX="5.625" PointY="2" />
         <AssociationConnector Association="ServiceForHotelModel.FK_CepillosInsertosYBases" />
         <AssociationConnector Association="ServiceForHotelModel.FK_Division" />
         <AssociationConnector Association="ServiceForHotelModel.FK_DosEstacionLimpieza" />

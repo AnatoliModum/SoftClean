@@ -9,9 +9,10 @@ using System.Web.UI.WebControls;
 
 namespace AppSoftClean.Vistas
 {
-    public partial class FormModEqDos : System.Web.UI.Page
+    public partial class FormPorGalon : System.Web.UI.Page
     {
-        private RepositoryModEqDos REP = new RepositoryModEqDos();
+
+        private RepositoryPortGalon REP = new RepositoryPortGalon();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,11 +21,11 @@ namespace AppSoftClean.Vistas
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            AdmModEqDos equipoObj = this.GetViewData();
+            AdmPortGalon equipoObj = this.GetViewData();
 
             if (this.lblAccion.Text.ToString() == "Actualizar")
             {
-                equipoObj.IdAdmModEqDos = Int32.Parse(Request.QueryString["id"]);
+                equipoObj.id = Int32.Parse(Request.QueryString["id"]);
                 this.actualizarParametros(equipoObj);
             }
             else
@@ -33,12 +34,12 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected AdmModEqDos GetViewData()
+        protected AdmPortGalon GetViewData()
         {
-            AdmModEqDos equipoObj = new AdmModEqDos
+            AdmPortGalon equipoObj = new AdmPortGalon
             {
-                Modelo = TextModelo.Text,
-                EqDisponibles = Int32.Parse(TextEquiDis.Text)
+                Tipo = TextTipo.Text,
+                Stock = Int32.Parse(TextStock.Text)
             };
 
             return equipoObj;
@@ -46,16 +47,16 @@ namespace AppSoftClean.Vistas
 
         protected void eleccionCargaDeDatos()
         {
-            AdmModEqDos equipoObj = new AdmModEqDos();
+            AdmPortGalon equipoObj = new AdmPortGalon();
 
             try
             {
                 int id = Int32.Parse(Request.QueryString["id"]);
 
-                equipoObj = REP.GetEquipoDosificadorByID(id).First();
+                equipoObj = REP.GetGaloneraByID(id).First();
 
-                TextModelo.Text = equipoObj.Modelo.ToString();
-                TextEquiDis.Text = equipoObj.EqDisponibles.ToString();
+                TextTipo.Text = equipoObj.Tipo.ToString();
+                TextStock.Text = equipoObj.Stock.ToString();
 
                 lblAccion.Text = "Actualizar";
             }
@@ -65,9 +66,9 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected void insertarParametros(AdmModEqDos equipoObj)
+        protected void insertarParametros(AdmPortGalon equipoObj)
         {
-            if (REP.InsertarEquipoDosificador(equipoObj))
+            if (REP.InsertarGalonera(equipoObj))
             {
                 this.popupTodoBien();
             }
@@ -77,9 +78,9 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected void actualizarParametros(AdmModEqDos equipoObj)
+        protected void actualizarParametros(AdmPortGalon equipoObj)
         {
-            if (REP.ActualizarEquipoDosificador(equipoObj))
+            if (REP.ActualizarGalonera(equipoObj))
             {
                 this.popupTodoBien();
             }

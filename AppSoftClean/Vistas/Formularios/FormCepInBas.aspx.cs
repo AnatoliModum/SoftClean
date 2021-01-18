@@ -1,4 +1,5 @@
 ﻿using AppSoftClean.Data.Model;
+using AppSoftClean.Data.Recursos;
 using AppSoftClean.Data.Repository;
 using System;
 using System.Collections.Generic;
@@ -9,54 +10,58 @@ using System.Web.UI.WebControls;
 
 namespace AppSoftClean.Vistas
 {
-    public partial class FormPorGalon : System.Web.UI.Page
+    public partial class FormCepInBas : System.Web.UI.Page
     {
-
-        private RepositoryPortGalon REP = new RepositoryPortGalon();
+        private RepositoryCepInsBas RECIB = new RepositoryCepInsBas();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) this.eleccionCargaDeDatos();
+            if (!IsPostBack)
+            {
+                this.eleccionCargaDeDatos();
+            }
         }
-
+        
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            AdmPortGalon equipoObj = this.GetViewData();
+            AdmCepInBas areaObj = this.GetViewCepInBas();
 
             if (this.lblAccion.Text.ToString() == "Actualizar")
             {
-                equipoObj.IdAdmPortGalon = Int32.Parse(Request.QueryString["id"]);
-                this.actualizarParametros(equipoObj);
+                areaObj.id = Int32.Parse(Request.QueryString["id"]);
+                this.actualizarParametros(areaObj);
+                Response.Redirect(direcciones.ViewCepInBas);
             }
             else
             {
-                this.insertarParametros(equipoObj);
+                this.insertarParametros(areaObj);
+                Response.Redirect(direcciones.ViewCepInBas);
             }
         }
 
-        protected AdmPortGalon GetViewData()
+        protected AdmCepInBas GetViewCepInBas()
         {
-            AdmPortGalon equipoObj = new AdmPortGalon
+            AdmCepInBas suministrosObj = new AdmCepInBas
             {
-                Tipo = TextTipo.Text,
+                Objeto = TextObjeto.Text,
                 Stock = Int32.Parse(TextStock.Text)
             };
-
-            return equipoObj;
+            
+            return suministrosObj;
         }
 
         protected void eleccionCargaDeDatos()
         {
-            AdmPortGalon equipoObj = new AdmPortGalon();
+            AdmCepInBas suministroObj = new AdmCepInBas();
 
             try
             {
                 int id = Int32.Parse(Request.QueryString["id"]);
 
-                equipoObj = REP.GetGaloneraByID(id).First();
+                suministroObj = RECIB.GetConsumiblesByID(id).First();
 
-                TextTipo.Text = equipoObj.Tipo.ToString();
-                TextStock.Text = equipoObj.Stock.ToString();
+                TextObjeto.Text = suministroObj.Objeto.ToString();
+                TextStock.Text = suministroObj.Stock.ToString();
 
                 lblAccion.Text = "Actualizar";
             }
@@ -66,9 +71,9 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected void insertarParametros(AdmPortGalon equipoObj)
+        protected void insertarParametros(AdmCepInBas suministroObj)
         {
-            if (REP.InsertarGalonera(equipoObj))
+            if (RECIB.InsertarConsumibles(suministroObj))
             {
                 this.popupTodoBien();
             }
@@ -78,9 +83,9 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected void actualizarParametros(AdmPortGalon equipoObj)
+        protected void actualizarParametros(AdmCepInBas suministroObj)
         {
-            if (REP.ActualizarGalonera(equipoObj))
+            if (RECIB.ActualizarConsumibles(suministroObj))
             {
                 this.popupTodoBien();
             }
@@ -100,6 +105,11 @@ namespace AppSoftClean.Vistas
         {
             string vtn = "window.open('../Vistas/popupFailed.aspx','Dates','scrollbars=yes,resizable=yes','height=300', 'width=300')";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "popup", vtn, true);
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(direcciones.ViewCepInBas);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AppSoftClean.Data.Model;
+using AppSoftClean.Data.Recursos;
 using AppSoftClean.Data.Repository;
 using System;
 using System.Collections.Generic;
@@ -9,53 +10,65 @@ using System.Web.UI.WebControls;
 
 namespace AppSoftClean.Vistas
 {
-    public partial class FormDosLav : System.Web.UI.Page
+    public partial class FormAreaUso : System.Web.UI.Page
     {
-        private RepositoryDosLav REP = new RepositoryDosLav();
-
+        private RepositoryAreaUso RAU = new RepositoryAreaUso();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) this.eleccionCargaDeDatos();
+            if (!IsPostBack)
+            {
+                this.eleccionCargaDeDatos();
+            }
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(direcciones.ViewAreaUso);
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            AdmDosLav dosificadorObj = this.GetViewData();
-
+            AreaUso areaObj = this.GetViewAreaUso();
+            
             if (this.lblAccion.Text.ToString() == "Actualizar")
             {
-                dosificadorObj.IdAdmDosLav = Int32.Parse(Request.QueryString["id"]);
-                this.actualizarParametros(dosificadorObj);
+                areaObj.id = Int32.Parse(Request.QueryString["id"]);
+                this.actualizarParametros(areaObj);
+                Response.Redirect(direcciones.ViewAreaUso);
             }
             else
             {
-                this.insertarParametros(dosificadorObj);
+                this.insertarParametros(areaObj);
+                Response.Redirect(direcciones.ViewAreaUso);
             }
         }
 
-        protected AdmDosLav GetViewData()
+        protected AreaUso GetViewAreaUso()
         {
-            AdmDosLav dosificadorObj = new AdmDosLav
+            AreaUso areaObj = new AreaUso
             {
-                Equipo = TextEquipo.Text,
-                Stock = Int32.Parse(TextStock.Text)
+                Area = TextArea.Text,
+                Descripcion = TextDescripcion.Text
             };
 
-            return dosificadorObj;
+            string areaTest = areaObj.Area;
+
+            return areaObj;
         }
 
         protected void eleccionCargaDeDatos()
         {
-            AdmDosLav dosificadorObj = new AdmDosLav();
-
+            AreaUso areaObj = new AreaUso();
+            
             try
             {
                 int id = Int32.Parse(Request.QueryString["id"]);
 
-                dosificadorObj = REP.GetDosificadoresByID(id).First();
+                areaObj = RAU.GetAreaUsoByID(id).First();
 
-                TextEquipo.Text = dosificadorObj.Equipo.ToString();
-                TextStock.Text = dosificadorObj.Stock.ToString();
+                TextArea.Text = areaObj.Area.ToString();
+                TextDescripcion.Text = areaObj.Descripcion.ToString();
 
                 lblAccion.Text = "Actualizar";
             }
@@ -64,10 +77,10 @@ namespace AppSoftClean.Vistas
                 lblAccion.Text = "Nuevo";
             }
         }
-
-        protected void insertarParametros(AdmDosLav dosificadorObj)
+        
+        protected void insertarParametros(AreaUso areaObj)
         {
-            if (REP.InsertarDosificador(dosificadorObj))
+            if (RAU.InsertarAreaUso(areaObj))
             {
                 this.popupTodoBien();
             }
@@ -77,9 +90,9 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected void actualizarParametros(AdmDosLav dosificadorObj)
+        protected void actualizarParametros(AreaUso areaObj)
         {
-            if (REP.ActualizarDosificador(dosificadorObj))
+            if (RAU.ActualizarAreaUso(areaObj))
             {
                 this.popupTodoBien();
             }
@@ -100,6 +113,5 @@ namespace AppSoftClean.Vistas
             string vtn = "window.open('../Vistas/popupFailed.aspx','Dates','scrollbars=yes,resizable=yes','height=300', 'width=300')";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "popup", vtn, true);
         }
-
     }
 }

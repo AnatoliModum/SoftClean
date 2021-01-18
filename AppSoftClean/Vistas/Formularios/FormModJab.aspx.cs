@@ -9,10 +9,9 @@ using System.Web.UI.WebControls;
 
 namespace AppSoftClean.Vistas
 {
-    public partial class FormTipMaqLav : System.Web.UI.Page
+    public partial class FormModJab : System.Web.UI.Page
     {
-
-        private RepositoryTipMaqLav REP = new RepositoryTipMaqLav();
+        private RepositoryModJab REP = new RepositoryModJab();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,11 +20,11 @@ namespace AppSoftClean.Vistas
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            AdmTipMaqLav equipoObj = this.GetViewData();
+            AdmModJab equipoObj = this.GetViewData();
 
             if (this.lblAccion.Text.ToString() == "Actualizar")
             {
-                equipoObj.IdAdmTipMaqLav = Int32.Parse(Request.QueryString["id"]);
+                equipoObj.id = Int32.Parse(Request.QueryString["id"]);
                 this.actualizarParametros(equipoObj);
             }
             else
@@ -34,12 +33,12 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected AdmTipMaqLav GetViewData()
+        protected AdmModJab GetViewData()
         {
-            AdmTipMaqLav equipoObj = new AdmTipMaqLav
+            AdmModJab equipoObj = new AdmModJab
             {
-                Tipo = TextTipo.Text,
-                Stock = Int32.Parse(TextStock.Text),
+                Modelo = TextModelo.Text,
+                Stock = Int32.Parse(TextStock.Text)
             };
 
             return equipoObj;
@@ -47,15 +46,15 @@ namespace AppSoftClean.Vistas
 
         protected void eleccionCargaDeDatos()
         {
-            AdmTipMaqLav equipoObj = new AdmTipMaqLav();
+            AdmModJab equipoObj = new AdmModJab();
 
             try
             {
                 int id = Int32.Parse(Request.QueryString["id"]);
 
-                equipoObj = REP.GetLavavajillasByID(id).First();
+                equipoObj = REP.GetJaboneraByID(id).First();
 
-                TextTipo.Text = equipoObj.Tipo.ToString();
+                TextModelo.Text = equipoObj.Modelo.ToString();
                 TextStock.Text = equipoObj.Stock.ToString();
 
                 lblAccion.Text = "Actualizar";
@@ -66,9 +65,9 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected void insertarParametros(AdmTipMaqLav equipoObj)
+        protected void insertarParametros(AdmModJab equipoObj)
         {
-            if (REP.InsertarLavavajillas(equipoObj))
+            if (REP.InsertarJabonera(equipoObj))
             {
                 this.popupTodoBien();
             }
@@ -78,9 +77,9 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected void actualizarParametros(AdmTipMaqLav equipoObj)
+        protected void actualizarParametros(AdmModJab equipoObj)
         {
-            if (REP.ActualizarLavavajillas(equipoObj))
+            if (REP.ActualizarJabonera(equipoObj))
             {
                 this.popupTodoBien();
             }
@@ -101,5 +100,6 @@ namespace AppSoftClean.Vistas
             string vtn = "window.open('../Vistas/popupFailed.aspx','Dates','scrollbars=yes,resizable=yes','height=300', 'width=300')";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "popup", vtn, true);
         }
+
     }
 }

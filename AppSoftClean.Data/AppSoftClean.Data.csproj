@@ -140,6 +140,11 @@
       <DependentUpon>SoftCleanEntityWeb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recursos\direcciones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>direcciones.resx</DependentUpon>
+    </Compile>
     <Compile Include="Repository\RepositoryAreaUso.cs" />
     <Compile Include="Repository\RepositoryCepInsBas.cs" />
     <Compile Include="Repository\RepositoryDetalleLevantamiento.cs" />
@@ -181,6 +186,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Recursos\direcciones.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>direcciones.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

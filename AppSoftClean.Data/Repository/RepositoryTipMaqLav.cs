@@ -18,7 +18,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmTipMaqLav lavavajillasObj = conn.AdmTipMaqLav.Where(c => c.Id == Lavavajillas.Id).FirstOrDefault<AdmTipMaqLav>();
+                AdmTipMaqLav lavavajillasObj = conn.AdmTipMaqLav.Where(c => c.id == Lavavajillas.id).FirstOrDefault<AdmTipMaqLav>();
 
                 lavavajillasObj.Tipo = Lavavajillas.Tipo;
                 lavavajillasObj.Stock = Lavavajillas.Stock;
@@ -43,7 +43,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmTipMaqLav lavavajillasObj = conn.AdmTipMaqLav.Where(c => c.Id == id).FirstOrDefault<AdmTipMaqLav>();
+                AdmTipMaqLav lavavajillasObj = conn.AdmTipMaqLav.Where(c => c.id == id).FirstOrDefault<AdmTipMaqLav>();
                 conn.AdmTipMaqLav.Remove(lavavajillasObj);
                 conn.SaveChanges();
                 res = true;
@@ -75,7 +75,7 @@ namespace AppSoftClean.Data.Repository
             List<AdmTipMaqLav> lavavajillaObj = null;
             try
             {
-                lavavajillaObj = conn.AdmTipMaqLav.Where(c => c.Id == id).ToList<AdmTipMaqLav>();
+                lavavajillaObj = conn.AdmTipMaqLav.Where(c => c.id == id).ToList<AdmTipMaqLav>();
             }
             catch (Exception ex)
             {

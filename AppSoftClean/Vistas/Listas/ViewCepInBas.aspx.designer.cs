@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace AppSoftClean.Vistas.PantallasDePrueba {
+namespace AppSoftClean.Vistas.Listas {
     
     
-    public partial class testAreaUso {
+    public partial class ViewCepInBas {
         
         /// <summary>
         /// Control BtnCrear.
@@ -49,13 +49,13 @@ namespace AppSoftClean.Vistas.PantallasDePrueba {
         protected global::System.Web.UI.WebControls.Label lblID;
         
         /// <summary>
-        /// Control lblArea.
+        /// Control lblObjeto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblArea;
+        protected global::System.Web.UI.WebControls.Label lblObjeto;
         
         /// <summary>
         /// Control BtnEliminar.

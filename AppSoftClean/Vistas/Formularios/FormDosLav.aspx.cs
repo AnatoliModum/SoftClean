@@ -9,39 +9,36 @@ using System.Web.UI.WebControls;
 
 namespace AppSoftClean.Vistas
 {
-    public partial class FormDosEstLim : System.Web.UI.Page
+    public partial class FormDosLav : System.Web.UI.Page
     {
-        private RepositoryDosEstLimp REP = new RepositoryDosEstLimp();
+        private RepositoryDosLav REP = new RepositoryDosLav();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                this.eleccionCargaDeDatos();
-            }
+            if (!IsPostBack) this.eleccionCargaDeDatos();
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            AdmDosEstLim estacionObj = this.GetViewData();
+            AdmDosLav dosificadorObj = this.GetViewData();
 
             if (this.lblAccion.Text.ToString() == "Actualizar")
             {
-                estacionObj.IdAdmDosEstLim = Int32.Parse(Request.QueryString["id"]);
-                this.actualizarParametros(estacionObj);
+                dosificadorObj.id = Int32.Parse(Request.QueryString["id"]);
+                this.actualizarParametros(dosificadorObj);
             }
             else
             {
-                this.insertarParametros(estacionObj);
+                this.insertarParametros(dosificadorObj);
             }
         }
 
-        protected AdmDosEstLim GetViewData()
+        protected AdmDosLav GetViewData()
         {
-            AdmDosEstLim dosificadorObj = new AdmDosEstLim
+            AdmDosLav dosificadorObj = new AdmDosLav
             {
-                DosEstLimp = TextDosEstLim.Text,
-                EqDisponibles = Int32.Parse(TextEquiDis.Text)
+                Equipo = TextEquipo.Text,
+                Stock = Int32.Parse(TextStock.Text)
             };
 
             return dosificadorObj;
@@ -49,16 +46,16 @@ namespace AppSoftClean.Vistas
 
         protected void eleccionCargaDeDatos()
         {
-            AdmDosEstLim estacionObj = new AdmDosEstLim();
+            AdmDosLav dosificadorObj = new AdmDosLav();
 
             try
             {
                 int id = Int32.Parse(Request.QueryString["id"]);
 
-                estacionObj = REP.GetEstacionesByID(id).First();
+                dosificadorObj = REP.GetDosificadoresByID(id).First();
 
-                TextDosEstLim.Text = estacionObj.DosEstLimp.ToString();
-                TextEquiDis.Text = estacionObj.EqDisponibles.ToString();
+                TextEquipo.Text = dosificadorObj.Equipo.ToString();
+                TextStock.Text = dosificadorObj.Stock.ToString();
 
                 lblAccion.Text = "Actualizar";
             }
@@ -68,9 +65,9 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected void insertarParametros(AdmDosEstLim estacionObj)
+        protected void insertarParametros(AdmDosLav dosificadorObj)
         {
-            if (REP.InsertarEstacion(estacionObj))
+            if (REP.InsertarDosificador(dosificadorObj))
             {
                 this.popupTodoBien();
             }
@@ -80,9 +77,9 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected void actualizarParametros(AdmDosEstLim estacionObj)
+        protected void actualizarParametros(AdmDosLav dosificadorObj)
         {
-            if (REP.ActualizarEstacion(estacionObj))
+            if (REP.ActualizarDosificador(dosificadorObj))
             {
                 this.popupTodoBien();
             }

@@ -1,5 +1,6 @@
 ﻿using AppSoftClean.Data.Infraestructure;
 using AppSoftClean.Data.Model;
+using AppSoftClean.Data.Recursos;
 using AppSoftClean.Data.Repository;
 using AppSoftClean.Web.Control;
 using Microsoft.Practices.Unity;
@@ -12,7 +13,7 @@ using System.Web.UI.WebControls;
 
 namespace AppSoftClean.Vistas.PantallasDePrueba
 {
-    public partial class testAreaUso : System.Web.UI.Page
+    public partial class ViewAreaUso : System.Web.UI.Page
     {
 
         [Dependency]
@@ -41,7 +42,7 @@ namespace AppSoftClean.Vistas.PantallasDePrueba
             {
                 case "Editar":
                     idArea = dgvDatos.Rows[index].Cells[0].Text;
-                    Response.Redirect("../FormAreaUso.aspx?id=" + idArea);
+                    Response.Redirect(direcciones.FormAreaUso + idArea);
                     break;
                 case "Eliminar":
                     idArea = dgvDatos.Rows[index].Cells[0].Text;
@@ -57,13 +58,13 @@ namespace AppSoftClean.Vistas.PantallasDePrueba
         {
             string idArea = this.lblID.Text;
             if (areausoRepository.EliminarAreaUso(int.Parse(idArea))){
-                Response.Redirect("../Listas/testAreaUso.aspx");
+                Response.Redirect(direcciones.ViewAreaUso);
             }
         }
 
         protected void BtnCrear_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../FormAreaUso.aspx?id=" + 0);
+            Response.Redirect(direcciones.FormAreaUso + 0);
         }
     }
 }

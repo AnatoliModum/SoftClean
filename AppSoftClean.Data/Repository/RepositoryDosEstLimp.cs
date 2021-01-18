@@ -18,7 +18,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmDosEstLim estacionObj = conn.AdmDosEstLim.Where(c => c.Id == Estacion.Id).FirstOrDefault<AdmDosEstLim>();
+                AdmDosEstLim estacionObj = conn.AdmDosEstLim.Where(c => c.id == Estacion.id).FirstOrDefault<AdmDosEstLim>();
 
                 estacionObj.DosEstLimp = Estacion.DosEstLimp;
                 estacionObj.EqDisponibles = Estacion.EqDisponibles;
@@ -43,7 +43,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmDosEstLim estacionObj = conn.AdmDosEstLim.Where(c => c.Id == id).FirstOrDefault<AdmDosEstLim>();
+                AdmDosEstLim estacionObj = conn.AdmDosEstLim.Where(c => c.id == id).FirstOrDefault<AdmDosEstLim>();
                 conn.AdmDosEstLim.Remove(estacionObj);
                 conn.SaveChanges();
                 res = true;
@@ -75,7 +75,7 @@ namespace AppSoftClean.Data.Repository
             List<AdmDosEstLim> estacionObj = null;
             try
             {
-                estacionObj = conn.AdmDosEstLim.Where(c => c.Id == id).ToList<AdmDosEstLim>();
+                estacionObj = conn.AdmDosEstLim.Where(c => c.id == id).ToList<AdmDosEstLim>();
             }
             catch (Exception ex)
             {

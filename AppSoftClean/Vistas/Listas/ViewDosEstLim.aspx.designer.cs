@@ -7,45 +7,63 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace AppSoftClean.Vistas {
+namespace AppSoftClean.Vistas.Listas {
     
     
-    public partial class FormCepInBas {
+    public partial class ViewDosEstLim {
         
         /// <summary>
-        /// Control lblAccion.
+        /// Control BtnCrear.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAccion;
+        protected global::System.Web.UI.WebControls.Button BtnCrear;
         
         /// <summary>
-        /// Control TextObjeto.
+        /// Control BtnCancelar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextObjeto;
+        protected global::System.Web.UI.WebControls.Button BtnCancelar;
         
         /// <summary>
-        /// Control TextStock.
+        /// Control dgvDatos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextStock;
+        protected global::System.Web.UI.WebControls.GridView dgvDatos;
         
         /// <summary>
-        /// Control btnGuardar.
+        /// Control lblID.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        protected global::System.Web.UI.WebControls.Label lblID;
+        
+        /// <summary>
+        /// Control lblDosEstLim.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDosEstLim;
+        
+        /// <summary>
+        /// Control BtnEliminar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnEliminar;
     }
 }

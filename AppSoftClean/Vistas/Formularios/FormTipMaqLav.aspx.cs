@@ -9,10 +9,10 @@ using System.Web.UI.WebControls;
 
 namespace AppSoftClean.Vistas
 {
-    public partial class FormProdQuim : System.Web.UI.Page
+    public partial class FormTipMaqLav : System.Web.UI.Page
     {
 
-        private RepositoryProdQuim REP = new RepositoryProdQuim();
+        private RepositoryTipMaqLav REP = new RepositoryTipMaqLav();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,11 +21,11 @@ namespace AppSoftClean.Vistas
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            AdmProdQuim equipoObj = this.GetViewData();
+            AdmTipMaqLav equipoObj = this.GetViewData();
 
             if (this.lblAccion.Text.ToString() == "Actualizar")
             {
-                equipoObj.IdAdmProdQuim = Int32.Parse(Request.QueryString["id"]);
+                equipoObj.id = Int32.Parse(Request.QueryString["id"]);
                 this.actualizarParametros(equipoObj);
             }
             else
@@ -34,13 +34,12 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected AdmProdQuim GetViewData()
+        protected AdmTipMaqLav GetViewData()
         {
-            AdmProdQuim equipoObj = new AdmProdQuim
+            AdmTipMaqLav equipoObj = new AdmTipMaqLav
             {
-                Quimico = TextQuimico.Text,
+                Tipo = TextTipo.Text,
                 Stock = Int32.Parse(TextStock.Text),
-                IdAreaUso = Int32.Parse(DDL_AreaUso.SelectedValue)
             };
 
             return equipoObj;
@@ -48,15 +47,15 @@ namespace AppSoftClean.Vistas
 
         protected void eleccionCargaDeDatos()
         {
-            AdmProdQuim equipoObj = new AdmProdQuim();
+            AdmTipMaqLav equipoObj = new AdmTipMaqLav();
 
             try
             {
                 int id = Int32.Parse(Request.QueryString["id"]);
 
-                equipoObj = REP.GetQuimicoByID(id).First();
+                equipoObj = REP.GetLavavajillasByID(id).First();
 
-                TextQuimico.Text = equipoObj.Quimico.ToString();
+                TextTipo.Text = equipoObj.Tipo.ToString();
                 TextStock.Text = equipoObj.Stock.ToString();
 
                 lblAccion.Text = "Actualizar";
@@ -67,9 +66,9 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected void insertarParametros(AdmProdQuim equipoObj)
+        protected void insertarParametros(AdmTipMaqLav equipoObj)
         {
-            if (REP.InsertarQuimico(equipoObj))
+            if (REP.InsertarLavavajillas(equipoObj))
             {
                 this.popupTodoBien();
             }
@@ -79,9 +78,9 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected void actualizarParametros(AdmProdQuim equipoObj)
+        protected void actualizarParametros(AdmTipMaqLav equipoObj)
         {
-            if (REP.ActualizarQuimico(equipoObj))
+            if (REP.ActualizarLavavajillas(equipoObj))
             {
                 this.popupTodoBien();
             }

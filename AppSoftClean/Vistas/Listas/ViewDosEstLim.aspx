@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="testAreaUso.aspx.cs" Inherits="AppSoftClean.Vistas.PantallasDePrueba.testAreaUso" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewDosEstLim.aspx.cs" Inherits="AppSoftClean.Vistas.Listas.ViewDosEstLim" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Encabezado" runat="server">
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <script src="../Scripts/bootstrap.min.js"></script>
@@ -17,6 +16,7 @@
         }
     </script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="col-md-12 col-xs-12">
         <div class="x_panel">
@@ -24,7 +24,7 @@
                 <br>
                 <div class="row">
                     <div class="col-lg-10">
-                        <h2 style="margin-top:0px">Área de Uso</h2>
+                        <h2 style="margin-top:0px">Cepillo, Inserto y Base</h2>
                     </div>
                     <div class="col-lg-1">
                         <asp:Button ID="BtnCrear" class="btn btn-primary" runat="server" Text="Crear" OnClick="BtnCrear_Click" />
@@ -38,7 +38,7 @@
                 <div class="form-horizontal form-label-left input_mask">
                     <asp:GridView ID="dgvDatos" runat="server" AllowPaging="True" AutoGenerateColumns="False"
                         PageSize="10" Width="100%" CssClass="table table-bordered bs-table" DataKeyNames="id"
-                        EmptyDataText="No Existen Datos del Área Aún." OnRowCommand="dgvDatos_RowCommand">
+                        EmptyDataText="No Existen Datos Aún." OnRowCommand="dgvDatos_RowCommand">
                         <HeaderStyle BackColor="#1ABB9C" Font-Size="9" ForeColor="White" />
                         <%--Configuracion de la cabecera--%>
                         <AlternatingRowStyle BackColor="#D1E5EE" Font-Size="10" ForeColor="#4C4C4C" />
@@ -52,8 +52,8 @@
                         <%--configuramos las columnas del grid--%>
                         <Columns>
                             <asp:BoundField HeaderText="Identidicador" DataField="id" ItemStyle-Font-Size="10" />
-                            <asp:BoundField HeaderText="Área" DataField="Area" ItemStyle-Font-Size="10" />
-                            <asp:BoundField HeaderText="Descripción" DataField="Descripcion"
+                            <asp:BoundField HeaderText="Dosificador de Estación de Limpieza" DataField="DosEstLimp" ItemStyle-Font-Size="10" />
+                            <asp:BoundField HeaderText="Equipos Disponibles" DataField="EqDisponibles"
                                 ItemStyle-Font-Size="10" />
                             <asp:TemplateField HeaderText="Editar">
                                 <ItemTemplate>
@@ -85,15 +85,7 @@
                     <h4 class="modal-title" id="myModalLabel"><i class="fas fa-trash-alt"></i>&nbsp Eliminar</h4>
                 </div>
                 <div class="modal-body">
-                    <h4>Confirme para eliminar el registro número&nbsp<span class="label label-danger"><asp:Label ID="lblID" runat="server" Text="Label"></asp:Label></span>&nbsp llamado &nbsp<span class="label label-danger"><asp:Label ID="lblArea" runat="server" Text="Label"></asp:Label></span></h4>
-                    <div class="row">
-                        <div class="col-lg-1">
-                            <h4></h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <h4></h4>
-                        </div>
-                    </div>
+                    <h4>Confirme para eliminar el registro número&nbsp<span class="label label-danger"><asp:Label ID="lblID" runat="server" Text="Label"></asp:Label></span>&nbsp llamado &nbsp<span class="label label-danger"><asp:Label ID="lblDosEstLim" runat="server" Text="Label"></asp:Label></span></h4>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

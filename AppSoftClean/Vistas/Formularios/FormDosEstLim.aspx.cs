@@ -1,4 +1,5 @@
 ﻿using AppSoftClean.Data.Model;
+using AppSoftClean.Data.Recursos;
 using AppSoftClean.Data.Repository;
 using System;
 using System.Collections.Generic;
@@ -9,53 +10,58 @@ using System.Web.UI.WebControls;
 
 namespace AppSoftClean.Vistas
 {
-    public partial class FormModJab : System.Web.UI.Page
+    public partial class FormDosEstLim : System.Web.UI.Page
     {
-        private RepositoryModJab REP = new RepositoryModJab();
+        private RepositoryDosEstLimp REP = new RepositoryDosEstLimp();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) this.eleccionCargaDeDatos();
+            if (!IsPostBack)
+            {
+                this.eleccionCargaDeDatos();
+            }
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            AdmModJab equipoObj = this.GetViewData();
+            AdmDosEstLim estacionObj = this.GetViewData();
 
             if (this.lblAccion.Text.ToString() == "Actualizar")
             {
-                equipoObj.IdAdmModJab = Int32.Parse(Request.QueryString["id"]);
-                this.actualizarParametros(equipoObj);
+                estacionObj.id = Int32.Parse(Request.QueryString["id"]);
+                this.actualizarParametros(estacionObj);
+                Response.Redirect(direcciones.ViewDosEstLim);
             }
             else
             {
-                this.insertarParametros(equipoObj);
+                this.insertarParametros(estacionObj);
+                Response.Redirect(direcciones.ViewDosEstLim);
             }
         }
 
-        protected AdmModJab GetViewData()
+        protected AdmDosEstLim GetViewData()
         {
-            AdmModJab equipoObj = new AdmModJab
+            AdmDosEstLim dosificadorObj = new AdmDosEstLim
             {
-                Modelo = TextModelo.Text,
-                Stock = Int32.Parse(TextStock.Text)
+                DosEstLimp = TextDosEstLim.Text,
+                EqDisponibles = Int32.Parse(TextEquiDis.Text)
             };
 
-            return equipoObj;
+            return dosificadorObj;
         }
 
         protected void eleccionCargaDeDatos()
         {
-            AdmModJab equipoObj = new AdmModJab();
+            AdmDosEstLim estacionObj = new AdmDosEstLim();
 
             try
             {
                 int id = Int32.Parse(Request.QueryString["id"]);
 
-                equipoObj = REP.GetJaboneraByID(id).First();
+                estacionObj = REP.GetEstacionesByID(id).First();
 
-                TextModelo.Text = equipoObj.Modelo.ToString();
-                TextStock.Text = equipoObj.Stock.ToString();
+                TextDosEstLim.Text = estacionObj.DosEstLimp.ToString();
+                TextEquiDis.Text = estacionObj.EqDisponibles.ToString();
 
                 lblAccion.Text = "Actualizar";
             }
@@ -65,9 +71,9 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected void insertarParametros(AdmModJab equipoObj)
+        protected void insertarParametros(AdmDosEstLim estacionObj)
         {
-            if (REP.InsertarJabonera(equipoObj))
+            if (REP.InsertarEstacion(estacionObj))
             {
                 this.popupTodoBien();
             }
@@ -77,9 +83,9 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected void actualizarParametros(AdmModJab equipoObj)
+        protected void actualizarParametros(AdmDosEstLim estacionObj)
         {
-            if (REP.ActualizarJabonera(equipoObj))
+            if (REP.ActualizarEstacion(estacionObj))
             {
                 this.popupTodoBien();
             }
@@ -101,5 +107,9 @@ namespace AppSoftClean.Vistas
             ScriptManager.RegisterStartupScript(this, this.GetType(), "popup", vtn, true);
         }
 
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(direcciones.ViewDosEstLim);
+        }
     }
 }

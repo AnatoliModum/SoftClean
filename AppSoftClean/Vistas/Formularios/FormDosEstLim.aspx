@@ -1,6 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormCepInBas.aspx.cs" Inherits="AppSoftClean.Vistas.FormCepInBas" %>
-
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormDosEstLim.aspx.cs" Inherits="AppSoftClean.Vistas.FormDosEstLim" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Encabezado" runat="server">
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
@@ -17,7 +15,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
         <div class="col-lg-12">
-            <h1>Cepillo, Inserto y Base <span class="badge bg-secondary"><asp:Label ID="lblAccion" runat="server" Text="Accion"></asp:Label></span></h1>
+            <h1>Dosificador Estación de Limpieza <span class="badge bg-secondary"><asp:Label ID="lblAccion" runat="server" Text="Accion"></asp:Label></span></h1>
         </div>
     </div>
     <div class="panel panel-info panel-inicial">
@@ -29,21 +27,20 @@
                 <div class="col-lg-4">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1"><span><i class="fas fa-tag"></i></span></span>
-                        <asp:TextBox ID="TextObjeto" runat="server" CssClass="form-control" placeholder="Nombre del Objeto"></asp:TextBox>
+                        <asp:TextBox ID="TextDosEstLim" runat="server" CssClass="form-control" placeholder="Nombre del Dosificador"></asp:TextBox>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-5">
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon2"><span><i class="fas fa-tag"></i></span></span>
-                        <asp:TextBox ID="TextStock" runat="server" CssClass="form-control" placeholder="Stock"></asp:TextBox>
+                        <span class="input-group-addon" id="basic-addon2"><span><i class="fas fa-bookmark"></i></span></span>
+                        <asp:TextBox ID="TextEquiDis" runat="server" CssClass="form-control" placeholder="Equipos Disponibles"></asp:TextBox>
                     </div>
                 </div>
                 <div class="col-lg-1">
-                    <%--<a class="btn btn-success" href="#"><i class="fas fa-trash-alt"></i>&nbsp;Guardar</a>--%>
                     <asp:Button ID="btnGuardar" class="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
                 </div>
                 <div class="col-lg-2">
-                    <a class="btn btn-danger" href="#"><i class="fas fa-trash-alt"></i>&nbsp;Cancelar</a>
+                    <asp:Button ID="btnCancelar" class="btn btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
                 </div>
             </div>
         </div>

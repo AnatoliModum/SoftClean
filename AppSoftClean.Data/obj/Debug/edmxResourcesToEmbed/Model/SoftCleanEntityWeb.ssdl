@@ -2,73 +2,73 @@
 <Schema Namespace="ServiceForHotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="AdmCepInBas">
     <Key>
-      <PropertyRef Name="IdAdmCepInBas" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="IdAdmCepInBas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Objeto" Type="varchar" MaxLength="100" />
     <Property Name="Stock" Type="int" />
   </EntityType>
   <EntityType Name="AdmDivisiones">
     <Key>
-      <PropertyRef Name="IdAdmDivisiones" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="IdAdmDivisiones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nombre" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="AdmDosEstLim">
     <Key>
-      <PropertyRef Name="IdAdmDosEstLim" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="IdAdmDosEstLim" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DosEstLimp" Type="varchar" MaxLength="100" />
     <Property Name="EqDisponibles" Type="int" />
   </EntityType>
   <EntityType Name="AdmDosLav">
     <Key>
-      <PropertyRef Name="IdAdmDosLav" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="IdAdmDosLav" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Equipo" Type="varchar" MaxLength="100" />
     <Property Name="Stock" Type="int" />
   </EntityType>
   <EntityType Name="AdmModEqDos">
     <Key>
-      <PropertyRef Name="IdAdmModEqDos" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="IdAdmModEqDos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Modelo" Type="varchar" MaxLength="100" />
     <Property Name="EqDisponibles" Type="int" />
   </EntityType>
   <EntityType Name="AdmModJab">
     <Key>
-      <PropertyRef Name="IdAdmModJab" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="IdAdmModJab" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Modelo" Type="varchar" MaxLength="100" />
     <Property Name="Stock" Type="int" />
   </EntityType>
   <EntityType Name="AdmPortGalon">
     <Key>
-      <PropertyRef Name="IdAdmPortGalon" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="IdAdmPortGalon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Tipo" Type="varchar" MaxLength="100" />
     <Property Name="Stock" Type="int" />
   </EntityType>
   <EntityType Name="AdmProdQuim">
     <Key>
-      <PropertyRef Name="IdAdmProdQuim" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="IdAdmProdQuim" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Quimico" Type="varchar" MaxLength="100" />
     <Property Name="Stock" Type="int" />
     <Property Name="IdAreaUso" Type="int" />
   </EntityType>
   <EntityType Name="AdmTipMaqLav">
     <Key>
-      <PropertyRef Name="IdAdmTipMaqLav" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="IdAdmTipMaqLav" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Tipo" Type="varchar" MaxLength="100" />
     <Property Name="Stock" Type="int" />
   </EntityType>
@@ -82,26 +82,26 @@
   </EntityType>
   <EntityType Name="DetalleLevantamiento">
     <Key>
-      <PropertyRef Name="IdDetalleLevantamiento" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="IdDetalleLevantamiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdLevantamiento" Type="int" />
     <Property Name="IdPedidosArea" Type="int" />
   </EntityType>
   <EntityType Name="LevantamientoEquipos">
     <Key>
-      <PropertyRef Name="IdLevantamientosEquipos" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="IdLevantamientosEquipos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdDivision" Type="int" />
     <Property Name="dteFecha" Type="date" />
     <Property Name="NumHoja" Type="int" />
   </EntityType>
   <EntityType Name="PedidosArea">
     <Key>
-      <PropertyRef Name="IdPedidosArea" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="IdPedidosArea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="AreaIns" Type="varchar" MaxLength="100" />
     <Property Name="IdModEqDos" Type="int" />
     <Property Name="IdDosEstLim" Type="int" />
@@ -129,7 +129,7 @@
     <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AdmCepInBas">
-        <PropertyRef Name="IdAdmCepInBas" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="PedidosArea">
         <PropertyRef Name="IdCepInBas" />
@@ -141,7 +141,7 @@
     <End Role="LevantamientoEquipos" Type="Self.LevantamientoEquipos" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AdmDivisiones">
-        <PropertyRef Name="IdAdmDivisiones" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="LevantamientoEquipos">
         <PropertyRef Name="IdDivision" />
@@ -153,7 +153,7 @@
     <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AdmDosEstLim">
-        <PropertyRef Name="IdAdmDosEstLim" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="PedidosArea">
         <PropertyRef Name="IdDosEstLim" />
@@ -165,7 +165,7 @@
     <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AdmDosLav">
-        <PropertyRef Name="IdAdmDosLav" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="PedidosArea">
         <PropertyRef Name="IdDosLav" />
@@ -177,7 +177,7 @@
     <End Role="DetalleLevantamiento" Type="Self.DetalleLevantamiento" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="LevantamientoEquipos">
-        <PropertyRef Name="IdLevantamientosEquipos" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="DetalleLevantamiento">
         <PropertyRef Name="IdLevantamiento" />
@@ -189,7 +189,7 @@
     <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AdmTipMaqLav">
-        <PropertyRef Name="IdAdmTipMaqLav" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="PedidosArea">
         <PropertyRef Name="IdTipMaqLav" />
@@ -201,7 +201,7 @@
     <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AdmModEqDos">
-        <PropertyRef Name="IdAdmModEqDos" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="PedidosArea">
         <PropertyRef Name="IdModEqDos" />
@@ -213,7 +213,7 @@
     <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AdmModJab">
-        <PropertyRef Name="IdAdmModJab" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="PedidosArea">
         <PropertyRef Name="IdModJab" />
@@ -225,7 +225,7 @@
     <End Role="DetalleLevantamiento" Type="Self.DetalleLevantamiento" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PedidosArea">
-        <PropertyRef Name="IdPedidosArea" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="DetalleLevantamiento">
         <PropertyRef Name="IdPedidosArea" />
@@ -237,7 +237,7 @@
     <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AdmPortGalon">
-        <PropertyRef Name="IdAdmPortGalon" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="PedidosArea">
         <PropertyRef Name="IdPorGalon" />
@@ -249,7 +249,7 @@
     <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AdmProdQuim">
-        <PropertyRef Name="IdAdmProdQuim" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="PedidosArea">
         <PropertyRef Name="IdProdQuim" />

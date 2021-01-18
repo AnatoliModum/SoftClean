@@ -9,65 +9,55 @@ using System.Web.UI.WebControls;
 
 namespace AppSoftClean.Vistas
 {
-    public partial class FormAreaUso : System.Web.UI.Page
+    public partial class FormProdQuim : System.Web.UI.Page
     {
-        private RepositoryAreaUso RAU = new RepositoryAreaUso();
-        
+
+        private RepositoryProdQuim REP = new RepositoryProdQuim();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                this.eleccionCargaDeDatos();
-            }
-        }
-
-        protected void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("../Vistas/Listas/testAreaUso.aspx");
+            if (!IsPostBack) this.eleccionCargaDeDatos();
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            AreaUso areaObj = this.GetViewAreaUso();
-            
+            AdmProdQuim equipoObj = this.GetViewData();
+
             if (this.lblAccion.Text.ToString() == "Actualizar")
             {
-                areaObj.id = Int32.Parse(Request.QueryString["id"]);
-                this.actualizarParametros(areaObj);
-                Response.Redirect("../Vistas/Listas/testAreaUso.aspx");
+                equipoObj.id = Int32.Parse(Request.QueryString["id"]);
+                this.actualizarParametros(equipoObj);
             }
             else
             {
-                this.insertarParametros(areaObj);
-                Response.Redirect("../Vistas/Listas/testAreaUso.aspx");
+                this.insertarParametros(equipoObj);
             }
         }
 
-        protected AreaUso GetViewAreaUso()
+        protected AdmProdQuim GetViewData()
         {
-            AreaUso areaObj = new AreaUso
+            AdmProdQuim equipoObj = new AdmProdQuim
             {
-                Area = TextArea.Text,
-                Descripcion = TextDescripcion.Text
+                Quimico = TextQuimico.Text,
+                Stock = Int32.Parse(TextStock.Text),
+                IdAreaUso = Int32.Parse(DDL_AreaUso.SelectedValue)
             };
 
-            string areaTest = areaObj.Area;
-
-            return areaObj;
+            return equipoObj;
         }
 
         protected void eleccionCargaDeDatos()
         {
-            AreaUso areaObj = new AreaUso();
-            
+            AdmProdQuim equipoObj = new AdmProdQuim();
+
             try
             {
                 int id = Int32.Parse(Request.QueryString["id"]);
 
-                areaObj = RAU.GetAreaUsoByID(id).First();
+                equipoObj = REP.GetQuimicoByID(id).First();
 
-                TextArea.Text = areaObj.Area.ToString();
-                TextDescripcion.Text = areaObj.Descripcion.ToString();
+                TextQuimico.Text = equipoObj.Quimico.ToString();
+                TextStock.Text = equipoObj.Stock.ToString();
 
                 lblAccion.Text = "Actualizar";
             }
@@ -76,10 +66,10 @@ namespace AppSoftClean.Vistas
                 lblAccion.Text = "Nuevo";
             }
         }
-        
-        protected void insertarParametros(AreaUso areaObj)
+
+        protected void insertarParametros(AdmProdQuim equipoObj)
         {
-            if (RAU.InsertarAreaUso(areaObj))
+            if (REP.InsertarQuimico(equipoObj))
             {
                 this.popupTodoBien();
             }
@@ -89,9 +79,9 @@ namespace AppSoftClean.Vistas
             }
         }
 
-        protected void actualizarParametros(AreaUso areaObj)
+        protected void actualizarParametros(AdmProdQuim equipoObj)
         {
-            if (RAU.ActualizarAreaUso(areaObj))
+            if (REP.ActualizarQuimico(equipoObj))
             {
                 this.popupTodoBien();
             }

@@ -20,7 +20,7 @@ namespace AppSoftClean.Data.Model
             this.DetalleLevantamiento = new HashSet<DetalleLevantamiento>();
         }
     
-        public int Id { get; set; }
+        public int id { get; set; }
         public string AreaIns { get; set; }
         public Nullable<int> IdModEqDos { get; set; }
         public Nullable<int> IdDosEstLim { get; set; }
