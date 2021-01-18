@@ -1,4 +1,5 @@
 ﻿using AppSoftClean.Data.Model;
+using AppSoftClean.Data.Recursos;
 using AppSoftClean.Data.Repository;
 using System;
 using System.Collections.Generic;
@@ -26,10 +27,12 @@ namespace AppSoftClean.Vistas
             {
                 equipoObj.id = Int32.Parse(Request.QueryString["id"]);
                 this.actualizarParametros(equipoObj);
+                Response.Redirect(direcciones.ViewModEqDos);
             }
             else
             {
                 this.insertarParametros(equipoObj);
+                Response.Redirect(direcciones.ViewModEqDos);
             }
         }
 
@@ -99,6 +102,11 @@ namespace AppSoftClean.Vistas
         {
             string vtn = "window.open('../Vistas/popupFailed.aspx','Dates','scrollbars=yes,resizable=yes','height=300', 'width=300')";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "popup", vtn, true);
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(direcciones.ViewModEqDos);
         }
     }
 }

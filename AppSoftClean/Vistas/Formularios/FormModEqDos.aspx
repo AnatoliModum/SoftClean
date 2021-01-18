@@ -40,7 +40,7 @@
                     <asp:Button ID="btnGuardar" class="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
                 </div>
                 <div class="col-lg-2">
-                    <asp:Button ID="btnCancelar" class="btn btn-danger" runat="server" Text="Cancelar" />
+                    <asp:Button ID="btnCancelar" class="btn btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
                 </div>
             </div>
         </div>

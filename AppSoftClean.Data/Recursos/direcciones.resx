@@ -131,6 +131,9 @@
   <data name="FormDosLav" xml:space="preserve">
     <value>~/Vistas/Formularios/FormDosLav.aspx?id=</value>
   </data>
+  <data name="FormModEqDos" xml:space="preserve">
+    <value>~/Vistas/Formularios/FormModEqDos.aspx?id=</value>
+  </data>
   <data name="ViewAreaUso" xml:space="preserve">
     <value>~/Vistas/Listas/ViewAreaUso.aspx</value>
     <comment>Ruta de la Vista Área de Uso</comment>
@@ -144,5 +147,8 @@
   </data>
   <data name="ViewDosLav" xml:space="preserve">
     <value>~/Vistas/Listas/ViewDosLav.aspx</value>
+  </data>
+  <data name="ViewModEqDos" xml:space="preserve">
+    <value>~/Vistas/Listas/ViewModEqDos.aspx</value>
   </data>
 </root>
