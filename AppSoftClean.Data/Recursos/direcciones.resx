@@ -140,6 +140,9 @@
   <data name="FormPortGalon" xml:space="preserve">
     <value>~/Vistas/Formularios/FormPorGalon.aspx?id=</value>
   </data>
+  <data name="FormTipMaqLav" xml:space="preserve">
+    <value>~/Vistas/Formularios/FormTipMaqLav.aspx?id=</value>
+  </data>
   <data name="ViewAreaUso" xml:space="preserve">
     <value>~/Vistas/Listas/ViewAreaUso.aspx</value>
     <comment>Ruta de la Vista Área de Uso</comment>
@@ -162,5 +165,8 @@
   </data>
   <data name="ViewPortGalon" xml:space="preserve">
     <value>~/Vistas/Listas/ViewPorGalon.aspx</value>
+  </data>
+  <data name="ViewTipMaqLav" xml:space="preserve">
+    <value>~/Vistas/Listas/ViewTipMaqLav.aspx</value>
   </data>
 </root>
