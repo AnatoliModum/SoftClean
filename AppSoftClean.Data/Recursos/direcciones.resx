@@ -137,6 +137,9 @@
   <data name="FormModJab" xml:space="preserve">
     <value>~/Vistas/Formularios/FormModJab.aspx?id=</value>
   </data>
+  <data name="FormPortGalon" xml:space="preserve">
+    <value>~/Vistas/Formularios/FormPorGalon.aspx?id=</value>
+  </data>
   <data name="ViewAreaUso" xml:space="preserve">
     <value>~/Vistas/Listas/ViewAreaUso.aspx</value>
     <comment>Ruta de la Vista Área de Uso</comment>
@@ -156,5 +159,8 @@
   </data>
   <data name="ViewModJab" xml:space="preserve">
     <value>~/Vistas/Listas/ViewModJab.aspx</value>
+  </data>
+  <data name="ViewPortGalon" xml:space="preserve">
+    <value>~/Vistas/Listas/ViewPorGalon.aspx</value>
   </data>
 </root>
