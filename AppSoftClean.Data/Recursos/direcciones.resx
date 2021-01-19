@@ -140,6 +140,9 @@
   <data name="FormPortGalon" xml:space="preserve">
     <value>~/Vistas/Formularios/FormPorGalon.aspx?id=</value>
   </data>
+  <data name="FormProdQuim" xml:space="preserve">
+    <value>~/Vistas/Formularios/FormProdQuim.aspx?id=</value>
+  </data>
   <data name="FormTipMaqLav" xml:space="preserve">
     <value>~/Vistas/Formularios/FormTipMaqLav.aspx?id=</value>
   </data>
@@ -165,6 +168,9 @@
   </data>
   <data name="ViewPortGalon" xml:space="preserve">
     <value>~/Vistas/Listas/ViewPorGalon.aspx</value>
+  </data>
+  <data name="ViewProdQuim" xml:space="preserve">
+    <value>~/Vistas/Listas/ViewProdQuim.aspx</value>
   </data>
   <data name="ViewTipMaqLav" xml:space="preserve">
     <value>~/Vistas/Listas/ViewTipMaqLav.aspx</value>

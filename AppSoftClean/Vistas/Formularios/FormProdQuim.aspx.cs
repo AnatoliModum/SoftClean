@@ -1,5 +1,7 @@
 ﻿using AppSoftClean.Data.Model;
+using AppSoftClean.Data.Recursos;
 using AppSoftClean.Data.Repository;
+using AppSoftClean.Web.Control;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +18,22 @@ namespace AppSoftClean.Vistas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) this.eleccionCargaDeDatos();
+            if (!IsPostBack)
+            {
+                FillDropDownListAreaUso();
+                this.eleccionCargaDeDatos();
+            }
+
+        }
+
+        private void FillDropDownListAreaUso()
+        {
+            this.DDL_AreaUso.getCatalogoAreaUso();
+        }
+
+        private string GetDropDownListAreaUso()
+        {
+            return this.DDL_AreaUso.SelectedValue.ToString();
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -27,10 +44,12 @@ namespace AppSoftClean.Vistas
             {
                 equipoObj.id = Int32.Parse(Request.QueryString["id"]);
                 this.actualizarParametros(equipoObj);
+                Response.Redirect(direcciones.ViewProdQuim);
             }
             else
             {
                 this.insertarParametros(equipoObj);
+                Response.Redirect(direcciones.ViewProdQuim);
             }
         }
 
@@ -40,7 +59,7 @@ namespace AppSoftClean.Vistas
             {
                 Quimico = TextQuimico.Text,
                 Stock = Int32.Parse(TextStock.Text),
-                IdAreaUso = Int32.Parse(DDL_AreaUso.SelectedValue)
+                IdAreaUso = Int32.Parse(GetDropDownListAreaUso())
             };
 
             return equipoObj;
@@ -58,6 +77,9 @@ namespace AppSoftClean.Vistas
 
                 TextQuimico.Text = equipoObj.Quimico.ToString();
                 TextStock.Text = equipoObj.Stock.ToString();
+                DDL_AreaUso.Items.Clear();
+                this.FillDropDownListAreaUso();
+                DDL_AreaUso.SelectedValue = string.Concat(equipoObj.IdAreaUso);
 
                 lblAccion.Text = "Actualizar";
             }
@@ -101,6 +123,11 @@ namespace AppSoftClean.Vistas
         {
             string vtn = "window.open('../Vistas/popupFailed.aspx','Dates','scrollbars=yes,resizable=yes','height=300', 'width=300')";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "popup", vtn, true);
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(direcciones.ViewProdQuim);
         }
     }
 }

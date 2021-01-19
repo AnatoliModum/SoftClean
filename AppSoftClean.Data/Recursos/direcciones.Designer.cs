@@ -124,6 +124,15 @@ namespace AppSoftClean.Data.Recursos {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ~/Vistas/Formularios/FormProdQuim.aspx?id=.
+        /// </summary>
+        public static string FormProdQuim {
+            get {
+                return ResourceManager.GetString("FormProdQuim", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ~/Vistas/Formularios/FormTipMaqLav.aspx?id=.
         /// </summary>
         public static string FormTipMaqLav {
@@ -192,6 +201,15 @@ namespace AppSoftClean.Data.Recursos {
         public static string ViewPortGalon {
             get {
                 return ResourceManager.GetString("ViewPortGalon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ~/Vistas/Listas/ViewProdQuim.aspx.
+        /// </summary>
+        public static string ViewProdQuim {
+            get {
+                return ResourceManager.GetString("ViewProdQuim", resourceCulture);
             }
         }
         

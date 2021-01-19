@@ -27,7 +27,7 @@
                 <div class="col-lg-4">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1"><span><i class="fas fa-tag"></i></span></span>
-                        <asp:TextBox ID="TextQuimico" runat="server" CssClass="form-control" placeholder="Área"></asp:TextBox>
+                        <asp:TextBox ID="TextQuimico" runat="server" CssClass="form-control" placeholder="Quimico"></asp:TextBox>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -40,7 +40,6 @@
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon3"><span><i class="fas fa-bookmark"></i></span></span>
                         <asp:DropDownList ID="DDL_AreaUso" runat="server" CssClass="form-control" AppendDataBoundItems="true" AutoPostBack="True">
-                            <asp:ListItem Value="0">Area de Uso</asp:ListItem>
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -52,7 +51,7 @@
             <asp:Button ID="btnGuardar" class="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
         </div>
         <div class="col-lg-2">
-            <asp:Button ID="btnCancelar" class="btn btn-danger" runat="server" Text="Cancelar" />
+                    <asp:Button ID="btnCancelar" class="btn btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
         </div>
     </div>
 

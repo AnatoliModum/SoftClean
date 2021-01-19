@@ -198,7 +198,6 @@
     <Content Include="Vistas\Formularios\FormProdQuim.aspx" />
     <Content Include="Vistas\Formularios\FormTipMaqLav.aspx" />
     <Content Include="Vistas\Listas\ViewAreaUso.aspx" />
-    <Content Include="Vistas\Listas\testProdQuim.aspx" />
     <Content Include="Vistas\Listas\ViewCepInBas.aspx" />
     <Content Include="Vistas\Formularios\popupFailed.aspx" />
     <Content Include="Vistas\Formularios\popupSuccesful.aspx" />
@@ -207,6 +206,7 @@
     <Content Include="Vistas\Listas\ViewModEqDos.aspx" />
     <Content Include="Vistas\Listas\ViewModJab.aspx" />
     <Content Include="Vistas\Listas\ViewPorGalon.aspx" />
+    <Content Include="Vistas\Listas\ViewProdQuim.aspx" />
     <Content Include="Vistas\Listas\ViewTipMaqLav.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -339,13 +339,6 @@
     <Compile Include="Vistas\Listas\ViewAreaUso.aspx.designer.cs">
       <DependentUpon>ViewAreaUso.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Listas\testProdQuim.aspx.cs">
-      <DependentUpon>testProdQuim.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vistas\Listas\testProdQuim.aspx.designer.cs">
-      <DependentUpon>testProdQuim.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\Listas\ViewCepInBas.aspx.cs">
       <DependentUpon>ViewCepInBas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -401,6 +394,13 @@
     </Compile>
     <Compile Include="Vistas\Listas\ViewPorGalon.aspx.designer.cs">
       <DependentUpon>ViewPorGalon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewProdQuim.aspx.cs">
+      <DependentUpon>ViewProdQuim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewProdQuim.aspx.designer.cs">
+      <DependentUpon>ViewProdQuim.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Listas\ViewTipMaqLav.aspx.cs">
       <DependentUpon>ViewTipMaqLav.aspx</DependentUpon>
