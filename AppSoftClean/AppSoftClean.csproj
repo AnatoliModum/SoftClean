@@ -201,13 +201,13 @@
     <Content Include="Vistas\Listas\testTipMaqLav.aspx" />
     <Content Include="Vistas\Listas\testProdQuim.aspx" />
     <Content Include="Vistas\Listas\testPorGalon.aspx" />
-    <Content Include="Vistas\Listas\testModJab.aspx" />
     <Content Include="Vistas\Listas\ViewCepInBas.aspx" />
     <Content Include="Vistas\Formularios\popupFailed.aspx" />
     <Content Include="Vistas\Formularios\popupSuccesful.aspx" />
     <Content Include="Vistas\Listas\ViewDosEstLim.aspx" />
     <Content Include="Vistas\Listas\ViewDosLav.aspx" />
     <Content Include="Vistas\Listas\ViewModEqDos.aspx" />
+    <Content Include="Vistas\Listas\ViewModJab.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -360,13 +360,6 @@
     <Compile Include="Vistas\Listas\testPorGalon.aspx.designer.cs">
       <DependentUpon>testPorGalon.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Listas\testModJab.aspx.cs">
-      <DependentUpon>testModJab.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vistas\Listas\testModJab.aspx.designer.cs">
-      <DependentUpon>testModJab.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\Listas\ViewCepInBas.aspx.cs">
       <DependentUpon>ViewCepInBas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -408,6 +401,13 @@
     </Compile>
     <Compile Include="Vistas\Listas\ViewModEqDos.aspx.designer.cs">
       <DependentUpon>ViewModEqDos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewModJab.aspx.cs">
+      <DependentUpon>ViewModJab.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewModJab.aspx.designer.cs">
+      <DependentUpon>ViewModJab.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
