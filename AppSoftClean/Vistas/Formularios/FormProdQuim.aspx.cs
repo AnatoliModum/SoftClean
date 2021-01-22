@@ -38,19 +38,27 @@ namespace AppSoftClean.Vistas
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            AdmProdQuim equipoObj = this.GetViewData();
 
-            if (this.lblAccion.Text.ToString() == "Actualizar")
+            if(DDL_AreaUso.Text== "Selecciona un Área de Uso")
             {
-                equipoObj.id = Int32.Parse(Request.QueryString["id"]);
-                this.actualizarParametros(equipoObj);
-                Response.Redirect(direcciones.ViewProdQuim);
+                lblErrorDDL.Visible = true;
             }
             else
             {
-                this.insertarParametros(equipoObj);
-                Response.Redirect(direcciones.ViewProdQuim);
-            }
+                AdmProdQuim equipoObj = this.GetViewData();
+
+                if (this.lblAccion.Text.ToString() == "Actualizar")
+                {
+                    equipoObj.id = Int32.Parse(Request.QueryString["id"]);
+                    this.actualizarParametros(equipoObj);
+                    Response.Redirect(direcciones.ViewProdQuim);
+                }
+                else
+                {
+                    this.insertarParametros(equipoObj);
+                    Response.Redirect(direcciones.ViewProdQuim);
+                }
+            }  
         }
 
         protected AdmProdQuim GetViewData()

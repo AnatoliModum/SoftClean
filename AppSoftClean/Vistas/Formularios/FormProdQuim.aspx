@@ -38,6 +38,9 @@
                         ForeColor="Red">
                     </asp:RequiredFieldValidator>
                 </div>
+                <div class="col-lg-4">
+                    <asp:Label ID="lblErrorDDL" runat="server" Visible="false" Text="Seleccione un Área" ForeColor="Red"></asp:Label>
+                </div>
             </div>
             <div class="row">
                 <div class="col-lg-4">
