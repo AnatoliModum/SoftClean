@@ -25,6 +25,22 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-lg-4">
+                     <asp:RequiredFieldValidator ID="rfvQuimico" runat="server" ValidationGroup="VDProdQuim"
+                        ControlToValidate="TextQuimico"
+                        ErrorMessage="El Nombre del Producto Quimico es Requerido"
+                        ForeColor="Red">
+                    </asp:RequiredFieldValidator>
+                </div>
+                <div class="col-lg-4">
+                    <asp:RequiredFieldValidator ID="rfvStock" runat="server" ValidationGroup="VDProdQuim"
+                        ControlToValidate="TextStock"
+                        ErrorMessage="El Stock es Requerido"
+                        ForeColor="Red">
+                    </asp:RequiredFieldValidator>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1"><span><i class="fas fa-tag"></i></span></span>
                         <asp:TextBox ID="TextQuimico" runat="server" CssClass="form-control" placeholder="Quimico"></asp:TextBox>
@@ -44,11 +60,29 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <asp:RegularExpressionValidator ID="revQuimico" runat="server" ValidationGroup="VDProdQuim"
+                        ErrorMessage="Solo Ingrese Letras"
+                        ValidationExpression="^[a-zA-Z ]*$"
+                        ControlToValidate="TextQuimico"
+                        ForeColor="Red">
+                    </asp:RegularExpressionValidator>
+                </div>
+                <div class="col-lg-4">
+                    <asp:RegularExpressionValidator ID="revStock" runat="server" ValidationGroup="VDProdQuim"
+                        ErrorMessage="Solo Ingrese Números"
+                        ValidationExpression="\d*\.?\d*"
+                        ControlToValidate="TextStock"
+                        ForeColor="Red">
+                    </asp:RegularExpressionValidator>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-1">
-            <asp:Button ID="btnGuardar" class="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+            <asp:Button ID="btnGuardar" class="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="VDProdQuim" />
         </div>
         <div class="col-lg-2">
                     <asp:Button ID="btnCancelar" class="btn btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />

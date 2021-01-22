@@ -25,6 +25,22 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-lg-4">
+                    <asp:RequiredFieldValidator ID="rfvEquipo" runat="server" ValidationGroup="VDDosLav"
+                        ControlToValidate="TextEquipo"
+                        ErrorMessage="El Nombre del Equipo es Requerido"
+                        ForeColor="Red">
+                    </asp:RequiredFieldValidator>
+                </div>
+                <div class="col-lg-5">
+                    <asp:RequiredFieldValidator ID="rfvStock" runat="server" ValidationGroup="VDDosLav"
+                        ControlToValidate="TextStock"
+                        ErrorMessage="El Stock es Requerido"
+                        ForeColor="Red">
+                    </asp:RequiredFieldValidator>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1"><span><i class="fas fa-tag"></i></span></span>
                         <asp:TextBox ID="TextEquipo" runat="server" CssClass="form-control" placeholder="Nombre del Equipo"></asp:TextBox>
@@ -37,10 +53,28 @@
                     </div>
                 </div>
                 <div class="col-lg-1">
-                    <asp:Button ID="btnGuardar" class="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+                    <asp:Button ID="btnGuardar" class="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="VDDosLav" />
                 </div>
                 <div class="col-lg-2">
                     <asp:Button ID="btnCancelar" class="btn btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <asp:RegularExpressionValidator ID="revEquipo" runat="server" ValidationGroup="VDDosLav"
+                        ErrorMessage="Solo Ingrese Letras"
+                        ValidationExpression="^[a-zA-Z ]*$"
+                        ControlToValidate="TextEquipo"
+                        ForeColor="Red">
+                    </asp:RegularExpressionValidator>
+                </div>
+                <div class="col-lg-5">
+                    <asp:RegularExpressionValidator ID="revStock" runat="server" ValidationGroup="VDDosLav"
+                        ErrorMessage="Solo Ingrese Números"
+                        ValidationExpression="\d*\.?\d*"
+                        ControlToValidate="TextStock"
+                        ForeColor="Red">
+                    </asp:RegularExpressionValidator>
                 </div>
             </div>
         </div>

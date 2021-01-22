@@ -30,7 +30,7 @@ namespace AppSoftClean.Vistas
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             AreaUso areaObj = this.GetViewAreaUso();
-            
+
             if (this.lblAccion.Text.ToString() == "Actualizar")
             {
                 areaObj.id = Int32.Parse(Request.QueryString["id"]);
@@ -113,5 +113,7 @@ namespace AppSoftClean.Vistas
             string vtn = "window.open('../Vistas/popupFailed.aspx','Dates','scrollbars=yes,resizable=yes','height=300', 'width=300')";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "popup", vtn, true);
         }
+
+        
     }
 }

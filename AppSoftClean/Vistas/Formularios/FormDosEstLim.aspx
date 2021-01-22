@@ -25,6 +25,22 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-lg-4">
+                    <asp:RequiredFieldValidator ID="rfvDosEstLim" runat="server" ValidationGroup="VDDosEstLim"
+                        ControlToValidate="TextDosEstLim"
+                        ErrorMessage="El Nombre es Requerido"
+                        ForeColor="Red">
+                    </asp:RequiredFieldValidator>
+                </div>
+                <div class="col-lg-5">
+                    <asp:RequiredFieldValidator ID="rfvEquiDis" runat="server" ValidationGroup="VDDosEstLim"
+                        ControlToValidate="TextEquiDis"
+                        ErrorMessage="El Número de Equipos Disponibles es Requerido"
+                        ForeColor="Red">
+                    </asp:RequiredFieldValidator>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1"><span><i class="fas fa-tag"></i></span></span>
                         <asp:TextBox ID="TextDosEstLim" runat="server" CssClass="form-control" placeholder="Nombre del Dosificador"></asp:TextBox>
@@ -37,10 +53,28 @@
                     </div>
                 </div>
                 <div class="col-lg-1">
-                    <asp:Button ID="btnGuardar" class="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+                    <asp:Button ID="btnGuardar" class="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="VDDosEstLim" />
                 </div>
                 <div class="col-lg-2">
                     <asp:Button ID="btnCancelar" class="btn btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <asp:RegularExpressionValidator ID="revDosEstLim" runat="server" ValidationGroup="VDDosEstLim"
+                        ErrorMessage="Solo Ingrese Letras"
+                        ValidationExpression="^[a-zA-Z ]*$"
+                        ControlToValidate="TextDosEstLim"
+                        ForeColor="Red">
+                    </asp:RegularExpressionValidator>
+                </div>
+                <div class="col-lg-5">
+                    <asp:RegularExpressionValidator ID="revEquiDis" runat="server" ValidationGroup="VDDosEstLim"
+                        ErrorMessage="Solo Ingrese Números"
+                        ValidationExpression="\d*\.?\d*"
+                        ControlToValidate="TextEquiDis"
+                        ForeColor="Red">
+                    </asp:RegularExpressionValidator>
                 </div>
             </div>
         </div>
