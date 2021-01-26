@@ -46,3 +46,5 @@ C:\Users\aeder\source\repos\SoftClean\AppSoftClean.Data\obj\Debug\AppSoftClean.D
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean.Data\obj\Debug\AppSoftClean.Data.pdb
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean.Data\obj\Debug\AppSoftClean.Data.Recursos.direcciones.resources
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean.Data\obj\Debug\AppSoftClean.Data.csproj.GenerateResource.cache
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean.Data\obj\Debug\AppSoftClean.Data.Recursos.direcciones.resources
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean.Data\obj\Debug\AppSoftClean.Data.csproj.GenerateResource.cache

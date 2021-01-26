@@ -80,6 +80,13 @@
     <Property Name="Area" Type="varchar" MaxLength="100" />
     <Property Name="Descripcion" Type="varchar" MaxLength="100" />
   </EntityType>
+  <EntityType Name="categorias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoria" Type="varchar" MaxLength="150" />
+  </EntityType>
   <EntityType Name="DetalleLevantamiento">
     <Key>
       <PropertyRef Name="id" />
@@ -112,6 +119,16 @@
     <Property Name="IdDosLav" Type="int" />
     <Property Name="IdPorGalon" Type="int" />
   </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="contrasenia" Type="text" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idCategoria" Type="int" />
+  </EntityType>
   <Association Name="FK_AreaDeUso">
     <End Role="AreaUso" Type="Self.AreaUso" Multiplicity="0..1" />
     <End Role="AdmProdQuim" Type="Self.AdmProdQuim" Multiplicity="*" />
@@ -121,6 +138,18 @@
       </Principal>
       <Dependent Role="AdmProdQuim">
         <PropertyRef Name="IdAreaUso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categoria">
+    <End Role="categorias" Type="Self.categorias" Multiplicity="0..1" />
+    <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categorias">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuarios">
+        <PropertyRef Name="idCategoria" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -267,12 +296,18 @@
     <EntitySet Name="AdmProdQuim" EntityType="Self.AdmProdQuim" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AdmTipMaqLav" EntityType="Self.AdmTipMaqLav" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AreaUso" EntityType="Self.AreaUso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="categorias" EntityType="Self.categorias" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DetalleLevantamiento" EntityType="Self.DetalleLevantamiento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LevantamientoEquipos" EntityType="Self.LevantamientoEquipos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PedidosArea" EntityType="Self.PedidosArea" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_AreaDeUso" Association="Self.FK_AreaDeUso">
       <End Role="AreaUso" EntitySet="AreaUso" />
       <End Role="AdmProdQuim" EntitySet="AdmProdQuim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categoria" Association="Self.FK_Categoria">
+      <End Role="categorias" EntitySet="categorias" />
+      <End Role="usuarios" EntitySet="usuarios" />
     </AssociationSet>
     <AssociationSet Name="FK_CepillosInsertosYBases" Association="Self.FK_CepillosInsertosYBases">
       <End Role="AdmCepInBas" EntitySet="AdmCepInBas" />

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="66e175b3e5ff4c09b6bd7ce2a1365c40" Name="Diagram1" ZoomLevel="94">
+      <Diagram DiagramId="66e175b3e5ff4c09b6bd7ce2a1365c40" Name="Diagram1" ZoomLevel="66">
         <EntityTypeShape EntityType="ServiceForHotelModel.AdmCepInBas" Width="1.5" PointX="7.875" PointY="7.5" />
         <EntityTypeShape EntityType="ServiceForHotelModel.AdmDivisiones" Width="1.5" PointX="11.625" PointY="3.5" />
         <EntityTypeShape EntityType="ServiceForHotelModel.AdmDosEstLim" Width="1.5" PointX="3.375" PointY="5.625" />
@@ -30,6 +30,9 @@
         <AssociationConnector Association="ServiceForHotelModel.FK_MaquinasLavavajillas" />
         <AssociationConnector Association="ServiceForHotelModel.FK_LevantamientoDeEquipos" />
         <AssociationConnector Association="ServiceForHotelModel.FK_PedidosPorArea" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.categorias" Width="1.5" PointX="10.375" PointY="7.25" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.usuarios" Width="1.5" PointX="12.625" PointY="7" />
+        <AssociationConnector Association="ServiceForHotelModel.FK_Categoria" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -46,6 +46,8 @@ namespace AppSoftClean.App_Start
             container.RegisterType<IPortGalonRepository, RepositoryPortGalon>();
             container.RegisterType<IProdQuimRepository, RepositoryProdQuim>();
             container.RegisterType<ITipMaqLavRepository, RepositoryTipMaqLav>();
+            container.RegisterType<IUsuariosRepository, RepositoryUsuarios>();
+            container.RegisterType<ICategoriasRepository, RepositoryCategorias>();
         }
 	}
 }
