@@ -20,5 +20,16 @@ namespace AppSoftClean.Web.Control
             _control.DataSource = lista;
             _control.DataBind();
         }
+
+        public static void getCatalogoDivisiones(this DropDownList _control)
+        {
+            CtrlGeneric ctrl = new CtrlGeneric();
+            List<AdmDivisiones> lista = ctrl.GetCatalogoGenericEntity<AdmDivisiones>();
+            _control.Items.Insert(0, "Selecciona una División");
+            _control.DataTextField = "Nombre";
+            _control.DataValueField = "id";
+            _control.DataSource = lista;
+            _control.DataBind();
+        }
     }
 }

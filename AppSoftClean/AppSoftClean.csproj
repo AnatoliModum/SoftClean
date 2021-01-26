@@ -46,8 +46,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\OneDrive\Documentos\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+      <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -190,6 +189,7 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Vistas\Formularios\FormAreaUso.aspx" />
     <Content Include="Vistas\Formularios\FormCepInBas.aspx" />
+    <Content Include="Vistas\Formularios\FormDivisiones.aspx" />
     <Content Include="Vistas\Formularios\FormDosEstLim.aspx" />
     <Content Include="Vistas\Formularios\FormDosLav.aspx" />
     <Content Include="Vistas\Formularios\FormModEqDos.aspx" />
@@ -197,6 +197,8 @@
     <Content Include="Vistas\Formularios\FormPorGalon.aspx" />
     <Content Include="Vistas\Formularios\FormProdQuim.aspx" />
     <Content Include="Vistas\Formularios\FormTipMaqLav.aspx" />
+    <Content Include="Vistas\Listas\ViewDivisiones.aspx" />
+    <Content Include="Vistas\Listas\ViewLevantamientoEquipos.aspx" />
     <Content Include="Vistas\Listas\ViewAreaUso.aspx" />
     <Content Include="Vistas\Listas\ViewCepInBas.aspx" />
     <Content Include="Vistas\Formularios\popupFailed.aspx" />
@@ -283,6 +285,13 @@
     <Compile Include="Vistas\Formularios\FormCepInBas.aspx.designer.cs">
       <DependentUpon>FormCepInBas.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Formularios\FormDivisiones.aspx.cs">
+      <DependentUpon>FormDivisiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Formularios\FormDivisiones.aspx.designer.cs">
+      <DependentUpon>FormDivisiones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Formularios\FormDosEstLim.aspx.cs">
       <DependentUpon>FormDosEstLim.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -331,6 +340,20 @@
     </Compile>
     <Compile Include="Vistas\Formularios\FormTipMaqLav.aspx.designer.cs">
       <DependentUpon>FormTipMaqLav.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewDivisiones.aspx.cs">
+      <DependentUpon>ViewDivisiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewDivisiones.aspx.designer.cs">
+      <DependentUpon>ViewDivisiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewLevantamientoEquipos.aspx.cs">
+      <DependentUpon>ViewLevantamientoEquipos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewLevantamientoEquipos.aspx.designer.cs">
+      <DependentUpon>ViewLevantamientoEquipos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Listas\ViewAreaUso.aspx.cs">
       <DependentUpon>ViewAreaUso.aspx</DependentUpon>
@@ -433,6 +456,9 @@
       <Project>{ca6d44a3-d371-4cd1-a571-e0f850aa287e}</Project>
       <Name>AppSoftClean.Web</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

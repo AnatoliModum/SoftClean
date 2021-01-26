@@ -125,6 +125,9 @@
     <value>~/Vistas/Formularios/FormCepInBas.aspx?id=</value>
     <comment>Ruta del Formulario de Cepillo, Inserto y Base</comment>
   </data>
+  <data name="FormDivisiones" xml:space="preserve">
+    <value>~/Vistas/Formularios/FormDivisiones.aspx?id=</value>
+  </data>
   <data name="FormDosEstLim" xml:space="preserve">
     <value>~/Vistas/Formularios/FormDosEstLim.aspx?id=</value>
   </data>
@@ -153,6 +156,9 @@
   <data name="ViewCepInBas" xml:space="preserve">
     <value>~/Vistas/Listas/ViewCepInBas.aspx</value>
     <comment>Ruta de la Vista Área de Cepillo, Inserto y Base</comment>
+  </data>
+  <data name="ViewDivisiones" xml:space="preserve">
+    <value>~/Vistas/Listas/ViewDivisiones.aspx</value>
   </data>
   <data name="ViewDosEstLim" xml:space="preserve">
     <value>~/Vistas/Listas/ViewDosEstLim.aspx</value>
