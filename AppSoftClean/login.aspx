@@ -26,24 +26,23 @@
 
                         <div id="loginform" class="form-horizontal" role="form">
 
-                            <asp:RegularExpressionValidator ID="regEmail" runat="server" ErrorMessage="Solo es permitido ingresar correos gmail o hotmail" ControlToValidate="TextEmail" Font-Bold="True" Font-Size="Medium" ForeColor="#000066" ValidationExpression="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[gmail||hotmail]+[.][com]{1,5}"></asp:RegularExpressionValidator>
-
                             <div style="margin-bottom: 25px" class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <asp:TextBox ID="TextEmail" runat="server" CssClass="form-control" TextMode="Email" Required="Required" placeholder="email"></asp:TextBox>
+                                <asp:TextBox ID="TextUser" runat="server" CssClass="form-control" Required="Required" placeholder="Usuario"></asp:TextBox>
                             </div>
 
 
                             <div style="margin-bottom: 25px" class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <asp:TextBox ID="TextContraseña" runat="server" TextMode="Password" required="requered" CssClass="form-control" placeholder="password"></asp:TextBox>
+                                <asp:TextBox ID="TextPass" runat="server" TextMode="Password" required="requered" CssClass="form-control" placeholder="Contraseña"></asp:TextBox>
                             </div>
 
 
                             <div style="margin-top: 10px" class="form-group">
                                 <!-- Button -->
                                 <div class="col-sm-12 col-lg-offset-10 controls">
-                                     <%--<asp:Button ID="BtnEntrar" style="background-color:#AA0001; color: white" runat="server" CssClass="btn" Text="Entrar" OnClick="BtnEntrar_Click"/>--%>
+                                     <asp:Button ID="BtnEntrar" style="background-color:#AA0001; color: white" runat="server" CssClass="btn" Text="Entrar" OnClick="BtnEntrar_Click"/>
+                                    <asp:Label ID="lblEstado" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
 

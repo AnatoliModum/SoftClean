@@ -62,6 +62,12 @@
       <End Role="PedidosArea" EntitySet="PedidosArea" />
       <End Role="DetalleLevantamiento" EntitySet="DetalleLevantamiento" />
     </AssociationSet>
+    <EntitySet Name="categorias" EntityType="ServiceForHotelModel.categorias" />
+    <EntitySet Name="usuarios" EntityType="ServiceForHotelModel.usuarios" />
+    <AssociationSet Name="FK_Categoria" Association="ServiceForHotelModel.FK_Categoria">
+      <End Role="categorias" EntitySet="categorias" />
+      <End Role="usuarios" EntitySet="usuarios" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="AdmCepInBas">
     <Key>
@@ -340,6 +346,37 @@
       </Principal>
       <Dependent Role="DetalleLevantamiento">
         <PropertyRef Name="IdPedidosArea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="categorias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoria" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="usuarios" Relationship="ServiceForHotelModel.FK_Categoria" FromRole="categorias" ToRole="usuarios" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="contrasenia" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="idCategoria" Type="Int32" />
+    <NavigationProperty Name="categorias" Relationship="ServiceForHotelModel.FK_Categoria" FromRole="usuarios" ToRole="categorias" />
+  </EntityType>
+  <Association Name="FK_Categoria">
+    <End Type="ServiceForHotelModel.categorias" Role="categorias" Multiplicity="0..1" />
+    <End Type="ServiceForHotelModel.usuarios" Role="usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categorias">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuarios">
+        <PropertyRef Name="idCategoria" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
