@@ -156,6 +156,7 @@
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Imagenes\editar.png" />
     <Content Include="Imagenes\eliminar.png" />
+    <Content Include="Imagenes\Imagen.png" />
     <Content Include="login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

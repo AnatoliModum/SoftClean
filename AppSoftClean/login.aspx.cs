@@ -38,7 +38,6 @@ namespace AppSoftClean
                 this.sessionManager.IdUsuarios = this.usuarios.id;
                 this.sessionManager.Parametros["usuario"] = this.usuarios;
                 Session["manager"] = sessionManager;
-                lblEstado.Text = "Accediste";
             }
 
         }
