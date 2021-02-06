@@ -19,7 +19,7 @@ namespace AppSoftClean
         [Dependency]
         public IUsuariosRepository usuarioRepository { get; set; }
         private SessionManager sessionManager = null;
-        private usuarios usuarios = null;
+        private Usuarios usuarios = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
