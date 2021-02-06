@@ -209,23 +209,80 @@
                         </div>
                         <div id="menu4" class="tab-pane fade">
                             <h3>Modelo Jabonera</h3>
-                            <p>Some content in menu 2.</p>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <span class="label label-info" style="padding-bottom:1px">Ingresa una Cantidad</span>
+                                    <asp:TextBox ID="TextCanModJab" CssClass="form-control" runat="server"></asp:TextBox>
+                                </div>
+                                <div class="col-lg-8">
+                                    <span class="label label-info" style="padding-bottom:1px">Elige un Módelo</span>
+                                    <asp:DropDownList ID="DDL_ModJab" runat="server" CssClass="form-control" AppendDataBoundItems="true" ></asp:DropDownList>
+                                </div>
+                            </div>
                         </div>
                         <div id="menu5" class="tab-pane fade">
                             <h3>Cepillo, Inserto y Base</h3>
-                            <p>Some content in menu 2.</p>
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <span class="label label-info" style="padding-bottom:1px">Ingresa una Cantidad</span>
+                                    <asp:TextBox ID="TextCanConsumibles" CssClass="form-control" runat="server"></asp:TextBox>
+                                </div>
+                                <div class="col-lg-3">
+                                    <span class="label label-warning" style="padding-bottom:1px">Se Modificara</span>
+                                    <asp:TextBox ID="TextCepillo" CssClass="form-control" Text="Cepillo" Enabled="false" runat="server"></asp:TextBox>
+                                </div>
+                                <div class="col-lg-3">
+                                    <span class="label label-warning" style="padding-bottom:1px">Se Modificara</span>
+                                    <asp:TextBox ID="TextInserto" CssClass="form-control" Text="Inserto" Enabled="false" runat="server"></asp:TextBox>
+                                </div>
+                                <div class="col-lg-3">
+                                    <span class="label label-warning" style="padding-bottom:1px">Se Modificara</span>
+                                    <asp:TextBox ID="TextBase" CssClass="form-control" Text="Base" Enabled="false" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
                         </div>
                         <div id="menu6" class="tab-pane fade">
                             <h3>Tipo de Máquinas Lavavajillas</h3>
-                            <p>Some content in menu 2.</p>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <span class="label label-info" style="padding-bottom:1px">Ingresa una Cantidad</span>
+                                    <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server"></asp:TextBox>
+                                </div>
+                                <div class="col-lg-8">
+                                    <span class="label label-info" style="padding-bottom:1px">Elige un Módelo</span>
+                                    <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control" AppendDataBoundItems="true" ></asp:DropDownList>
+                                </div>
+                            </div>
                         </div>
                         <div id="menu7" class="tab-pane fade">
                             <h3>Dosificador para Lavavajillas</h3>
-                            <p>Some content in menu 2.</p>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <textarea id="TxArDosLav" class="form-control" cols="20" rows="2"></textarea>
+                                </div>
+                                <div class="col-lg-4">
+                                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control" AppendDataBoundItems="true"></asp:DropDownList>
+                                </div>
+                                <div class="col-lg-1">
+                                    <asp:Button ID="Button1" CssClass="btn btn-success" runat="server" Text="Agregar" />
+                                </div>
+                                <div class="col-lg-1">
+                                    <asp:Button ID="Button2" CssClass="btn btn-danger" runat="server" Text="Quitar" />
+                                </div>
+                            </div>
                         </div>
                         <div id="menu8" class="tab-pane fade">
                             <h3>Porta galón</h3>
-                            <p>Some content in menu 2.</p>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <span class="label label-info" style="padding-bottom:1px">Ingresa una Cantidad</span>
+                                    <asp:TextBox ID="TextBox2" CssClass="form-control" runat="server"></asp:TextBox>
+                                </div>
+                                <div class="col-lg-8">
+                                    <span class="label label-info" style="padding-bottom:1px">Elige un Módelo</span>
+                                    <asp:DropDownList ID="DropDownList3" runat="server" CssClass="form-control" AppendDataBoundItems="true" ></asp:DropDownList>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <br />
