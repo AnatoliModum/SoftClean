@@ -12,17 +12,17 @@ namespace AppSoftClean.Data.Repository
     {
         private ServiceForHotelEntities conn = new ServiceForHotelEntities();
 
-        public bool ActualizarCategoria(categorias categoria)
+        public bool ActualizarCategoria(Categorias categoria)
         {
             bool res = false;
             
             try
             {
-                categorias categoriaObj = conn.categorias.Where(c => c.id == categoria.id).FirstOrDefault<categorias>();
+                Categorias categoriaObj = conn.Categorias.Where(c => c.id == categoria.id).FirstOrDefault<Categorias>();
 
                 categoriaObj.categoria = categoria.categoria;
                 
-                conn.categorias.Attach(categoriaObj);
+                conn.Categorias.Attach(categoriaObj);
                 conn.Entry(categoriaObj).State = System.Data.Entity.EntityState.Modified;
                 conn.SaveChanges();
 
@@ -42,8 +42,8 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                categorias categoriaObj = conn.categorias.Where(c => c.id == id).FirstOrDefault<categorias>();
-                conn.categorias.Remove(categoriaObj);
+                Categorias categoriaObj = conn.Categorias.Where(c => c.id == id).FirstOrDefault<Categorias>();
+                conn.Categorias.Remove(categoriaObj);
                 conn.SaveChanges();
                 res = true;
             }
@@ -55,12 +55,12 @@ namespace AppSoftClean.Data.Repository
             return res;
         }
 
-        public List<categorias> GetAllCategorias()
+        public List<Categorias> GetAllCategorias()
         {
-            List<categorias> categoriaObj = null;
+            List<Categorias> categoriaObj = null;
             try
             {
-                categoriaObj = conn.categorias.ToList<categorias>();
+                categoriaObj = conn.Categorias.ToList<Categorias>();
             }
             catch (Exception ex)
             {
@@ -69,12 +69,12 @@ namespace AppSoftClean.Data.Repository
             return categoriaObj;
         }
 
-        public List<categorias> GetCategoriaByID(int id)
+        public List<Categorias> GetCategoriaByID(int id)
         {
-            List<categorias> categoriaObj = null;
+            List<Categorias> categoriaObj = null;
             try
             {
-                categoriaObj = conn.categorias.Where(c => c.id == id).ToList<categorias>();
+                categoriaObj = conn.Categorias.Where(c => c.id == id).ToList<Categorias>();
             }
             catch (Exception ex)
             {
@@ -83,12 +83,12 @@ namespace AppSoftClean.Data.Repository
             return categoriaObj;
         }
 
-        public bool InsertarCategoria(categorias categoria)
+        public bool InsertarCategoria(Categorias categoria)
         {
             bool res = false;
             try
             {
-                conn.categorias.Add(categoria);
+                conn.Categorias.Add(categoria);
                 conn.SaveChanges();
                 res = true;
             }

@@ -35,10 +35,9 @@ namespace AppSoftClean.Data.Model
         public virtual DbSet<AdmProdQuim> AdmProdQuim { get; set; }
         public virtual DbSet<AdmTipMaqLav> AdmTipMaqLav { get; set; }
         public virtual DbSet<AreaUso> AreaUso { get; set; }
-        public virtual DbSet<DetalleLevantamiento> DetalleLevantamiento { get; set; }
         public virtual DbSet<LevantamientoEquipos> LevantamientoEquipos { get; set; }
         public virtual DbSet<PedidosArea> PedidosArea { get; set; }
-        public virtual DbSet<categorias> categorias { get; set; }
-        public virtual DbSet<usuarios> usuarios { get; set; }
+        public virtual DbSet<Categorias> Categorias { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
     }
 }

@@ -193,6 +193,7 @@
     <Content Include="Vistas\Formularios\FormDivisiones.aspx" />
     <Content Include="Vistas\Formularios\FormDosEstLim.aspx" />
     <Content Include="Vistas\Formularios\FormDosLav.aspx" />
+    <Content Include="Vistas\Formularios\FormLevantamientoAreaInstalación.aspx" />
     <Content Include="Vistas\Formularios\FormModEqDos.aspx" />
     <Content Include="Vistas\Formularios\FormModJab.aspx" />
     <Content Include="Vistas\Formularios\FormPorGalon.aspx" />
@@ -200,6 +201,7 @@
     <Content Include="Vistas\Formularios\FormTipMaqLav.aspx" />
     <Content Include="Vistas\Listas\ViewDivisiones.aspx" />
     <Content Include="Vistas\Listas\ViewLevantamientoEquipos.aspx" />
+    <Content Include="Vistas\Listas\ViewListaLevantamientos.aspx" />
     <Content Include="Vistas\Listas\ViewAreaUso.aspx" />
     <Content Include="Vistas\Listas\ViewCepInBas.aspx" />
     <Content Include="Vistas\Formularios\popupFailed.aspx" />
@@ -307,6 +309,13 @@
     <Compile Include="Vistas\Formularios\FormDosLav.aspx.designer.cs">
       <DependentUpon>FormDosLav.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Formularios\FormLevantamientoAreaInstalación.aspx.cs">
+      <DependentUpon>FormLevantamientoAreaInstalación.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Formularios\FormLevantamientoAreaInstalación.aspx.designer.cs">
+      <DependentUpon>FormLevantamientoAreaInstalación.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Formularios\FormModEqDos.aspx.cs">
       <DependentUpon>FormModEqDos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -355,6 +364,13 @@
     </Compile>
     <Compile Include="Vistas\Listas\ViewLevantamientoEquipos.aspx.designer.cs">
       <DependentUpon>ViewLevantamientoEquipos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewListaLevantamientos.aspx.cs">
+      <DependentUpon>ViewListaLevantamientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewListaLevantamientos.aspx.designer.cs">
+      <DependentUpon>ViewListaLevantamientos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Listas\ViewAreaUso.aspx.cs">
       <DependentUpon>ViewAreaUso.aspx</DependentUpon>

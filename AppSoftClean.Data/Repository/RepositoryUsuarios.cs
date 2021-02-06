@@ -13,20 +13,20 @@ namespace AppSoftClean.Data.Repository
     {
         private ServiceForHotelEntities conn = new ServiceForHotelEntities();
 
-        public bool ActualizarUsuario(usuarios user)
+        public bool ActualizarUsuario(Usuarios user)
         {
             bool res = false;
             
             try
             {
-                usuarios userObj = conn.usuarios.Where(c => c.id == user.id).FirstOrDefault<usuarios>();
+                Usuarios userObj = conn.Usuarios.Where(c => c.id == user.id).FirstOrDefault<Usuarios>();
 
                 userObj.usuario = user.usuario;
                 userObj.contrasenia = user.contrasenia;
                 userObj.correo = user.correo;
                 userObj.idCategoria = user.idCategoria;
 
-                conn.usuarios.Attach(userObj);
+                conn.Usuarios.Attach(userObj);
                 conn.Entry(userObj).State = System.Data.Entity.EntityState.Modified;
                 conn.SaveChanges();
 
@@ -46,8 +46,8 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                usuarios userObj = conn.usuarios.Where(c => c.id == id).FirstOrDefault<usuarios>();
-                conn.usuarios.Remove(userObj);
+                Usuarios userObj = conn.Usuarios.Where(c => c.id == id).FirstOrDefault<Usuarios>();
+                conn.Usuarios.Remove(userObj);
                 conn.SaveChanges();
                 res = true;
             }
@@ -59,12 +59,12 @@ namespace AppSoftClean.Data.Repository
             return res;
         }
 
-        public List<usuarios> GetAllUsuarios()
+        public List<Usuarios> GetAllUsuarios()
         {
-            List<usuarios> userObj = null;
+            List<Usuarios> userObj = null;
             try
             {
-                userObj = conn.usuarios.ToList<usuarios>();
+                userObj = conn.Usuarios.ToList<Usuarios>();
             }
             catch (Exception ex)
             {
@@ -73,12 +73,12 @@ namespace AppSoftClean.Data.Repository
             return userObj;
         }
 
-        public List<usuarios> GetUsuarioByID(int id)
+        public List<Usuarios> GetUsuarioByID(int id)
         {
-            List<usuarios> userObj = null;
+            List<Usuarios> userObj = null;
             try
             {
-                userObj = conn.usuarios.Where(c => c.id == id).ToList<usuarios>();
+                userObj = conn.Usuarios.Where(c => c.id == id).ToList<Usuarios>();
             }
             catch (Exception ex)
             {
@@ -87,14 +87,14 @@ namespace AppSoftClean.Data.Repository
             return userObj;
         }
 
-        public usuarios GetUsuariosLogin(string usuario, string password)
+        public Usuarios GetUsuariosLogin(string usuario, string password)
         {
-            usuarios Usuario = null;
+            Usuarios Usuario = null;
 
             try
             {
-                Expression<Func<usuarios, bool>> predicato = p => p.usuario == usuario && p.contrasenia == password;
-                Usuario = conn.usuarios.Where(predicato.Compile()).FirstOrDefault<usuarios>();
+                Expression<Func<Usuarios, bool>> predicato = p => p.usuario == usuario && p.contrasenia == password;
+                Usuario = conn.Usuarios.Where(predicato.Compile()).FirstOrDefault<Usuarios>();
             }catch (Exception ex)
             {
                 string mensajeErr = ex.Message;
@@ -102,12 +102,12 @@ namespace AppSoftClean.Data.Repository
             return Usuario;
         }
 
-        public bool InsertarUsuario(usuarios user)
+        public bool InsertarUsuario(Usuarios user)
         {
             bool res = false;
             try
             {
-                conn.usuarios.Add(user);
+                conn.Usuarios.Add(user);
                 conn.SaveChanges();
                 res = true;
             }

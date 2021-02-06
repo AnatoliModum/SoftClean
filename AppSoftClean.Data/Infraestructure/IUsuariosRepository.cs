@@ -10,11 +10,11 @@ namespace AppSoftClean.Data.Infraestructure
 {
     public interface IUsuariosRepository
     {
-        bool InsertarUsuario(usuarios user);
-        List<usuarios> GetAllUsuarios();
-        List<usuarios> GetUsuarioByID(int id);
+        bool InsertarUsuario(Usuarios user);
+        List<Usuarios> GetAllUsuarios();
+        List<Usuarios> GetUsuarioByID(int id);
         bool EliminarUsuario(int id);
-        bool ActualizarUsuario(usuarios user);
-        usuarios GetUsuariosLogin(string usuario, string password);
+        bool ActualizarUsuario(Usuarios user);
+        Usuarios GetUsuariosLogin(string usuario, string password);
     }
 }

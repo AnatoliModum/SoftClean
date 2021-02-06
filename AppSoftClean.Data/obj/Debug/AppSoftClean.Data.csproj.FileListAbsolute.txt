@@ -47,3 +47,4 @@ C:\Users\aeder\source\repos\SoftClean\AppSoftClean.Data\obj\Debug\AppSoftClean.D
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean.Data\obj\Debug\AppSoftClean.Data.csproj.CopyComplete
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean.Data\obj\Debug\AppSoftClean.Data.dll
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean.Data\obj\Debug\AppSoftClean.Data.pdb
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean.Data\obj\Debug\AppSoftClean.Data.csprojAssemblyReference.cache

@@ -75,7 +75,6 @@
     <Compile Include="Infraestructure\IAreaUsoRepository.cs" />
     <Compile Include="Infraestructure\ICategoriasRepository.cs" />
     <Compile Include="Infraestructure\ICepInBasRepository.cs" />
-    <Compile Include="Infraestructure\IDetalleLevantamientoRepository.cs" />
     <Compile Include="Infraestructure\IDivisionesRepository.cs" />
     <Compile Include="Infraestructure\IDosEstLimRepository.cs" />
     <Compile Include="Infraestructure\IDosLavRepository.cs" />
@@ -117,10 +116,7 @@
     <Compile Include="Model\AreaUso.cs">
       <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\categorias.cs">
-      <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DetalleLevantamiento.cs">
+    <Compile Include="Model\Categorias.cs">
       <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LevantamientoEquipos.cs">
@@ -144,7 +140,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SoftCleanEntityWeb.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\usuarios.cs">
+    <Compile Include="Model\Usuarios.cs">
       <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -156,7 +152,6 @@
     <Compile Include="Repository\RepositoryAreaUso.cs" />
     <Compile Include="Repository\RepositoryCategorias.cs" />
     <Compile Include="Repository\RepositoryCepInsBas.cs" />
-    <Compile Include="Repository\RepositoryDetalleLevantamiento.cs" />
     <Compile Include="Repository\RepositoryDivisiones.cs" />
     <Compile Include="Repository\RepositoryDosEstLimp.cs" />
     <Compile Include="Repository\RepositoryDosLav.cs" />

@@ -12,18 +12,18 @@ namespace AppSoftClean.Data.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class categorias
+    public partial class Categorias
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public categorias()
+        public Categorias()
         {
-            this.usuarios = new HashSet<usuarios>();
+            this.Usuarios = new HashSet<Usuarios>();
         }
     
         public int id { get; set; }
         public string categoria { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<usuarios> usuarios { get; set; }
+        public virtual ICollection<Usuarios> Usuarios { get; set; }
     }
 }

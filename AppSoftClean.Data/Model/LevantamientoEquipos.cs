@@ -14,19 +14,11 @@ namespace AppSoftClean.Data.Model
     
     public partial class LevantamientoEquipos
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LevantamientoEquipos()
-        {
-            this.DetalleLevantamiento = new HashSet<DetalleLevantamiento>();
-        }
-    
         public int id { get; set; }
         public Nullable<int> IdDivision { get; set; }
         public Nullable<System.DateTime> dteFecha { get; set; }
         public Nullable<int> NumHoja { get; set; }
     
         public virtual AdmDivisiones AdmDivisiones { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetalleLevantamiento> DetalleLevantamiento { get; set; }
     }
 }

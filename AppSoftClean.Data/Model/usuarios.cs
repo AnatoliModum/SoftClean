@@ -12,7 +12,7 @@ namespace AppSoftClean.Data.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class usuarios
+    public partial class Usuarios
     {
         public int id { get; set; }
         public string usuario { get; set; }
@@ -20,6 +20,6 @@ namespace AppSoftClean.Data.Model
         public string correo { get; set; }
         public Nullable<int> idCategoria { get; set; }
     
-        public virtual categorias categorias { get; set; }
+        public virtual Categorias Categorias { get; set; }
     }
 }

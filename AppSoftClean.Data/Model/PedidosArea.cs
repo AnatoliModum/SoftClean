@@ -14,22 +14,24 @@ namespace AppSoftClean.Data.Model
     
     public partial class PedidosArea
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PedidosArea()
-        {
-            this.DetalleLevantamiento = new HashSet<DetalleLevantamiento>();
-        }
-    
         public int id { get; set; }
         public string AreaIns { get; set; }
         public Nullable<int> IdModEqDos { get; set; }
+        public Nullable<int> CanModEqDos { get; set; }
         public Nullable<int> IdDosEstLim { get; set; }
+        public Nullable<int> CanDosEstLim { get; set; }
         public Nullable<int> IdProdQuim { get; set; }
+        public Nullable<int> CanProdQuim { get; set; }
         public Nullable<int> IdModJab { get; set; }
+        public Nullable<int> CanModJab { get; set; }
         public Nullable<int> IdCepInBas { get; set; }
+        public Nullable<int> CanCepInBas { get; set; }
         public Nullable<int> IdTipMaqLav { get; set; }
+        public Nullable<int> CanTipMaqLav { get; set; }
         public Nullable<int> IdDosLav { get; set; }
+        public Nullable<int> CanDosLav { get; set; }
         public Nullable<int> IdPorGalon { get; set; }
+        public Nullable<int> CanPorGalon { get; set; }
     
         public virtual AdmCepInBas AdmCepInBas { get; set; }
         public virtual AdmDosEstLim AdmDosEstLim { get; set; }
@@ -39,7 +41,5 @@ namespace AppSoftClean.Data.Model
         public virtual AdmPortGalon AdmPortGalon { get; set; }
         public virtual AdmProdQuim AdmProdQuim { get; set; }
         public virtual AdmTipMaqLav AdmTipMaqLav { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetalleLevantamiento> DetalleLevantamiento { get; set; }
     }
 }

@@ -35,7 +35,6 @@ namespace AppSoftClean.App_Start
 		{
             container.RegisterType<IAreaUsoRepository, RepositoryAreaUso>();
             container.RegisterType<ICepInBasRepository, RepositoryCepInsBas>();
-            container.RegisterType<IDetalleLevantamientoRepository, RepositoryDetalleLevantamiento>();
             container.RegisterType<IDivisionesRepository, RepositoryDivisiones>();
             container.RegisterType<IDosEstLimRepository, RepositoryDosEstLimp>();
             container.RegisterType<IDosLavRepository, RepositoryDosLav>();

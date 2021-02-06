@@ -10,10 +10,10 @@ namespace AppSoftClean.Data.Infraestructure
 {
     public interface ICategoriasRepository
     {
-        bool InsertarCategoria(categorias categoria);
-        List<categorias> GetAllCategorias();
-        List<categorias> GetCategoriaByID(int id);
+        bool InsertarCategoria(Categorias categoria);
+        List<Categorias> GetAllCategorias();
+        List<Categorias> GetCategoriaByID(int id);
         bool EliminarCategoria(int id);
-        bool ActualizarCategoria(categorias categoria);
+        bool ActualizarCategoria(Categorias categoria);
     }
 }
