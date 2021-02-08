@@ -116,6 +116,21 @@ namespace AppSoftClean.Data.Repository
             return quimicoObj;
         }
 
+        public List<AdmProdQuim> GetQuimicoByName(string name)
+        {
+            List<AdmProdQuim> quimicoObj = null;
+            try
+            {
+                quimicoObj = conn.AdmProdQuim.Where(c => c.Quimico == name).ToList<AdmProdQuim>();
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+            return quimicoObj;
+        }
+
+
         public bool InsertarQuimico(AdmProdQuim Quimico)
         {
             bool res = false;

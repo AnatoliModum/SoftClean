@@ -49,9 +49,118 @@ namespace AppSoftClean.Data.Repository
 
         public ComprobacionDePedidos ValidacionCreate(PedidosArea Pedido)
         {
-            ComprobacionDePedidos comprobador = new ComprobacionDePedidos();
-            
-            return comprobador;
+            ComprobacionDePedidos CDP = new ComprobacionDePedidos();
+            int id = 0;
+            bool res = false;
+
+            RepositoryDosEstLimp RDEL = new RepositoryDosEstLimp();
+            id = Pedido.IdDosEstLim.Value;
+            AdmDosEstLim dosEstacion = RDEL.GetEstacionesByID(id).First();
+
+            if (dosEstacion.EqDisponibles < Pedido.CanDosEstLim)
+            {
+                CDP._DosEstLimStock = true;
+            }
+
+            RepositoryCepInsBas RCIB = new RepositoryCepInsBas();
+
+            List<AdmCepInBas> listAdm = RCIB.GetAllConsumibles();
+
+            int count = 0;
+
+            foreach (var item in listAdm)
+            {
+
+                if (item.Stock > Pedido.CanCepInBas)
+                    count += 1;
+
+            }
+
+            if (count == 3)
+            {
+                for (int idfor = 0; idfor < listAdm.Count; idfor++)
+                {
+                    listAdm[idfor].Stock = listAdm[idfor].Stock - Pedido.CanCepInBas;
+                }
+                CDP._CepInBasStock = true;
+            }
+
+            RepositoryProdQuim RPQ = new RepositoryProdQuim();
+
+            List<string> listQuimicos = getProductos(Pedido.ProdQuim);
+
+            List<AdmProdQuim> listAdmProdQuim = new List<AdmProdQuim>();
+
+            for (int i = 0; i < listQuimicos.Count(); i++)
+            {
+                listAdmProdQuim.Add(RPQ.GetQuimicoByName(listQuimicos[i])[0]);
+
+                if (listAdmProdQuim[i].Stock >= 1)
+                {
+                    CDP._QuimicosStock = true;
+                }
+            }
+
+            //ModJabStock
+            RepositoryModJab RMJ = new RepositoryModJab();
+
+            int? stockModJabStock = RMJ.GetJaboneraByID(int.Parse(Pedido.IdModJab.ToString()))[0].Stock;
+
+            if (stockModJabStock >= Pedido.CanModJab)
+            {
+                CDP._ModJabStock = true;
+            }
+
+            //TipMaqLavStock
+
+            RepositoryTipMaqLav RTML = new RepositoryTipMaqLav();
+
+            int? stockTipMaqLavStock = RTML.GetLavavajillasByID(int.Parse(Pedido.IdTipMaqLav.ToString()))[0].Stock;
+
+            if (stockTipMaqLavStock >= Pedido.CanTipMaqLav)
+            {
+                CDP._TipMaqLavStock = true;
+            }
+
+            //DosLavStock
+            RepositoryDosLav RDL = new RepositoryDosLav();
+
+            List<string> listDosLav = getProductos(Pedido.DosLav);
+
+            List<AdmDosLav> listDosLav2 = new List<AdmDosLav>();
+
+            for (int i = 0; i < listDosLav.Count(); i++)
+            {
+                listDosLav2.Add(RDL.GetDosificadoresByName(listDosLav[i])[0]);
+
+                if (listDosLav2[i].Stock >= 1)
+                {
+                    CDP._DosLavStock = true;
+                }
+            }
+
+            //ModEqDos pendiente
+            RepositoryModEqDos RMED = new RepositoryModEqDos();
+
+            int? stockModEqDos = RMED.GetEquipoDosificadorByID(int.Parse(Pedido.IdModEqDos.ToString()))[0].EqDisponibles;
+
+            if (stockModEqDos >= Pedido.CanModEqDos)
+            {
+                CDP._ModEqDos = true;
+            }
+
+            //PorGalon
+
+            RepositoryPortGalon RPG = new RepositoryPortGalon();
+
+            int? stockPorGalon = RPG.GetGaloneraByID(int.Parse(Pedido.IdPorGalon.ToString()))[0].Stock;
+
+            if (stockPorGalon >= Pedido.CanPorGalon)
+            {
+                CDP._PorGalon = true;
+            }
+
+            return CDP;
         }
 
         public bool ModificadorStockCreate(PedidosArea Pedido)
@@ -119,6 +228,31 @@ namespace AppSoftClean.Data.Repository
 
 
             return res;
+        }
+
+        public List<string> getProductos(string cadena)
+        {
+            List<string> quimicosList = new List<string>();
+            string[] quimicos = null;
+
+            if (cadena != "")
+            {
+
+                quimicos = cadena.Split('.');
+
+                foreach (var item in quimicos)
+                {
+                    quimicosList.Add(item);
+
+                }
+
+                return quimicosList;
+            }
+            else
+            {
+                return null;
+            }
+
         }
 
     }
