@@ -63,7 +63,7 @@
                 <div class="col-lg-4">
                     <asp:RegularExpressionValidator ID="revDosEstLim" runat="server" ValidationGroup="VDDosEstLim"
                         ErrorMessage="Solo Ingrese Letras"
-                        ValidationExpression="^[a-zA-Z ]*$"
+                        ValidationExpression="^[a-zA-ZÀ-ÿ ]*$"
                         ControlToValidate="TextDosEstLim"
                         ForeColor="Red">
                     </asp:RegularExpressionValidator>

@@ -39,7 +39,7 @@
                     <div class="col-lg-4">
                         <div class="input-group">
                             <span class="input-group-addon" id="basic-addon4"><span><i class="fas fa-bookmark"></i></span></span>
-                            <asp:DropDownList ID="DDL_Division" runat="server" CssClass="form-control" AppendDataBoundItems="true" AutoPostBack="True">
+                            <asp:DropDownList ID="DDL_Division" runat="server" CssClass="form-control" AppendDataBoundItems="true">
                             </asp:DropDownList>
                         </div>
                     </div>
@@ -141,8 +141,7 @@
                                 <div class="col-lg-12">
                                     <div class="input-group">
                                         <span class="input-group-addon" id="basic-addon3"><span><i class="far fa-building"></i></span></span>
-                                        <asp:DropDownList ID="DDL_ÁreaInstalación" runat="server" CssClass="form-control" AppendDataBoundItems="true">
-                                        </asp:DropDownList>
+                                        <asp:TextBox ID="TextAreaInstalacion" CssClass="form-control" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -152,7 +151,7 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <span class="label label-info" style="padding-bottom:1px">Elige una Cantidad</span>
-                                    <asp:DropDownList ID="DDL_CanAreasInstalacion" runat="server" CssClass="form-control" AppendDataBoundItems="true" >
+                                    <asp:DropDownList ID="DDL_CanModEqDos" runat="server" CssClass="form-control" AppendDataBoundItems="true" >
                                         <asp:ListItem Text="1" Value="1"></asp:ListItem>
                                         <asp:ListItem Text="2" Value="2"></asp:ListItem>
                                         <asp:ListItem Text="3" Value="3"></asp:ListItem>
@@ -167,7 +166,7 @@
                                 </div>
                                 <div class="col-lg-8">
                                     <span class="label label-info" style="padding-bottom:1px">Elige un Módelo</span>
-                                    <asp:DropDownList ID="DDL_AreasInstalacion" runat="server" CssClass="form-control" AppendDataBoundItems="true" ></asp:DropDownList>
+                                    <asp:DropDownList ID="DDL_ModEqDos" runat="server" CssClass="form-control" AppendDataBoundItems="true" ></asp:DropDownList>
                                 </div>
                             </div>
                         </div>
@@ -192,18 +191,33 @@
                         </div>
                         <div id="menu3" class="tab-pane fade">
                             <h3>Productos Químicos</h3>
+                            <div class="alert alert-danger" id="MyAlerta" runat="server" visible="false" role="alert">Hola</div>
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <textarea id="TxArProdQuim" class="form-control" cols="20" rows="2"></textarea>
+                                    <asp:UpdatePanel ID="UpdateProdQuimQuitar" runat="server" UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                    <asp:UpdatePanel ID="UpdateProdQuimAgregar" runat="server" UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                            <asp:ListBox ID="LBProdQuim" CssClass="form-control" runat="server"></asp:ListBox>
+                                        </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="BtnAgregar" EventName="Click" />
+                                        </Triggers>
+                                    </asp:UpdatePanel>
+                                             </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="BtnQuitar_ProdQuim" EventName="Click" />
+                                        </Triggers>
+                                    </asp:UpdatePanel>
                                 </div>
                                 <div class="col-lg-4">
                                     <asp:DropDownList ID="DDL_ProdQuim" runat="server" CssClass="form-control" AppendDataBoundItems="true"></asp:DropDownList>
                                 </div>
                                 <div class="col-lg-1">
-                                    <asp:Button ID="BtnAgregar" CssClass="btn btn-success" runat="server" Text="Agregar" />
+                                    <asp:Button ID="BtnAgregar" CssClass="btn btn-success" runat="server" Text="Agregar" OnClick="BtnAgregar_Click" />
                                 </div>
                                 <div class="col-lg-1">
-                                    <asp:Button ID="BtnQuitar" CssClass="btn btn-danger" runat="server" Text="Quitar" />
+                                    <asp:Button ID="BtnQuitar_ProdQuim" CssClass="btn btn-danger" runat="server" Text="Quitar" OnClick="BtnQuitar_ProdQuim_Click" />
                                 </div>
                             </div>
                         </div>
@@ -246,11 +260,11 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <span class="label label-info" style="padding-bottom:1px">Ingresa una Cantidad</span>
-                                    <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="TextCanTipMaqLav" CssClass="form-control" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="col-lg-8">
                                     <span class="label label-info" style="padding-bottom:1px">Elige un Módelo</span>
-                                    <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control" AppendDataBoundItems="true" ></asp:DropDownList>
+                                    <asp:DropDownList ID="DDL_TipMaqLav" runat="server" CssClass="form-control" AppendDataBoundItems="true" ></asp:DropDownList>
                                 </div>
                             </div>
                         </div>
@@ -258,16 +272,30 @@
                             <h3>Dosificador para Lavavajillas</h3>
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <textarea id="TxArDosLav" class="form-control" cols="20" rows="2"></textarea>
+                                    <asp:UpdatePanel ID="UpdateDosLavQuitar" runat="server" UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                    <asp:UpdatePanel ID="UpdateDosLavCargar" runat="server" UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                            <asp:ListBox ID="LBDosLav" CssClass="form-control" runat="server"></asp:ListBox>
+                                        </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="BtnCargar_DosLav" EventName="Click" />
+                                        </Triggers>
+                                    </asp:UpdatePanel>
+                                             </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="BtnQuitar_DosLav" EventName="Click" />
+                                        </Triggers>
+                                    </asp:UpdatePanel>
                                 </div>
                                 <div class="col-lg-4">
-                                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control" AppendDataBoundItems="true"></asp:DropDownList>
+                                    <asp:DropDownList ID="DDL_DosLav" runat="server" CssClass="form-control" AppendDataBoundItems="true"></asp:DropDownList>
                                 </div>
                                 <div class="col-lg-1">
-                                    <asp:Button ID="Button1" CssClass="btn btn-success" runat="server" Text="Agregar" />
+                                    <asp:Button ID="BtnCargar_DosLav" CssClass="btn btn-success" runat="server" Text="Cargar" OnClick="BtnCargar_DosLav_Click" />
                                 </div>
                                 <div class="col-lg-1">
-                                    <asp:Button ID="Button2" CssClass="btn btn-danger" runat="server" Text="Quitar" />
+                                    <asp:Button ID="BtnQuitar_DosLav" CssClass="btn btn-danger" runat="server" Text="Quitar" OnClick="BtnQuitar_DosLav_Click" />
                                 </div>
                             </div>
                         </div>
@@ -276,11 +304,11 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <span class="label label-info" style="padding-bottom:1px">Ingresa una Cantidad</span>
-                                    <asp:TextBox ID="TextBox2" CssClass="form-control" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="TextCanPorGalon" CssClass="form-control" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="col-lg-8">
                                     <span class="label label-info" style="padding-bottom:1px">Elige un Módelo</span>
-                                    <asp:DropDownList ID="DropDownList3" runat="server" CssClass="form-control" AppendDataBoundItems="true" ></asp:DropDownList>
+                                    <asp:DropDownList ID="DDL_PorGalon" runat="server" CssClass="form-control" AppendDataBoundItems="true" ></asp:DropDownList>
                                 </div>
                             </div>
                         </div>

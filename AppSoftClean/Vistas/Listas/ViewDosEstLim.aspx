@@ -24,7 +24,7 @@
                 <br>
                 <div class="row">
                     <div class="col-lg-10">
-                        <h2 style="margin-top:0px">Cepillo, Inserto y Base</h2>
+                        <h2 style="margin-top:0px">Dosificador de Estación de Limpieza</h2>
                     </div>
                     <div class="col-lg-1">
                         <asp:Button ID="BtnCrear" class="btn btn-primary" runat="server" Text="Crear" OnClick="BtnCrear_Click" />

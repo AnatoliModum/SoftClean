@@ -37,7 +37,7 @@
             <div class="x_content">
                 <div class="form-horizontal form-label-left input_mask">
                     <asp:GridView ID="dgvDatos" runat="server" AllowPaging="True" AutoGenerateColumns="False"
-                        PageSize="10" Width="100%" CssClass="table table-bordered bs-table" DataKeyNames="id"
+                        PageSize="12" Width="100%" CssClass="table table-bordered bs-table" DataKeyNames="id"
                         EmptyDataText="No Existen Datos Aún." OnRowCommand="dgvDatos_RowCommand">
                         <HeaderStyle BackColor="#1ABB9C" Font-Size="9" ForeColor="White" />
                         <%--Configuracion de la cabecera--%>

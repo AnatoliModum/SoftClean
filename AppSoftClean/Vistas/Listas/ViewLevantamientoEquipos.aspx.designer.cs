@@ -76,31 +76,31 @@ namespace AppSoftClean.Vistas.Listas {
         protected global::System.Web.UI.WebControls.GridView dgvDatos;
         
         /// <summary>
-        /// Control DDL_ÁreaInstalación.
+        /// Control TextAreaInstalacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDL_ÁreaInstalación;
+        protected global::System.Web.UI.WebControls.TextBox TextAreaInstalacion;
         
         /// <summary>
-        /// Control DDL_CanAreasInstalacion.
+        /// Control DDL_CanModEqDos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDL_CanAreasInstalacion;
+        protected global::System.Web.UI.WebControls.DropDownList DDL_CanModEqDos;
         
         /// <summary>
-        /// Control DDL_AreasInstalacion.
+        /// Control DDL_ModEqDos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDL_AreasInstalacion;
+        protected global::System.Web.UI.WebControls.DropDownList DDL_ModEqDos;
         
         /// <summary>
         /// Control CanDosEstLim.
@@ -121,6 +121,42 @@ namespace AppSoftClean.Vistas.Listas {
         protected global::System.Web.UI.WebControls.DropDownList DDL_DosEstLim;
         
         /// <summary>
+        /// Control MyAlerta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MyAlerta;
+        
+        /// <summary>
+        /// Control UpdateProdQuimQuitar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdateProdQuimQuitar;
+        
+        /// <summary>
+        /// Control UpdateProdQuimAgregar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdateProdQuimAgregar;
+        
+        /// <summary>
+        /// Control LBProdQuim.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox LBProdQuim;
+        
+        /// <summary>
         /// Control DDL_ProdQuim.
         /// </summary>
         /// <remarks>
@@ -139,13 +175,13 @@ namespace AppSoftClean.Vistas.Listas {
         protected global::System.Web.UI.WebControls.Button BtnAgregar;
         
         /// <summary>
-        /// Control BtnQuitar.
+        /// Control BtnQuitar_ProdQuim.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnQuitar;
+        protected global::System.Web.UI.WebControls.Button BtnQuitar_ProdQuim;
         
         /// <summary>
         /// Control TextCanModJab.
@@ -202,66 +238,93 @@ namespace AppSoftClean.Vistas.Listas {
         protected global::System.Web.UI.WebControls.TextBox TextBase;
         
         /// <summary>
-        /// Control TextBox1.
+        /// Control TextCanTipMaqLav.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox TextCanTipMaqLav;
         
         /// <summary>
-        /// Control DropDownList2.
+        /// Control DDL_TipMaqLav.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList DDL_TipMaqLav;
         
         /// <summary>
-        /// Control DropDownList1.
+        /// Control UpdateDosLavQuitar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.UpdatePanel UpdateDosLavQuitar;
         
         /// <summary>
-        /// Control Button1.
+        /// Control UpdateDosLavCargar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.UpdatePanel UpdateDosLavCargar;
         
         /// <summary>
-        /// Control Button2.
+        /// Control LBDosLav.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.ListBox LBDosLav;
         
         /// <summary>
-        /// Control TextBox2.
+        /// Control DDL_DosLav.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.DropDownList DDL_DosLav;
         
         /// <summary>
-        /// Control DropDownList3.
+        /// Control BtnCargar_DosLav.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
+        protected global::System.Web.UI.WebControls.Button BtnCargar_DosLav;
+        
+        /// <summary>
+        /// Control BtnQuitar_DosLav.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnQuitar_DosLav;
+        
+        /// <summary>
+        /// Control TextCanPorGalon.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextCanPorGalon;
+        
+        /// <summary>
+        /// Control DDL_PorGalon.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_PorGalon;
     }
 }

@@ -67,7 +67,7 @@
                 <div class="col-lg-4">
                     <asp:RegularExpressionValidator ID="revQuimico" runat="server" ValidationGroup="VDProdQuim"
                         ErrorMessage="Solo Ingrese Letras"
-                        ValidationExpression="^[a-zA-Z ]*$"
+                        ValidationExpression="^[a-zA-ZÀ-ÿ ]*$"
                         ControlToValidate="TextQuimico"
                         ForeColor="Red">
                     </asp:RegularExpressionValidator>

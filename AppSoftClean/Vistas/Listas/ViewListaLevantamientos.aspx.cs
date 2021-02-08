@@ -1,5 +1,6 @@
 ﻿using AppSoftClean.Data.Infraestructure;
 using AppSoftClean.Data.Model;
+using AppSoftClean.Data.Recursos;
 using AppSoftClean.Data.Repository;
 using AppSoftClean.Web.Control;
 using Microsoft.Practices.Unity;
@@ -62,10 +63,12 @@ namespace AppSoftClean.Vistas.Listas
         protected void dgvDatos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = int.Parse(e.CommandArgument.ToString());
+            string idObjeto;
             switch (e.CommandName)
             {
                 case "Editar":
-
+                    idObjeto = dgvDatos.Rows[index].Cells[0].Text;
+                    Response.Redirect(direcciones.ViewLevantamientoEquipos + idObjeto);
                     break;
                 case "Eliminar":
 

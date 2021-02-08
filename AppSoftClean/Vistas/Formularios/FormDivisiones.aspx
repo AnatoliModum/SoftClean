@@ -51,7 +51,7 @@
                 <div class="col-lg-4">
                     <asp:RegularExpressionValidator ID="revDivision" runat="server" ValidationGroup="VDDivisiones"
                         ErrorMessage="Solo Ingrese Letras"
-                        ValidationExpression="^[a-zA-Z ]*$"
+                        ValidationExpression="^[a-zA-ZÀ-ÿ& ]*$"
                         ControlToValidate="TextDivision"
                         ForeColor="Red">
                     </asp:RegularExpressionValidator>

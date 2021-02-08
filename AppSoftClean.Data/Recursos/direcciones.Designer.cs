@@ -196,6 +196,15 @@ namespace AppSoftClean.Data.Recursos {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ~/Vistas/Listas/ViewLevantamientoEquipos.aspx?id=.
+        /// </summary>
+        public static string ViewLevantamientoEquipos {
+            get {
+                return ResourceManager.GetString("ViewLevantamientoEquipos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ~/Vistas/Listas/ViewModEqDos.aspx.
         /// </summary>
         public static string ViewModEqDos {

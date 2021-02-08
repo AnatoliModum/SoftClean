@@ -59,7 +59,7 @@
                 <div class="col-lg-4">
                     <asp:RegularExpressionValidator ID="revArea" runat="server" ValidationGroup="VDArea"
                         ErrorMessage="Solo Ingrese Letras"
-                        ValidationExpression="^[a-zA-Z ]*$"
+                        ValidationExpression="^[a-zA-ZÀ-ÿ ]*$"
                         ControlToValidate="TextArea"
                         ForeColor="Red">
                     </asp:RegularExpressionValidator>
@@ -67,7 +67,7 @@
                   <div class="col-lg-5">
                     <asp:RegularExpressionValidator ID="revDescripcion" runat="server" ValidationGroup="VDArea"
                         ErrorMessage="Solo Ingrese Letras y Números"
-                        ValidationExpression="^[A-Z0-9 a-z]*$"
+                        ValidationExpression="^[A-Z0-9À-ÿ a-z]*$"
                         ControlToValidate="TextDescripcion"
                         ForeColor="Red">
                     </asp:RegularExpressionValidator>

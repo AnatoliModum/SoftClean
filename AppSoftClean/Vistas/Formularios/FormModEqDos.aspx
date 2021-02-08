@@ -62,8 +62,8 @@
             <div class="row">
                 <div class="col-lg-4">
                     <asp:RegularExpressionValidator ID="revModelo" runat="server" ValidationGroup="VDModEqDos"
-                        ErrorMessage="Solo Ingrese Letras"
-                        ValidationExpression="^[a-zA-Z ]*$"
+                        ErrorMessage="Solo Ingrese Letras y Números"
+                        ValidationExpression="^[a-zA-Z0-9 ]*$"
                         ControlToValidate="TextModelo"
                         ForeColor="Red">
                     </asp:RegularExpressionValidator>
