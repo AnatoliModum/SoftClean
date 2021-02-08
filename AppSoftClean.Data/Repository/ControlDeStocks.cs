@@ -90,6 +90,7 @@ namespace AppSoftClean.Data.Repository
             List<string> listQuimicos = getProductos(Pedido.ProdQuim);
 
             List<AdmProdQuim> listAdmProdQuim = new List<AdmProdQuim>();
+            count = 0;
 
             for (int i = 0; i < listQuimicos.Count(); i++)
             {
@@ -97,14 +98,18 @@ namespace AppSoftClean.Data.Repository
 
                 if (listAdmProdQuim[i].Stock >= 1)
                 {
-                    CDP._QuimicosStock = true;
+                    count += 1;
                 }
+            }
+            if (count == listQuimicos.Count())
+            {
+                CDP._QuimicosStock = true;
             }
 
             //ModJabStock
             RepositoryModJab RMJ = new RepositoryModJab();
 
-            int? stockModJabStock = RMJ.GetJaboneraByID(int.Parse(Pedido.IdModJab.ToString()))[0].Stock;
+            int? stockModJabStock = RMJ.GetJaboneraByID(Pedido.IdModJab.Value)[0].Stock;
 
             if (stockModJabStock >= Pedido.CanModJab)
             {
@@ -115,7 +120,7 @@ namespace AppSoftClean.Data.Repository
 
             RepositoryTipMaqLav RTML = new RepositoryTipMaqLav();
 
-            int? stockTipMaqLavStock = RTML.GetLavavajillasByID(int.Parse(Pedido.IdTipMaqLav.ToString()))[0].Stock;
+            int? stockTipMaqLavStock = RTML.GetLavavajillasByID(Pedido.IdTipMaqLav.Value)[0].Stock;
 
             if (stockTipMaqLavStock >= Pedido.CanTipMaqLav)
             {
@@ -128,21 +133,26 @@ namespace AppSoftClean.Data.Repository
             List<string> listDosLav = getProductos(Pedido.DosLav);
 
             List<AdmDosLav> listDosLav2 = new List<AdmDosLav>();
-
+            count = 0;
             for (int i = 0; i < listDosLav.Count(); i++)
             {
                 listDosLav2.Add(RDL.GetDosificadoresByName(listDosLav[i])[0]);
 
                 if (listDosLav2[i].Stock >= 1)
                 {
-                    CDP._DosLavStock = true;
+                    count += 1;
                 }
+            }
+
+            if (count == listDosLav.Count())
+            {
+                CDP._DosLavStock = true;
             }
 
             //ModEqDos pendiente
             RepositoryModEqDos RMED = new RepositoryModEqDos();
 
-            int? stockModEqDos = RMED.GetEquipoDosificadorByID(int.Parse(Pedido.IdModEqDos.ToString()))[0].EqDisponibles;
+            int? stockModEqDos = RMED.GetEquipoDosificadorByID(Pedido.IdModEqDos.Value)[0].EqDisponibles;
 
             if (stockModEqDos >= Pedido.CanModEqDos)
             {
@@ -153,7 +163,7 @@ namespace AppSoftClean.Data.Repository
 
             RepositoryPortGalon RPG = new RepositoryPortGalon();
 
-            int? stockPorGalon = RPG.GetGaloneraByID(int.Parse(Pedido.IdPorGalon.ToString()))[0].Stock;
+            int? stockPorGalon = RPG.GetGaloneraByID(Pedido.IdPorGalon.Value)[0].Stock;
 
             if (stockPorGalon >= Pedido.CanPorGalon)
             {
