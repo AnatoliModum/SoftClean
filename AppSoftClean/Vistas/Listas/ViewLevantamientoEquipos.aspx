@@ -78,17 +78,18 @@
                         <%--configuramos las columnas del grid--%>
                         <Columns>
                             <asp:BoundField HeaderText="Id" DataField="id" ItemStyle-Font-Size="10" />
-                            <asp:BoundField HeaderText="Área de Instalación" DataField="" ItemStyle-Font-Size="10" />
-                            <asp:BoundField HeaderText="Módelo Equipo Dosificador" DataField="" ItemStyle-Font-Size="10" />
-                            <asp:BoundField HeaderText="Dosificador Estación de Limpieza" DataField="" ItemStyle-Font-Size="10" />
-                            <asp:BoundField HeaderText="Productos Químicos" DataField="" ItemStyle-Font-Size="10" />
-                            <asp:BoundField HeaderText="Modelo Jabonera" DataField="" ItemStyle-Font-Size="10" />
-                            <asp:BoundField HeaderText="Cepillo, Inserto y Base" DataField="" ItemStyle-Font-Size="10" />
-                            <asp:BoundField HeaderText="Tipos de Máquinas Lavavajillas" DataField="" ItemStyle-Font-Size="10" />
-                            <asp:BoundField HeaderText="Dosificador para Lavavajillas" DataField="" ItemStyle-Font-Size="10" />
-                            <asp:BoundField HeaderText="Porta Galón" DataField="" ItemStyle-Font-Size="10" />
+                            <asp:BoundField HeaderText="Área de Instalación" DataField="AreaInstalacion" ItemStyle-Font-Size="10" />
+                            <asp:BoundField HeaderText="Módelo Equipo Dosificador" DataField="ModeloEquipoDosificador" ItemStyle-Font-Size="10" />
+                            <asp:BoundField HeaderText="Dosificador Estación de Limpieza" DataField="DosificadorEstacionDeLimpieza" ItemStyle-Font-Size="10" />
+                            <asp:BoundField HeaderText="Productos Químicos" DataField="ProductosQuimicos" ItemStyle-Font-Size="10" />
+                            <asp:BoundField HeaderText="Modelo Jabonera" DataField="ModeloJabonera" ItemStyle-Font-Size="10" />
+                            <asp:BoundField HeaderText="Cepillo, Inserto y Base" DataField="CantidadConsumibles" ItemStyle-Font-Size="10" />
+                            <asp:BoundField HeaderText="Tipos de Máquinas Lavavajillas" DataField="TipoMaquinaLavavajillas" ItemStyle-Font-Size="10" />
+                            <asp:BoundField HeaderText="Dosificador para Lavavajillas" DataField="DosificadoresLavavajillas" ItemStyle-Font-Size="10" />
+                            <asp:BoundField HeaderText="Porta Galón" DataField="PortaGalones" ItemStyle-Font-Size="10" />
 
-                            <asp:BoundField HeaderText="No. Hoja" DataField="NumHoja" ItemStyle-Font-Size="10" />
+                            <asp:BoundField HeaderText="No. Hoja" DataField="NumeroDeHoja" ItemStyle-Font-Size="10" />
+
                             <asp:TemplateField HeaderText="Editar">
                                 <ItemTemplate>
                                     <asp:ImageButton ID="ImgEditar" runat="server" ImageUrl="~/Imagenes/editar.png"

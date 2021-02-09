@@ -15,6 +15,9 @@ namespace AppSoftClean.Vistas.Listas
 
         private RepositoryLevantamientoEquipos REP = new RepositoryLevantamientoEquipos();
         private RepositoryProdQuim RPQ = new RepositoryProdQuim();
+        private RepositoryReportes RR = new RepositoryReportes();
+        private RepositoryPedidosArea RPA = new RepositoryPedidosArea();
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,7 +33,7 @@ namespace AppSoftClean.Vistas.Listas
                 FillDropDownListPorGalon();
             }
         }
-
+        
         private void FillDropDownListDosLav()
         {
             DDL_DosLav.Items.Clear();
@@ -90,6 +93,10 @@ namespace AppSoftClean.Vistas.Listas
             DDL_Division.Items.Clear();
             this.FillDropDownListDivision();
             DDL_Division.SelectedValue = string.Concat(equipoObj.IdDivision);
+
+            List<Reportes> levantamientoEquipos = RR.ObtenerListado(RPA.GetPedidoByIDLevantamiento(id), equipoObj);
+
+            this.dgvDatos.getCatalog(levantamientoEquipos);
         }
 
         private void FillDropDownListDivision()
@@ -147,6 +154,29 @@ namespace AppSoftClean.Vistas.Listas
 
         protected void btnCrear_Modal_Click(object sender, EventArgs e)
         {
+
+            PedidosArea pedidoArea = new PedidosArea();
+
+            //Modelo Equipo Dosificador
+            pedidoArea.IdModEqDos = int.Parse(DDL_ModEqDos.SelectedValue);
+            pedidoArea.CanModEqDos = int.Parse(DDL_CanModEqDos.SelectedValue);
+            //Dosificador de limpieza
+            pedidoArea.IdDosEstLim = int.Parse(DDL_DosEstLim.SelectedValue);
+            pedidoArea.CanDosEstLim = int.Parse(CanDosEstLim.SelectedValue);
+
+            //Productos quimicos
+            pedidoArea.ProdQuim = LBProdQuim.Text;
+
+            //Modelo Jabonero
+            pedidoArea.IdModJab = int.Parse(DDL_ModJab.SelectedValue);
+            pedidoArea.CanModJab = int.Parse(TextCanModJab.Text);
+
+            //Cepillo Inserto Base
+            pedidoArea.CanCepInBas = int.Parse(TextCanConsumibles.Text);
+
+            //Tipo MaqTav
+
+
 
         }
     }

@@ -21,7 +21,7 @@
         <EntityTypeShape EntityType="ServiceForHotelModel.Categorias" Width="1.5" PointX="7.375" PointY="1.25" />
         <EntityTypeShape EntityType="ServiceForHotelModel.Usuarios" Width="1.5" PointX="9.625" PointY="0.875" />
         <AssociationConnector Association="ServiceForHotelModel.FK_Categoria" />
-        <EntityTypeShape EntityType="ServiceForHotelModel.PedidosArea" Width="1.5" PointX="5.25" PointY="10.5" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.PedidosArea" Width="1.5" PointX="12.25" PointY="10.375" />
         <AssociationConnector Association="ServiceForHotelModel.FK_DosEstacionLimpieza" />
         <AssociationConnector Association="ServiceForHotelModel.FK_DosificadoresLavavajillas" />
         <AssociationConnector Association="ServiceForHotelModel.FK_ModeloEquipoDosificador" />
@@ -29,7 +29,8 @@
         <AssociationConnector Association="ServiceForHotelModel.FK_PortaGalones" />
         <AssociationConnector Association="ServiceForHotelModel.FK_ProductosQuimicos" />
         <AssociationConnector Association="ServiceForHotelModel.FK_MaquinasLavavajillas" />
-      </Diagram>
+        <AssociationConnector Association="ServiceForHotelModel.FK_LevantamientoEquipos" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

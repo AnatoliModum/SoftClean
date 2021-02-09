@@ -38,10 +38,8 @@ namespace AppSoftClean.Data.Repository
 
                 pedidoObj.IdModEqDos = Pedido.IdModEqDos;
                 pedidoObj.IdDosEstLim = Pedido.IdDosEstLim;
-                pedidoObj.IdProdQuim = Pedido.IdProdQuim;
                 pedidoObj.IdModJab = Pedido.IdModJab;
                 pedidoObj.IdTipMaqLav = Pedido.IdTipMaqLav;
-                pedidoObj.IdDosLav = Pedido.IdDosLav;
                 pedidoObj.IdPorGalon = Pedido.IdPorGalon;
 
                 pedidoObj.ProdQuim = Pedido.ProdQuim;
@@ -107,6 +105,20 @@ namespace AppSoftClean.Data.Repository
             try
             {
                 pedidoObj = conn.PedidosArea.Where(c => c.id == id).ToList<PedidosArea>();
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+            return pedidoObj;
+        }
+
+        public List<PedidosArea> GetPedidoByIDLevantamiento(int idLevantanmiento)
+        {
+            List<PedidosArea> pedidoObj = null;
+            try
+            {
+                pedidoObj = conn.PedidosArea.Where(c => c.IdLevantamientoEquipo == idLevantanmiento).ToList<PedidosArea>();
             }
             catch (Exception ex)
             {

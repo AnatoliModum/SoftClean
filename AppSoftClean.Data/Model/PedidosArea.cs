@@ -31,6 +31,7 @@ namespace AppSoftClean.Data.Model
         public string DosLav { get; set; }
         public Nullable<int> IdPorGalon { get; set; }
         public Nullable<int> CanPorGalon { get; set; }
+        public Nullable<int> IdLevantamientoEquipo { get; set; }
     
         public virtual AdmDosEstLim AdmDosEstLim { get; set; }
         public virtual AdmDosLav AdmDosLav { get; set; }
@@ -39,5 +40,6 @@ namespace AppSoftClean.Data.Model
         public virtual AdmPortGalon AdmPortGalon { get; set; }
         public virtual AdmProdQuim AdmProdQuim { get; set; }
         public virtual AdmTipMaqLav AdmTipMaqLav { get; set; }
+        public virtual LevantamientoEquipos LevantamientoEquipos { get; set; }
     }
 }

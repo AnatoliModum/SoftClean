@@ -119,12 +119,14 @@
     <Compile Include="Model\Categorias.cs">
       <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\ComprobacionDePedidos.cs" />
     <Compile Include="Model\LevantamientoEquipos.cs">
       <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PedidosArea.cs">
       <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Reportes.cs" />
     <Compile Include="Model\SoftCleanEntityWeb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -149,6 +151,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>direcciones.resx</DependentUpon>
     </Compile>
+    <Compile Include="Repository\ControlDeStocks.cs" />
     <Compile Include="Repository\RepositoryAreaUso.cs" />
     <Compile Include="Repository\RepositoryCategorias.cs" />
     <Compile Include="Repository\RepositoryCepInsBas.cs" />
@@ -161,6 +164,7 @@
     <Compile Include="Repository\RepositoryPedidosArea.cs" />
     <Compile Include="Repository\RepositoryPortGalon.cs" />
     <Compile Include="Repository\RepositoryProdQuim.cs" />
+    <Compile Include="Repository\RepositoryReportes.cs" />
     <Compile Include="Repository\RepositoryTipMaqLav.cs" />
     <Compile Include="Repository\RepositoryUsuarios.cs" />
   </ItemGroup>

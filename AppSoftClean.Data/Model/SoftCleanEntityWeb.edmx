@@ -122,6 +122,7 @@
           <Property Name="DosLav" Type="text" />
           <Property Name="IdPorGalon" Type="int" />
           <Property Name="CanPorGalon" Type="int" />
+          <Property Name="IdLevantamientoEquipo" Type="int" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -190,6 +191,18 @@
             </Principal>
             <Dependent Role="PedidosArea">
               <PropertyRef Name="IdDosLav" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LevantamientoEquipos">
+          <End Role="LevantamientoEquipos" Type="Self.LevantamientoEquipos" Multiplicity="0..1" />
+          <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LevantamientoEquipos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PedidosArea">
+              <PropertyRef Name="IdLevantamientoEquipo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -288,6 +301,10 @@
             <End Role="AdmDosLav" EntitySet="AdmDosLav" />
             <End Role="PedidosArea" EntitySet="PedidosArea" />
           </AssociationSet>
+          <AssociationSet Name="FK_LevantamientoEquipos" Association="Self.FK_LevantamientoEquipos">
+            <End Role="LevantamientoEquipos" EntitySet="LevantamientoEquipos" />
+            <End Role="PedidosArea" EntitySet="PedidosArea" />
+          </AssociationSet>
           <AssociationSet Name="FK_MaquinasLavavajillas" Association="Self.FK_MaquinasLavavajillas">
             <End Role="AdmTipMaqLav" EntitySet="AdmTipMaqLav" />
             <End Role="PedidosArea" EntitySet="PedidosArea" />
@@ -368,7 +385,11 @@
             <End Role="AdmTipMaqLav" EntitySet="AdmTipMaqLav" />
             <End Role="PedidosArea" EntitySet="PedidosArea" />
           </AssociationSet>
-        </EntityContainer>
+          <AssociationSet Name="FK_LevantamientoEquipos" Association="ServiceForHotelModel.FK_LevantamientoEquipos">
+            <End Role="LevantamientoEquipos" EntitySet="LevantamientoEquipos" />
+            <End Role="PedidosArea" EntitySet="PedidosArea" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="AdmCepInBas">
           <Key>
             <PropertyRef Name="id" />
@@ -468,6 +489,7 @@
           <Property Name="dteFecha" Type="DateTime" Precision="0" />
           <Property Name="NumHoja" Type="Int32" />
           <NavigationProperty Name="AdmDivisiones" Relationship="ServiceForHotelModel.FK_Division" FromRole="LevantamientoEquipos" ToRole="AdmDivisiones" />
+          <NavigationProperty Name="PedidosArea" Relationship="ServiceForHotelModel.FK_LevantamientoEquipos" FromRole="LevantamientoEquipos" ToRole="PedidosArea" />
         </EntityType>
         <Association Name="FK_Division">
           <End Type="ServiceForHotelModel.AdmDivisiones" Role="AdmDivisiones" Multiplicity="0..1" />
@@ -545,6 +567,7 @@
           <Property Name="DosLav" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IdPorGalon" Type="Int32" />
           <Property Name="CanPorGalon" Type="Int32" />
+          <Property Name="IdLevantamientoEquipo" Type="Int32" />
           <NavigationProperty Name="AdmDosEstLim" Relationship="ServiceForHotelModel.FK_DosEstacionLimpieza" FromRole="PedidosArea" ToRole="AdmDosEstLim" />
           <NavigationProperty Name="AdmDosLav" Relationship="ServiceForHotelModel.FK_DosificadoresLavavajillas" FromRole="PedidosArea" ToRole="AdmDosLav" />
           <NavigationProperty Name="AdmModEqDos" Relationship="ServiceForHotelModel.FK_ModeloEquipoDosificador" FromRole="PedidosArea" ToRole="AdmModEqDos" />
@@ -552,6 +575,7 @@
           <NavigationProperty Name="AdmPortGalon" Relationship="ServiceForHotelModel.FK_PortaGalones" FromRole="PedidosArea" ToRole="AdmPortGalon" />
           <NavigationProperty Name="AdmProdQuim" Relationship="ServiceForHotelModel.FK_ProductosQuimicos" FromRole="PedidosArea" ToRole="AdmProdQuim" />
           <NavigationProperty Name="AdmTipMaqLav" Relationship="ServiceForHotelModel.FK_MaquinasLavavajillas" FromRole="PedidosArea" ToRole="AdmTipMaqLav" />
+          <NavigationProperty Name="LevantamientoEquipos" Relationship="ServiceForHotelModel.FK_LevantamientoEquipos" FromRole="PedidosArea" ToRole="LevantamientoEquipos" />
         </EntityType>
         <Association Name="FK_DosEstacionLimpieza">
           <End Type="ServiceForHotelModel.AdmDosEstLim" Role="AdmDosEstLim" Multiplicity="0..1" />
@@ -634,6 +658,18 @@
             </Principal>
             <Dependent Role="PedidosArea">
               <PropertyRef Name="IdTipMaqLav" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LevantamientoEquipos">
+          <End Type="ServiceForHotelModel.LevantamientoEquipos" Role="LevantamientoEquipos" Multiplicity="0..1" />
+          <End Type="ServiceForHotelModel.PedidosArea" Role="PedidosArea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LevantamientoEquipos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PedidosArea">
+              <PropertyRef Name="IdLevantamientoEquipo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -765,6 +801,7 @@
           <EntitySetMapping Name="PedidosArea">
             <EntityTypeMapping TypeName="ServiceForHotelModel.PedidosArea">
               <MappingFragment StoreEntitySet="PedidosArea">
+                <ScalarProperty Name="IdLevantamientoEquipo" ColumnName="IdLevantamientoEquipo" />
                 <ScalarProperty Name="CanPorGalon" ColumnName="CanPorGalon" />
                 <ScalarProperty Name="IdPorGalon" ColumnName="IdPorGalon" />
                 <ScalarProperty Name="DosLav" ColumnName="DosLav" />

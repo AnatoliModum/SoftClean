@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Repository
 {
-    class RepositoryReportes
+   public class RepositoryReportes
     {
         public List<Reportes> ObtenerListado(List<PedidosArea> pedido, LevantamientoEquipos levantamiento)
         {
@@ -21,7 +21,7 @@ namespace AppSoftClean.Data.Repository
                 id = levantamiento.IdDivision.Value;
                 reporte.Division = RD.GetDivisionesByID(id).First().Nombre;
                 
-                reporte.Fecha = levantamiento.dteFecha.ToString();
+                reporte.Fecha = levantamiento.dteFecha.Value;
                 reporte.NumeroDeHoja = levantamiento.NumHoja.Value;
                 
                 #region Consultas simples sin listado;
@@ -49,9 +49,12 @@ namespace AppSoftClean.Data.Repository
 
                 reporte.CantidadConsumibles = pedido[i].CanCepInBas.Value;
                 #endregion
+                string saltoLinea = "" + Environment.NewLine;
 
-                reporte.ProductosQuimicos = getProductos(pedido[i].ProdQuim);
-                reporte.DosificadoresLavavajillas = getProductos(pedido[i].DosLav);
+                reporte.ProductosQuimicos = pedido[i].ProdQuim.Replace(".",saltoLinea);
+                reporte.DosificadoresLavavajillas = pedido[i].DosLav.Replace(".",saltoLinea);
+
+                reporte.id = pedido[i].id;
 
                 ListaReportes.Add(reporte);
             }
