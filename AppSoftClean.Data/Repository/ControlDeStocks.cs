@@ -47,17 +47,21 @@ namespace AppSoftClean.Data.Repository
             return res;
         }
 
+        public string ActualizarPedido(PedidosArea Pedido)
+        {
+            return "";
+        }
+
         public ComprobacionDePedidos ValidacionCreate(PedidosArea Pedido)
         {
             ComprobacionDePedidos CDP = new ComprobacionDePedidos();
             int id = 0;
-            bool res = false;
-
+            
             RepositoryDosEstLimp RDEL = new RepositoryDosEstLimp();
             id = Pedido.IdDosEstLim.Value;
             AdmDosEstLim dosEstacion = RDEL.GetEstacionesByID(id).First();
 
-            if (dosEstacion.EqDisponibles < Pedido.CanDosEstLim)
+            if (dosEstacion.EqDisponibles >= Pedido.CanDosEstLim)
             {
                 CDP._DosEstLimStock = true;
             }
@@ -71,17 +75,13 @@ namespace AppSoftClean.Data.Repository
             foreach (var item in listAdm)
             {
 
-                if (item.Stock > Pedido.CanCepInBas)
+                if (item.Stock >= Pedido.CanCepInBas)
                     count += 1;
 
             }
 
             if (count == 3)
             {
-                for (int idfor = 0; idfor < listAdm.Count; idfor++)
-                {
-                    listAdm[idfor].Stock = listAdm[idfor].Stock - Pedido.CanCepInBas;
-                }
                 CDP._CepInBasStock = true;
             }
 
@@ -238,6 +238,16 @@ namespace AppSoftClean.Data.Repository
 
 
             return res;
+        }
+
+        public ComprobacionDePedidos ValidacionUpdate(PedidosArea Pedido)
+        {
+            return null;
+        }
+
+        public bool ModificadorStockUpdate(PedidosArea Pedido)
+        {
+            return false;
         }
 
         public List<string> getProductos(string cadena)
