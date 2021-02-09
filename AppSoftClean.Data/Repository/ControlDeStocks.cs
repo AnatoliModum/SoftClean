@@ -391,9 +391,169 @@ namespace AppSoftClean.Data.Repository
             return res;
         }
 
-        private ComprobacionDePedidos ValidacionUpdate(PedidosArea Pedido)
+        private ComprobacionDePedidos ValidacionUpdate(PedidosArea PedidoNew)
         {
-            return null;
+            int count = 0;
+            ComprobacionDePedidos CDP = new ComprobacionDePedidos();
+
+            RepositoryPedidosArea RPA = new RepositoryPedidosArea();
+            PedidosArea pedidoOld =RPA.GetPedidoByID(PedidoNew.id).First();
+
+            //DosEstLimStock
+            RepositoryDosEstLimp RDEL = new RepositoryDosEstLimp();
+
+            if (pedidoOld.CanDosEstLim < PedidoNew.CanDosEstLim)
+            {
+                int? stockDosEstLimStock = RDEL.GetEstacionesByID(PedidoNew.IdDosEstLim.Value).First().EqDisponibles;
+
+                if (stockDosEstLimStock > (PedidoNew.CanDosEstLim - pedidoOld.CanDosEstLim))
+                {
+                    CDP._DosEstLimStock = true;
+
+                }
+            }
+            else
+            {
+                CDP._DosEstLimStock = true;
+            }
+
+            //ModJabStock
+            RepositoryModJab RMJ = new RepositoryModJab();
+
+            if (pedidoOld.CanModJab < PedidoNew.CanModJab)
+            {
+                int? stockModJabStock = RMJ.GetJaboneraByID(PedidoNew.IdModJab.Value).First().Stock;
+
+                if (stockModJabStock > (PedidoNew.CanModJab - pedidoOld.CanModJab))
+                {
+                    CDP._ModJabStock = true;
+                }
+            }
+            else
+            {
+                CDP._ModJabStock = true;
+            }
+
+            //CepInBasStock
+            RepositoryCepInsBas RCIB = new RepositoryCepInsBas();
+
+            if (pedidoOld.CanCepInBas < PedidoNew.CanCepInBas)
+            {
+                List<AdmCepInBas> listAdm = RCIB.GetAllConsumibles();
+
+                foreach (var item in listAdm)
+                {
+                    if (item.Stock > (PedidoNew.CanCepInBas - pedidoOld.CanCepInBas))
+                    {
+                        count += 1;
+                    }
+                }
+
+                if (count == 3)
+                {
+                    CDP._CepInBasStock = true;
+                }
+            }
+            else
+            {
+                CDP._CepInBasStock = true;
+            }
+
+            //TipMaqLavStock
+            RepositoryTipMaqLav RTML = new RepositoryTipMaqLav();
+
+            if (pedidoOld.CanTipMaqLav < PedidoNew.CanTipMaqLav)
+            {
+                int? stockTipMaqLavStock = RTML.GetLavavajillasByID(PedidoNew.IdTipMaqLav.Value)[0].Stock;
+
+                if (stockTipMaqLavStock > (PedidoNew.CanTipMaqLav - pedidoOld.CanTipMaqLav))
+                {
+                    CDP._TipMaqLavStock = true;
+                }
+            }
+            else
+            {
+                CDP._TipMaqLavStock = true;
+            }
+
+            //QuimicosStock
+            RepositoryProdQuim RPQ = new RepositoryProdQuim();
+
+            List<string> listQuimicos = getProductos(PedidoNew.ProdQuim);
+
+            List<AdmProdQuim> listAdmProdQuim = new List<AdmProdQuim>();
+            count = 0;
+
+            for (int i = 0; i < listQuimicos.Count(); i++)
+            {
+                listAdmProdQuim.Add(RPQ.GetQuimicoByName(listQuimicos[i]).First());
+
+                if (listAdmProdQuim[i].Stock >= 1)
+                {
+                    count += 1;
+                }
+            }
+            if (count == listQuimicos.Count())
+            {
+                CDP._QuimicosStock = true;
+            }
+
+            //DosLavStock
+            RepositoryDosLav RDL = new RepositoryDosLav();
+
+            List<string> listDosLav = getProductos(PedidoNew.DosLav);
+
+            List<AdmDosLav> listDosLav2 = new List<AdmDosLav>();
+            count = 0;
+            for (int i = 0; i < listDosLav.Count(); i++)
+            {
+                listDosLav2.Add(RDL.GetDosificadoresByName(listDosLav[i])[0]);
+
+                if (listDosLav2[i].Stock >= 1)
+                {
+                    count += 1;
+                }
+            }
+            if (count == listDosLav.Count())
+            {
+                CDP._DosLavStock = true;
+            }
+
+            //ModEqDos
+            RepositoryModEqDos RMED = new RepositoryModEqDos();
+
+            if (pedidoOld.CanModEqDos < PedidoNew.CanModEqDos)
+            {
+                int? stockModEqDos = RMED.GetEquipoDosificadorByID(PedidoNew.IdModEqDos.Value).First().EqDisponibles;
+
+                if (stockModEqDos > (PedidoNew.CanModEqDos - pedidoOld.CanModEqDos))
+                {
+                    CDP._ModEqDos = true;
+                }
+            }
+            else
+            {
+                CDP._ModEqDos = true;
+            }
+
+            //PorGalon
+            RepositoryPortGalon RPG = new RepositoryPortGalon();
+
+            if (pedidoOld.CanPorGalon < PedidoNew.CanPorGalon)
+            {
+                int? stockPorGalon = RPG.GetGaloneraByID(PedidoNew.IdPorGalon.Value).First().Stock;
+
+                if (stockPorGalon > (PedidoNew.CanPorGalon - pedidoOld.CanPorGalon))
+                {
+                    CDP._PorGalon = true;
+                }
+            }
+            else
+            {
+                CDP._PorGalon = true;
+            }
+
+            return CDP;
         }
 
         private bool ModificadorStockUpdate(PedidosArea PedidoNuevo, PedidosArea PedidoAntiguo)
