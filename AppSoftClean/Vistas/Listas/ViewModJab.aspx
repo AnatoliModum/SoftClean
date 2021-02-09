@@ -24,10 +24,10 @@
                 <br>
                 <div class="row">
                     <div class="col-lg-10">
-                        <h2 style="margin-top:0px">Modelo Jabonera</h2>
+                        <h2 style="margin-top:0px"><asp:Image ID="ImgLista" CssClass="icono" ImageUrl="~/Imagenes/soap.png" runat="server" />&nbspModelo Jabonera</h2>
                     </div>
                     <div class="col-lg-1">
-                        <asp:Button ID="BtnCrear" class="btn btn-primary" runat="server" Text="Crear" OnClick="BtnCrear_Click" />
+                        <asp:Button ID="BtnCrear" class="btn btn-info" runat="server" Text="Crear" OnClick="BtnCrear_Click" />
                     </div>
                     <div class="col-lg-1" style="margin-left:-14px">
                         <asp:Button ID="BtnCancelar" class="btn btn-danger"  runat="server" Text="Cancelar" />
@@ -39,7 +39,7 @@
                     <asp:GridView ID="dgvDatos" runat="server" AllowPaging="True" AutoGenerateColumns="False"
                         PageSize="10" Width="100%" CssClass="table table-bordered bs-table" DataKeyNames="id"
                         EmptyDataText="No Existen Datos Aún." OnRowCommand="dgvDatos_RowCommand">
-                        <HeaderStyle BackColor="#1ABB9C" Font-Size="9" ForeColor="White" />
+                        <HeaderStyle BackColor="#5bc0de" Font-Size="9" ForeColor="White" />
                         <%--Configuracion de la cabecera--%>
                         <AlternatingRowStyle BackColor="#D1E5EE" Font-Size="10" ForeColor="#4C4C4C" />
                         <%--Configuracion de Filas Alternativas--%>

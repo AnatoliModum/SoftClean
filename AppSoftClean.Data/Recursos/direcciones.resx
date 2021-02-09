@@ -169,6 +169,9 @@
   <data name="ViewLevantamientoEquipos" xml:space="preserve">
     <value>~/Vistas/Listas/ViewLevantamientoEquipos.aspx?id=</value>
   </data>
+  <data name="ViewListaLevantamiento" xml:space="preserve">
+    <value>~/Vistas/Listas/ViewListaLevantamientos.aspx</value>
+  </data>
   <data name="ViewModEqDos" xml:space="preserve">
     <value>~/Vistas/Listas/ViewModEqDos.aspx</value>
   </data>

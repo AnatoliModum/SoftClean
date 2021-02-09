@@ -8,3 +8,25 @@
 .margen-titulo {
     margin-top: 0px!important;
 }
+
+.icono {
+    height: 27px;
+    margin-top: -8px;
+}
+
+.icono-modal {
+    margin-top: -5px;
+    height: 17px;
+    margin-right: -5px;
+}
+
+.modal-header-danger {
+    color: #fff;
+    padding: 9px 15px;
+    border-bottom: 1px solid #eee;
+    background-color: #d9534f;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-right: -1px;
+    margin-top: -1px;
+}

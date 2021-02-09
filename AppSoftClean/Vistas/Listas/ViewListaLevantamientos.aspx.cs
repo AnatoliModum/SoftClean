@@ -10,6 +10,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace AppSoftClean.Vistas.Listas
 {
@@ -71,7 +72,11 @@ namespace AppSoftClean.Vistas.Listas
                     Response.Redirect(direcciones.ViewLevantamientoEquipos + idObjeto);
                     break;
                 case "Eliminar":
-
+                    idObjeto = dgvDatos.Rows[index].Cells[0].Text;
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "MyModaldata();", true);
+                    LevantamientoEquipos levantamientoEquipos = levantamientoEquiposRepository.GetLevantamientoByID(int.Parse(idObjeto)).First();
+                    lblID.Text = String.Concat(levantamientoEquipos.id);
+                    lblFecha.Text = Convert.ToDateTime(levantamientoEquipos.dteFecha.ToString()).ToString("dd/MM/yyyy");
                     break;
             }
         }
@@ -79,7 +84,11 @@ namespace AppSoftClean.Vistas.Listas
 
         protected void BtnEliminar_Click(object sender, EventArgs e)
         {
-
+            string idObjeto = this.lblID.Text;
+            if (levantamientoEquiposRepository.EliminarLevantamiento(int.Parse(idObjeto)))
+            {
+                Response.Redirect(direcciones.ViewListaLevantamiento);
+            }
         }
 
         #region Evento para Guardar Registros
@@ -93,6 +102,7 @@ namespace AppSoftClean.Vistas.Listas
             else
             {
                 GuardarLevantamientoEquipos();
+                Response.Redirect(direcciones.ViewListaLevantamiento);
             }
         }
         #endregion
@@ -147,27 +157,13 @@ namespace AppSoftClean.Vistas.Listas
         {
             if (REP.InsertarLevantamiento(equipoObj))
             {
-                this.popupTodoBien();
+                
             }
             else
             {
-                this.popupNadaBien();
+                
             }
         }
         #endregion
-
-        protected void popupTodoBien()
-        {
-            string vtn = "window.open('../Vistas/popupSuccesful.aspx','Dates','scrollbars=yes,resizable=yes','height=300', 'width=300')";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "popup", vtn, true);
-        }
-
-        protected void popupNadaBien()
-        {
-            string vtn = "window.open('../Vistas/popupFailed.aspx','Dates','scrollbars=yes,resizable=yes','height=300', 'width=300')";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "popup", vtn, true);
-        }
-
-
     }
 }

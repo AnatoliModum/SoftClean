@@ -15,7 +15,7 @@
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Imagenes/cleaning.png" rel="shortcut icon" type="image/x-icon" />
 
     <asp:ContentPlaceHolder ID="Encabezado" runat="server">
     </asp:ContentPlaceHolder>
@@ -84,7 +84,6 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dosificadores<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="../Listas/ViewLevantamientoEquipos.aspx">Levantamiento de Equipos</a></li>
                                 <li><a href="../Listas/ViewDosEstLim.aspx">Estacion de Limpieza</a></li>
                                 <li><a href="../Listas/ViewDosLav.aspx">Lavavajillas</a></li>     
                                 <li><a href="../Listas/ViewModEqDos.aspx">Modelo Equipo</a></li>
