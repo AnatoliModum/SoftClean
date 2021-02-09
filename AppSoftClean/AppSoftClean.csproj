@@ -168,6 +168,7 @@
     <Content Include="Imagenes\gallon.png" />
     <Content Include="Imagenes\Imagen.png" />
     <Content Include="Imagenes\lista.png" />
+    <Content Include="Imagenes\new.png" />
     <Content Include="Imagenes\promo.png" />
     <Content Include="Imagenes\soap.png" />
     <Content Include="Imagenes\spray.png" />
