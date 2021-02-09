@@ -24,7 +24,7 @@
                 <br>
                 <div class="row">
                     <div class="col-lg-10">
-                        <h2 style="margin-top:0px"><asp:Image ID="ImgLista" CssClass="icono" ImageUrl="~/Imagenes/promo.png" runat="server" />&nbspModelo Equipo Dosificador</h2>
+                        <h2 style="margin-top:0px"><asp:Image ID="ImgLista" CssClass="icono" ImageUrl="~/Imagenes/promo.png" runat="server" />&nbsp Modelo Equipo Dosificador</h2>
                     </div>
                     <div class="col-lg-1">
                         <asp:Button ID="BtnCrear" class="btn btn-info" runat="server" Text="Crear" OnClick="BtnCrear_Click" />

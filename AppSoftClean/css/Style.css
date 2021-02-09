@@ -9,7 +9,7 @@
     margin-top: 0px!important;
 }
 
-.icono {
+.icono {    
     height: 27px;
     margin-top: -8px;
 }
@@ -18,6 +18,11 @@
     margin-top: -5px;
     height: 17px;
     margin-right: -5px;
+}
+
+.icono-modal-levantamiento {
+    height: 18px;
+    margin-top: -2px;
 }
 
 .modal-header-danger {

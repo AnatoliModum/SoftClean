@@ -144,5 +144,10 @@ namespace AppSoftClean.Vistas.Listas
                 this.UpdateDosLavQuitar.Update();
             }
         }
+
+        protected void btnCrear_Modal_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

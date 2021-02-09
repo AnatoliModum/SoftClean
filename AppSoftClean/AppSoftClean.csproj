@@ -170,6 +170,7 @@
     <Content Include="Imagenes\lista.png" />
     <Content Include="Imagenes\new.png" />
     <Content Include="Imagenes\promo.png" />
+    <Content Include="Imagenes\shops.png" />
     <Content Include="Imagenes\soap.png" />
     <Content Include="Imagenes\spray.png" />
     <Content Include="Imagenes\tienda.png" />
