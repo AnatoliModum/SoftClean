@@ -123,15 +123,15 @@
                 <div class="modal-body">
 
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#home"><i class="fas fa-store"></i>&nbsp Área de Instalación</a></li>
-                        <li><a data-toggle="tab" href="#menu1">Modelo Equipo Dosificador</a></li>
-                        <li><a data-toggle="tab" href="#menu2">Dosificador Estación de Limpieza</a></li>
-                        <li><a data-toggle="tab" href="#menu3">Productos Químicos</a></li>
-                        <li><a data-toggle="tab" href="#menu4">Modelo Jabonera</a></li>
-                        <li><a data-toggle="tab" href="#menu5">Cepillo, Inserto y Base</a></li>
-                        <li><a data-toggle="tab" href="#menu6">Tipo de Máquinas Lavavajillas</a></li>
-                        <li><a data-toggle="tab" href="#menu7">Dosificador para Lavavajillas</a></li>
-                        <li><a data-toggle="tab" href="#menu8">Porta galón</a></li>
+                        <li class="active"><a data-toggle="tab" href="#home"><asp:Image ID="Image8" CssClass="icono-modal-levantamiento" ImageUrl="~/Imagenes/shops.png" runat="server" />&nbsp Área de Instalación</a></li>
+                        <li><a data-toggle="tab" href="#menu1"><asp:Image ID="ImgLista" CssClass="icono-modal-levantamiento" ImageUrl="~/Imagenes/promo.png" runat="server" />&nbsp Modelo Equipo Dosificador</a></li>
+                        <li><a data-toggle="tab" href="#menu2"><asp:Image ID="Image1" CssClass="icono-modal-levantamiento" ImageUrl="~/Imagenes/bucket.png" runat="server" />&nbsp Dosificador Estación de Limpieza</a></li>
+                        <li><a data-toggle="tab" href="#menu3"><asp:Image ID="Image2" CssClass="icono-modal-levantamiento" ImageUrl="~/Imagenes/spray.png" runat="server" />&nbsp Productos Químicos</a></li>
+                        <li><a data-toggle="tab" href="#menu4"><asp:Image ID="Image3" CssClass="icono-modal-levantamiento" ImageUrl="~/Imagenes/soap.png" runat="server" />&nbsp Modelo Jabonera</a></li>
+                        <li><a data-toggle="tab" href="#menu5"><asp:Image ID="Image4" CssClass="icono-modal-levantamiento" ImageUrl="~/Imagenes/brush.png" runat="server" />&nbsp Cepillo, Inserto y Base</a></li>
+                        <li><a data-toggle="tab" href="#menu6"><asp:Image ID="Image5" CssClass="icono-modal-levantamiento" ImageUrl="~/Imagenes/type-dishwasher.png" runat="server" />&nbsp Tipo de Máquinas Lavavajillas</a></li>
+                        <li><a data-toggle="tab" href="#menu7"><asp:Image ID="Image6" CssClass="icono-modal-levantamiento" ImageUrl="~/Imagenes/dishwasher.png" runat="server" />&nbsp Dosificador para Lavavajillas</a></li>
+                        <li><a data-toggle="tab" href="#menu8"><asp:Image ID="Image7" CssClass="icono-modal-levantamiento" ImageUrl="~/Imagenes/gallon.png" runat="server" />&nbsp Porta galón</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -316,6 +316,7 @@
                     <br />
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <asp:Button ID="btnCrear_Modal" runat="server" Text="Crear" CssClass="btn btn-success" OnClick="btnCrear_Modal_Click" />
                     </div>
                 </div>
             </div>
