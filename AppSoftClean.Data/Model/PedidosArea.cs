@@ -21,19 +21,17 @@ namespace AppSoftClean.Data.Model
         public Nullable<int> IdDosEstLim { get; set; }
         public Nullable<int> CanDosEstLim { get; set; }
         public Nullable<int> IdProdQuim { get; set; }
-        public Nullable<int> CanProdQuim { get; set; }
+        public string ProdQuim { get; set; }
         public Nullable<int> IdModJab { get; set; }
         public Nullable<int> CanModJab { get; set; }
-        public Nullable<int> IdCepInBas { get; set; }
         public Nullable<int> CanCepInBas { get; set; }
         public Nullable<int> IdTipMaqLav { get; set; }
         public Nullable<int> CanTipMaqLav { get; set; }
         public Nullable<int> IdDosLav { get; set; }
-        public Nullable<int> CanDosLav { get; set; }
+        public string DosLav { get; set; }
         public Nullable<int> IdPorGalon { get; set; }
         public Nullable<int> CanPorGalon { get; set; }
     
-        public virtual AdmCepInBas AdmCepInBas { get; set; }
         public virtual AdmDosEstLim AdmDosEstLim { get; set; }
         public virtual AdmDosLav AdmDosLav { get; set; }
         public virtual AdmModEqDos AdmModEqDos { get; set; }

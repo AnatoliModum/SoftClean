@@ -16,20 +16,19 @@
         <EntityTypeShape EntityType="ServiceForHotelModel.AdmTipMaqLav" Width="1.5" PointX="3" PointY="19.375" />
         <EntityTypeShape EntityType="ServiceForHotelModel.AreaUso" Width="1.5" PointX="0.75" PointY="3.25" />
         <EntityTypeShape EntityType="ServiceForHotelModel.LevantamientoEquipos" Width="1.5" PointX="10" PointY="4.875" />
-        <EntityTypeShape EntityType="ServiceForHotelModel.PedidosArea" Width="1.5" PointX="5.25" PointY="1.125" />
-        <AssociationConnector Association="ServiceForHotelModel.FK_CepillosInsertosYBases" />
         <AssociationConnector Association="ServiceForHotelModel.FK_Division" />
+        <AssociationConnector Association="ServiceForHotelModel.FK_AreaDeUso" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.Categorias" Width="1.5" PointX="7.375" PointY="1.25" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.Usuarios" Width="1.5" PointX="9.625" PointY="0.875" />
+        <AssociationConnector Association="ServiceForHotelModel.FK_Categoria" />
+        <EntityTypeShape EntityType="ServiceForHotelModel.PedidosArea" Width="1.5" PointX="5.25" PointY="10.5" />
         <AssociationConnector Association="ServiceForHotelModel.FK_DosEstacionLimpieza" />
         <AssociationConnector Association="ServiceForHotelModel.FK_DosificadoresLavavajillas" />
         <AssociationConnector Association="ServiceForHotelModel.FK_ModeloEquipoDosificador" />
         <AssociationConnector Association="ServiceForHotelModel.FK_ModeloJabonera" />
         <AssociationConnector Association="ServiceForHotelModel.FK_PortaGalones" />
-        <AssociationConnector Association="ServiceForHotelModel.FK_AreaDeUso" />
         <AssociationConnector Association="ServiceForHotelModel.FK_ProductosQuimicos" />
         <AssociationConnector Association="ServiceForHotelModel.FK_MaquinasLavavajillas" />
-        <EntityTypeShape EntityType="ServiceForHotelModel.Categorias" Width="1.5" PointX="7.375" PointY="1.25" />
-        <EntityTypeShape EntityType="ServiceForHotelModel.Usuarios" Width="1.5" PointX="9.625" PointY="0.875" />
-        <AssociationConnector Association="ServiceForHotelModel.FK_Categoria" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
