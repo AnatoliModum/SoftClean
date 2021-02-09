@@ -109,7 +109,7 @@ namespace AppSoftClean.Vistas.Listas
 
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
-            LBProdQuim.Items.Add(this.DDL_ProdQuim.SelectedItem.Text);
+            LBProdQuim.Items.Add(this.DDL_ProdQuim.SelectedItem.Text + ".");
             this.UpdateProdQuimAgregar.Update();
         }
 
@@ -128,7 +128,7 @@ namespace AppSoftClean.Vistas.Listas
 
         protected void BtnCargar_DosLav_Click(object sender, EventArgs e)
         {
-            LBDosLav.Items.Add(this.DDL_DosLav.SelectedItem.Text);
+            LBDosLav.Items.Add(this.DDL_DosLav.SelectedItem.Text + ".");
             this.UpdateDosLavCargar.Update();
         }
 

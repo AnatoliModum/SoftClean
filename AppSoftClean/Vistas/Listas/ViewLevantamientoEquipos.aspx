@@ -114,7 +114,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
-                <div class="modal-header">
+                <div class="modal-header modal-header-success">
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">×</span>
                     </button>

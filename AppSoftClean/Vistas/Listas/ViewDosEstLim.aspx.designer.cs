@@ -13,6 +13,15 @@ namespace AppSoftClean.Vistas.Listas {
     public partial class ViewDosEstLim {
         
         /// <summary>
+        /// Control ImgLista.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImgLista;
+        
+        /// <summary>
         /// Control BtnCrear.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace AppSoftClean.Vistas.Listas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dgvDatos;
+        
+        /// <summary>
+        /// Control Image1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
         /// Control lblID.

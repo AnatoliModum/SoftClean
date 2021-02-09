@@ -187,3 +187,4 @@ C:\Users\aeder\source\repos\SoftClean\AppSoftClean\obj\Debug\AppSoftClean.csproj
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\obj\Debug\AppSoftClean.csproj.CopyComplete
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\obj\Debug\AppSoftClean.dll
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\obj\Debug\AppSoftClean.pdb
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\Gat.Controls.MessageBox.dll

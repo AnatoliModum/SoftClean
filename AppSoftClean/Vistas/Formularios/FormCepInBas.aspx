@@ -16,8 +16,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
-        <div class="col-lg-12">
-            <h1>Cepillo, Inserto y Base <span class="badge bg-secondary"><asp:Label ID="lblAccion" runat="server" Text="Accion"></asp:Label></span></h1>
+        <div class="col-lg-10">
+            <h1>Cepillo, Inserto y Base</h1>
+        </div>
+        <div class="col-lg-2">
+            <h2><span class="label label-info"><asp:Label ID="lblAccion" runat="server" Text="Label"></asp:Label></span></h2>
         </div>
     </div>
     <div class="panel panel-info panel-inicial">
