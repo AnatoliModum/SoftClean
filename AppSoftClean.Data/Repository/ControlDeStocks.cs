@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Repository
 {
-    class ControlDeStocks
+    public class ControlDeStocks
     {
         public string ComenzarPedido(PedidosArea Pedido)
         {
@@ -313,78 +313,87 @@ namespace AppSoftClean.Data.Repository
             RepositoryPortGalon RPG = new RepositoryPortGalon();
 
             #region Modificaciones constantes
-            if (Pedido.IdDosEstLim != 0)
+            if (Pedido.IdDosEstLim != 0 && Pedido.IdDosEstLim != null)
             {
                 id = Pedido.IdDosEstLim.Value;
                 AdmDosEstLim ADEL = RDEL.GetEstacionesByID(id).First();
                 ADEL.EqDisponibles = ADEL.EqDisponibles - Pedido.CanDosEstLim;
-                RDEL.ActualizarEstacion(ADEL);
+                if (RDEL.ActualizarEstacion(ADEL)) { res = true; } else { return res = false; }
             }
 
-            if (Pedido.IdModJab != 0)
+            if (Pedido.IdModJab != 0 && Pedido.IdModJab != null)
             {
                 id = Pedido.IdModJab.Value;
                 AdmModJab AMJ = RMJ.GetJaboneraByID(id).First();
                 AMJ.Stock = AMJ.Stock - Pedido.CanModJab;
-                RMJ.ActualizarJabonera(AMJ);
+                if (RMJ.ActualizarJabonera(AMJ)) { res = true; } else { return res = false; }
             }
 
-            if (Pedido.IdTipMaqLav != 0)
+            if (Pedido.IdTipMaqLav != 0 && Pedido.IdTipMaqLav != null)
             {
                 id = Pedido.IdTipMaqLav.Value;
                 AdmTipMaqLav ATML = RTML.GetLavavajillasByID(id).First();
                 ATML.Stock = ATML.Stock - Pedido.CanTipMaqLav;
-                RTML.ActualizarLavavajillas(ATML);
+                if (RTML.ActualizarLavavajillas(ATML)) { res = true; } else { return res = false; }
             }
 
-            if (Pedido.IdModEqDos != 0)
+            if (Pedido.IdModEqDos != 0 && Pedido.IdModEqDos != null)
             {
                 id = Pedido.IdModEqDos.Value;
                 AdmModEqDos AMED = RMED.GetEquipoDosificadorByID(id).First();
                 AMED.EqDisponibles = AMED.EqDisponibles - Pedido.CanModEqDos;
-                RMED.ActualizarEquipoDosificador(AMED);
+                if (RMED.ActualizarEquipoDosificador(AMED)) { res = true; } else { return res = false; }
             }
 
-            if (Pedido.IdPorGalon != 0)
+            if (Pedido.IdPorGalon != 0 && Pedido.IdPorGalon != null)
             {
                 id = Pedido.IdPorGalon.Value;
                 AdmPortGalon APG = RPG.GetGaloneraByID(id).First();
                 APG.Stock = APG.Stock - Pedido.CanPorGalon;
-                RPG.ActualizarGalonera(APG);
+                if (RPG.ActualizarGalonera(APG)) { res = true; } else { return res = false; }
             }
             #endregion
 
             #region consumibles
-            List<AdmCepInBas> ACIB = RCIB.GetAllConsumibles();
-            for(int i = 0; i < ACIB.Count(); i++)
+            if (Pedido.CanCepInBas != 0 && Pedido.CanCepInBas != null)
             {
-                ACIB[i].Stock = ACIB[i].Stock - Pedido.CanCepInBas;
-                RCIB.ActualizarConsumibles(ACIB[i]);
+                List<AdmCepInBas> ACIB = RCIB.GetAllConsumibles();
+                for (int i = 0; i < ACIB.Count(); i++)
+                {
+                    ACIB[i].Stock = ACIB[i].Stock - Pedido.CanCepInBas;
+                    if(RCIB.ActualizarConsumibles(ACIB[i])) { res = true; } else { return res = false; }
+            }
             }
             #endregion
 
             #region Quimicos
-            RepositoryProdQuim quimico = new RepositoryProdQuim();
-            AdmProdQuim ProductoQuimico = new AdmProdQuim();
-            List<String> listaQuimicos = getProductos(Pedido.ProdQuim);
-
-            for (int i = 0; i < getProductos(Pedido.ProdQuim).Count; i++) // Quita el stock que se requiere en el pedido nuevo
+            if (Pedido.ProdQuim.Length > 1 && Pedido.ProdQuim != null)
             {
-                ProductoQuimico = quimico.GetQuimicoByName(listaQuimicos[i]).First();
-                ProductoQuimico.Stock -= 1;
-                quimico.ActualizarQuimico(ProductoQuimico);
+                RepositoryProdQuim quimico = new RepositoryProdQuim();
+                AdmProdQuim ProductoQuimico = new AdmProdQuim();
+                List<String> listaQuimicos = getProductos(Pedido.ProdQuim);
+
+                for (int i = 0; i < getProductos(Pedido.ProdQuim).Count; i++) // Quita el stock que se requiere en el pedido nuevo
+                {
+                    ProductoQuimico = quimico.GetQuimicoByName(listaQuimicos[i]).First();
+                    ProductoQuimico.Stock -= 1;
+                    if(quimico.ActualizarQuimico(ProductoQuimico)) { res = true; } else { return res = false; }
+            }
             }
             #endregion
 
             #region DosLav
-            AdmDosLav Dosificador = new AdmDosLav();
-            List<String> listaDosificadores = getProductos(Pedido.DosLav);
-
-            for (int i = 0; i < listaDosificadores.Count; i++) // Quita el stock que se requiere en el pedido nuevo
+            if (Pedido.DosLav.Length > 1 && Pedido.DosLav != null)
             {
-                Dosificador = RDL.GetDosificadoresByName(listaDosificadores[i]).First();
-                Dosificador.Stock -= 1;
-                RDL.ActualizarDosificador(Dosificador);
+                AdmDosLav Dosificador = new AdmDosLav();
+                List<String> listaDosificadores = getProductos(Pedido.DosLav);
+
+                for (int i = 0; i < listaDosificadores.Count; i++) // Quita el stock que se requiere en el pedido nuevo
+                {
+                    Dosificador = RDL.GetDosificadoresByName(listaDosificadores[i]).First();
+                    Dosificador.Stock -= 1;
+                    if(RDL.ActualizarDosificador(Dosificador)) { res = true; } else { return res = false; }
+                }
             }
             #endregion
 
@@ -561,163 +570,200 @@ namespace AppSoftClean.Data.Repository
             #region Variables Constantes
             int id = PedidoNuevo.id;
             RepositoryPedidosArea RPA = new RepositoryPedidosArea();
+            bool res = false;
             #endregion
 
             #region condicionales constantes
-            if (PedidoAntiguo.CanDosEstLim < PedidoNuevo.CanDosEstLim)
+
+            if (PedidoNuevo.IdDosEstLim != 0 && PedidoNuevo.IdDosEstLim != null)
             {
-                RepositoryDosEstLimp RDEL = new RepositoryDosEstLimp();
-                id = PedidoNuevo.IdDosEstLim.Value;
-                AdmDosEstLim entidad = RDEL.GetEstacionesByID(id).First();
+                if (PedidoAntiguo.CanDosEstLim < PedidoNuevo.CanDosEstLim)
+                {
+                    RepositoryDosEstLimp RDEL = new RepositoryDosEstLimp();
+                    id = PedidoNuevo.IdDosEstLim.Value;
+                    AdmDosEstLim entidad = RDEL.GetEstacionesByID(id).First();
 
-                entidad.EqDisponibles = entidad.EqDisponibles - (PedidoNuevo.CanDosEstLim - PedidoAntiguo.CanDosEstLim);
-            }
-            else
-            {
-                RepositoryDosEstLimp RDEL = new RepositoryDosEstLimp();
-                id = PedidoNuevo.IdDosEstLim.Value;
-                AdmDosEstLim entidad = RDEL.GetEstacionesByID(id).First();
+                    entidad.EqDisponibles = entidad.EqDisponibles - (PedidoNuevo.CanDosEstLim - PedidoAntiguo.CanDosEstLim);
+                    if (RDEL.ActualizarEstacion(entidad)) { res = true; } else { return res = false; }
+                }
+                else
+                {
+                    RepositoryDosEstLimp RDEL = new RepositoryDosEstLimp();
+                    id = PedidoNuevo.IdDosEstLim.Value;
+                    AdmDosEstLim entidad = RDEL.GetEstacionesByID(id).First();
 
-                entidad.EqDisponibles = entidad.EqDisponibles + (PedidoAntiguo.CanDosEstLim - PedidoNuevo.CanDosEstLim);
-            }
-
-            if (PedidoAntiguo.CanModJab < PedidoNuevo.CanModJab)
-            {
-                RepositoryModJab RMJ = new RepositoryModJab();
-                id = PedidoNuevo.IdModJab.Value;
-                AdmModJab entidad = RMJ.GetJaboneraByID(id).First();
-
-                entidad.Stock = entidad.Stock - (PedidoNuevo.CanModJab - PedidoAntiguo.CanModJab);
-            }
-            else
-            {
-                RepositoryModJab RMJ = new RepositoryModJab();
-                id = PedidoNuevo.IdModJab.Value;
-                AdmModJab entidad = RMJ.GetJaboneraByID(id).First();
-
-                entidad.Stock = entidad.Stock + (PedidoAntiguo.CanModJab - PedidoNuevo.CanModJab);
+                    entidad.EqDisponibles = entidad.EqDisponibles + (PedidoAntiguo.CanDosEstLim - PedidoNuevo.CanDosEstLim);
+                    if (RDEL.ActualizarEstacion(entidad)) { res = true; } else { return res = false; }
+                }
             }
 
-            if (PedidoAntiguo.CanTipMaqLav < PedidoNuevo.CanTipMaqLav)
+            if (PedidoNuevo.IdModJab != 0 && PedidoNuevo.IdModJab != null)
             {
-                RepositoryTipMaqLav RTML = new RepositoryTipMaqLav();
-                id = PedidoNuevo.IdTipMaqLav.Value;
-                AdmTipMaqLav entidad = RTML.GetLavavajillasByID(id).First();
+                if (PedidoAntiguo.CanModJab < PedidoNuevo.CanModJab)
+                {
+                    RepositoryModJab RMJ = new RepositoryModJab();
+                    id = PedidoNuevo.IdModJab.Value;
+                    AdmModJab entidad = RMJ.GetJaboneraByID(id).First();
 
-                entidad.Stock = entidad.Stock - (PedidoNuevo.CanTipMaqLav - PedidoAntiguo.CanTipMaqLav);
-            }
-            else
-            {
-                RepositoryTipMaqLav RTML = new RepositoryTipMaqLav();
-                id = PedidoNuevo.IdTipMaqLav.Value;
-                AdmTipMaqLav entidad = RTML.GetLavavajillasByID(id).First();
+                    entidad.Stock = entidad.Stock - (PedidoNuevo.CanModJab - PedidoAntiguo.CanModJab);
+                    if (RMJ.ActualizarJabonera(entidad)) { res = true; } else { return res = false; }
+                }
+                else
+                {
+                    RepositoryModJab RMJ = new RepositoryModJab();
+                    id = PedidoNuevo.IdModJab.Value;
+                    AdmModJab entidad = RMJ.GetJaboneraByID(id).First();
 
-                entidad.Stock = entidad.Stock + (PedidoAntiguo.CanTipMaqLav - PedidoNuevo.CanTipMaqLav);
-            }
-
-            if (PedidoAntiguo.CanModEqDos < PedidoNuevo.CanModEqDos)
-            {
-                RepositoryModEqDos RMED = new RepositoryModEqDos();
-                id = PedidoNuevo.IdModEqDos.Value;
-                AdmModEqDos entidad = RMED.GetEquipoDosificadorByID(id).First();
-
-                entidad.EqDisponibles = entidad.EqDisponibles - (PedidoNuevo.CanModEqDos - PedidoAntiguo.CanModEqDos);
-            }
-            else
-            {
-                RepositoryModEqDos RMED = new RepositoryModEqDos();
-                id = PedidoNuevo.IdModEqDos.Value;
-                AdmModEqDos entidad = RMED.GetEquipoDosificadorByID(id).First();
-
-                entidad.EqDisponibles = entidad.EqDisponibles + (PedidoAntiguo.CanModEqDos - PedidoNuevo.CanModEqDos);
+                    entidad.Stock = entidad.Stock + (PedidoAntiguo.CanModJab - PedidoNuevo.CanModJab);
+                    if (RMJ.ActualizarJabonera(entidad)) { res = true; } else { return res = false; }
+                }
             }
 
-            if (PedidoAntiguo.CanPorGalon < PedidoNuevo.CanPorGalon)
+            if (PedidoNuevo.IdTipMaqLav != 0 && PedidoNuevo.IdTipMaqLav != null)
             {
-                RepositoryPortGalon RPG = new RepositoryPortGalon();
-                id = PedidoNuevo.IdPorGalon.Value;
-                AdmPortGalon entidad = RPG.GetGaloneraByID(id).First();
+                if (PedidoAntiguo.CanTipMaqLav < PedidoNuevo.CanTipMaqLav)
+                {
+                    RepositoryTipMaqLav RTML = new RepositoryTipMaqLav();
+                    id = PedidoNuevo.IdTipMaqLav.Value;
+                    AdmTipMaqLav entidad = RTML.GetLavavajillasByID(id).First();
 
-                entidad.Stock = entidad.Stock - (PedidoNuevo.CanPorGalon - PedidoAntiguo.CanPorGalon);
+                    entidad.Stock = entidad.Stock - (PedidoNuevo.CanTipMaqLav - PedidoAntiguo.CanTipMaqLav);
+                    if (RTML.ActualizarLavavajillas(entidad)) { res = true; } else { return res = false; }
+                }
+                else
+                {
+                    RepositoryTipMaqLav RTML = new RepositoryTipMaqLav();
+                    id = PedidoNuevo.IdTipMaqLav.Value;
+                    AdmTipMaqLav entidad = RTML.GetLavavajillasByID(id).First();
+
+                    entidad.Stock = entidad.Stock + (PedidoAntiguo.CanTipMaqLav - PedidoNuevo.CanTipMaqLav);
+                    if (RTML.ActualizarLavavajillas(entidad)) { res = true; } else { return res = false; }
+                }
             }
-            else
-            {
-                RepositoryPortGalon RPG = new RepositoryPortGalon();
-                id = PedidoNuevo.IdPorGalon.Value;
-                AdmPortGalon entidad = RPG.GetGaloneraByID(id).First();
 
-                entidad.Stock = entidad.Stock + (PedidoAntiguo.CanPorGalon - PedidoNuevo.CanPorGalon);
+            if (PedidoNuevo.IdModEqDos != 0 && PedidoNuevo.IdModEqDos != null)
+            {
+                if (PedidoAntiguo.CanModEqDos < PedidoNuevo.CanModEqDos)
+                {
+                    RepositoryModEqDos RMED = new RepositoryModEqDos();
+                    id = PedidoNuevo.IdModEqDos.Value;
+                    AdmModEqDos entidad = RMED.GetEquipoDosificadorByID(id).First();
+
+                    entidad.EqDisponibles = entidad.EqDisponibles - (PedidoNuevo.CanModEqDos - PedidoAntiguo.CanModEqDos);
+                    if (RMED.ActualizarEquipoDosificador(entidad)) { res = true; } else { return res = false; }
+                }
+                else
+                {
+                    RepositoryModEqDos RMED = new RepositoryModEqDos();
+                    id = PedidoNuevo.IdModEqDos.Value;
+                    AdmModEqDos entidad = RMED.GetEquipoDosificadorByID(id).First();
+
+                    entidad.EqDisponibles = entidad.EqDisponibles + (PedidoAntiguo.CanModEqDos - PedidoNuevo.CanModEqDos);
+                    if (RMED.ActualizarEquipoDosificador(entidad)) { res = true; } else { return res = false; }
+                }
+            }
+
+            if (PedidoNuevo.IdPorGalon != 0 && PedidoNuevo.IdPorGalon != null)
+            {
+                if (PedidoAntiguo.CanPorGalon < PedidoNuevo.CanPorGalon)
+                {
+                    RepositoryPortGalon RPG = new RepositoryPortGalon();
+                    id = PedidoNuevo.IdPorGalon.Value;
+                    AdmPortGalon entidad = RPG.GetGaloneraByID(id).First();
+
+                    entidad.Stock = entidad.Stock - (PedidoNuevo.CanPorGalon - PedidoAntiguo.CanPorGalon);
+                    if (RPG.ActualizarGalonera(entidad)) { res = true; } else { return res = false; }
+                }
+                else
+                {
+                    RepositoryPortGalon RPG = new RepositoryPortGalon();
+                    id = PedidoNuevo.IdPorGalon.Value;
+                    AdmPortGalon entidad = RPG.GetGaloneraByID(id).First();
+
+                    entidad.Stock = entidad.Stock + (PedidoAntiguo.CanPorGalon - PedidoNuevo.CanPorGalon);
+                    if (RPG.ActualizarGalonera(entidad)) { res = true; } else { return res = false; }
+                }
             }
             #endregion
 
             #region Consumibles
-            RepositoryCepInsBas RCIB = new RepositoryCepInsBas();
-            List<AdmCepInBas> ListaConsumibles = RCIB.GetAllConsumibles();
-            
-            if(PedidoAntiguo.CanCepInBas < PedidoNuevo.CanCepInBas)
+            if (PedidoNuevo.CanCepInBas != 0 && PedidoNuevo.CanCepInBas != null)
             {
-                int Diferencia = PedidoNuevo.CanCepInBas.Value - PedidoAntiguo.CanCepInBas.Value;
+                RepositoryCepInsBas RCIB = new RepositoryCepInsBas();
+                List<AdmCepInBas> ListaConsumibles = RCIB.GetAllConsumibles();
 
-                for (int i = 0; i < ListaConsumibles.Count(); i++)
+                if (PedidoAntiguo.CanCepInBas < PedidoNuevo.CanCepInBas)
                 {
-                    ListaConsumibles[i].Stock = ListaConsumibles[i].Stock - Diferencia;
+                    int Diferencia = PedidoNuevo.CanCepInBas.Value - PedidoAntiguo.CanCepInBas.Value;
+
+                    for (int i = 0; i < ListaConsumibles.Count(); i++)
+                    {
+                        ListaConsumibles[i].Stock = ListaConsumibles[i].Stock - Diferencia;
+                        if (RCIB.ActualizarConsumibles(ListaConsumibles[i])) { res = true; } else { return res = false; }
+                    }
                 }
-            }
-            else
-            {
-                int Diferencia = PedidoAntiguo.CanCepInBas.Value - PedidoNuevo.CanCepInBas.Value;
-
-                for (int i = 0; i < ListaConsumibles.Count(); i++)
+                else
                 {
-                    ListaConsumibles[i].Stock = ListaConsumibles[i].Stock + Diferencia;
+                    int Diferencia = PedidoAntiguo.CanCepInBas.Value - PedidoNuevo.CanCepInBas.Value;
+
+                    for (int i = 0; i < ListaConsumibles.Count(); i++)
+                    {
+                        ListaConsumibles[i].Stock = ListaConsumibles[i].Stock + Diferencia;
+                        if (RCIB.ActualizarConsumibles(ListaConsumibles[i])) { res = true; } else { return res = false; }
+                    }
                 }
             }
             #endregion
 
             #region Quimicos
-            RepositoryProdQuim quimico = new RepositoryProdQuim();
-            AdmProdQuim ProductoQuimico = new AdmProdQuim();
-            List<String> listaQuimicosNuevos = getProductos(PedidoNuevo.ProdQuim);
-            List<String> listaQuimicosAntiguos = getProductos(PedidoAntiguo.ProdQuim);
-            
-            for (int i = 0; i < getProductos(PedidoAntiguo.ProdQuim).Count; i++) // Regenera el stock que se quito en el pedido original
+            if (PedidoNuevo.ProdQuim.Length != 0 && PedidoNuevo.IdModEqDos != null)
             {
-                ProductoQuimico = quimico.GetQuimicoByName(listaQuimicosAntiguos[i]).First();
-                ProductoQuimico.Stock += 1;
-                quimico.ActualizarQuimico(ProductoQuimico);
-            }
+                RepositoryProdQuim quimico = new RepositoryProdQuim();
+                AdmProdQuim ProductoQuimico = new AdmProdQuim();
+                List<String> listaQuimicosNuevos = getProductos(PedidoNuevo.ProdQuim);
+                List<String> listaQuimicosAntiguos = getProductos(PedidoAntiguo.ProdQuim);
 
-            for (int i = 0; i < getProductos(PedidoNuevo.ProdQuim).Count; i++) // Quita el stock que se requiere en el pedido nuevo
-            {
-                ProductoQuimico = quimico.GetQuimicoByName(listaQuimicosNuevos[i]).First();
-                ProductoQuimico.Stock -= 1;
-                quimico.ActualizarQuimico(ProductoQuimico);
+                for (int i = 0; i < getProductos(PedidoAntiguo.ProdQuim).Count; i++) // Regenera el stock que se quito en el pedido original
+                {
+                    ProductoQuimico = quimico.GetQuimicoByName(listaQuimicosAntiguos[i]).First();
+                    ProductoQuimico.Stock += 1;
+                    if (quimico.ActualizarQuimico(ProductoQuimico)) { res = true; } else { return res = false; }
+                }
+
+                for (int i = 0; i < getProductos(PedidoNuevo.ProdQuim).Count; i++) // Quita el stock que se requiere en el pedido nuevo
+                {
+                    ProductoQuimico = quimico.GetQuimicoByName(listaQuimicosNuevos[i]).First();
+                    ProductoQuimico.Stock -= 1;
+                    if (quimico.ActualizarQuimico(ProductoQuimico)) { res = true; } else { return res = false; }
+                }
             }
             #endregion
 
             #region DosLav
-            RepositoryDosLav RDL = new RepositoryDosLav();
-            AdmDosLav dosificador = new AdmDosLav();
-            List<String> listaDosificadoresNuevos = getProductos(PedidoNuevo.DosLav);
-            List<String> listaDosificadoresAntiguos = getProductos(PedidoAntiguo.DosLav);
-
-            for (int i = 0; i < getProductos(PedidoAntiguo.DosLav).Count; i++) // Regenera el stock que se quito en el pedido original
+            if (PedidoNuevo.DosLav.Length != 0 && PedidoNuevo.IdModEqDos != null)
             {
-                dosificador = RDL.GetDosificadoresByName(listaDosificadoresAntiguos[i]).First();
-                dosificador.Stock += 1;
-                RDL.ActualizarDosificador(dosificador);
-            }
+                RepositoryDosLav RDL = new RepositoryDosLav();
+                AdmDosLav dosificador = new AdmDosLav();
+                List<String> listaDosificadoresNuevos = getProductos(PedidoNuevo.DosLav);
+                List<String> listaDosificadoresAntiguos = getProductos(PedidoAntiguo.DosLav);
 
-            for (int i = 0; i < getProductos(PedidoNuevo.DosLav).Count; i++) // Quita el stock que se requiere en el pedido nuevo
-            {
-                dosificador = RDL.GetDosificadoresByName(listaDosificadoresNuevos[i]).First();
-                dosificador.Stock -= 1;
-                RDL.ActualizarDosificador(dosificador);
+                for (int i = 0; i < getProductos(PedidoAntiguo.DosLav).Count; i++) // Regenera el stock que se quito en el pedido original
+                {
+                    dosificador = RDL.GetDosificadoresByName(listaDosificadoresAntiguos[i]).First();
+                    dosificador.Stock += 1;
+                    if (RDL.ActualizarDosificador(dosificador)) { res = true; } else { return res = false; }
+                }
+
+                for (int i = 0; i < getProductos(PedidoNuevo.DosLav).Count; i++) // Quita el stock que se requiere en el pedido nuevo
+                {
+                    dosificador = RDL.GetDosificadoresByName(listaDosificadoresNuevos[i]).First();
+                    dosificador.Stock -= 1;
+                    if (RDL.ActualizarDosificador(dosificador)) { res = true; } else { return res = false; }
+                }
             }
             #endregion
-
-
-            return false;
+            
+            return res;
         }
 
         private List<string> getProductos(string cadena)

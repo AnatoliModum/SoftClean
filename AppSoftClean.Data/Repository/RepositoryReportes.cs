@@ -18,6 +18,8 @@ namespace AppSoftClean.Data.Repository
 
             for (int i = 0; i < pedido.Count(); i++)
             {
+                reporte = new Reportes();
+
                 id = levantamiento.IdDivision.Value;
                 reporte.Division = RD.GetDivisionesByID(id).First().Nombre;
                 
@@ -27,32 +29,59 @@ namespace AppSoftClean.Data.Repository
                 #region Consultas simples sin listado;
                 reporte.AreaInstalacion = pedido[i].AreaIns;
 
-                RepositoryModEqDos RMED = new RepositoryModEqDos();
-                reporte.ModeloEquipoDosificador = pedido[i].CanModEqDos.ToString() +
-                    RMED.GetEquipoDosificadorByID(pedido[i].IdModEqDos.Value).First().Modelo;
+                if (pedido[i].IdModEqDos != null && pedido[i].CanModEqDos != null)
+                {
+                    RepositoryModEqDos RMED = new RepositoryModEqDos();
+                    reporte.ModeloEquipoDosificador = pedido[i].CanModEqDos.ToString() +
+                        RMED.GetEquipoDosificadorByID(pedido[i].IdModEqDos.Value).First().Modelo;
+                }
+                else { reporte.ModeloEquipoDosificador = "N/A"; }
 
-                RepositoryDosEstLimp RDEL = new RepositoryDosEstLimp();
-                reporte.DosificadorEstacionDeLimpieza = pedido[i].CanDosEstLim.ToString() +
-                    RDEL.GetEstacionesByID(pedido[i].IdDosEstLim.Value).First().DosEstLimp;
+                if (pedido[i].IdDosEstLim != null && pedido[i].CanDosEstLim != null)
+                {
+                    RepositoryDosEstLimp RDEL = new RepositoryDosEstLimp();
+                    reporte.DosificadorEstacionDeLimpieza = pedido[i].CanDosEstLim.ToString() +
+                        RDEL.GetEstacionesByID(pedido[i].IdDosEstLim.Value).First().DosEstLimp;
+                }
+                else { reporte.DosificadorEstacionDeLimpieza = "N/A"; }
 
-                RepositoryModJab RMJ = new RepositoryModJab();
-                reporte.ModeloJabonera = pedido[i].CanModJab.ToString() +
-                    RMJ.GetJaboneraByID(pedido[i].IdModJab.Value).First().Modelo;
+                if (pedido[i].IdModJab != null && pedido[i].CanModJab != null)
+                {
+                    RepositoryModJab RMJ = new RepositoryModJab();
+                    reporte.ModeloJabonera = pedido[i].CanModJab.ToString() +
+                        RMJ.GetJaboneraByID(pedido[i].IdModJab.Value).First().Modelo;
+                }
+                else { reporte.ModeloJabonera = "N/A"; }
 
-                RepositoryTipMaqLav RTML = new RepositoryTipMaqLav();
-                reporte.TipoMaquinaLavavajillas = pedido[i].CanTipMaqLav.ToString() +
-                    RTML.GetLavavajillasByID(pedido[i].IdTipMaqLav.Value).First().Tipo;
+                if (pedido[i].IdTipMaqLav != null && pedido[i].CanTipMaqLav != null)
+                {
+                    RepositoryTipMaqLav RTML = new RepositoryTipMaqLav();
+                    reporte.TipoMaquinaLavavajillas = pedido[i].CanTipMaqLav.ToString() +
+                        RTML.GetLavavajillasByID(pedido[i].IdTipMaqLav.Value).First().Tipo;
+                }
+                else { reporte.TipoMaquinaLavavajillas = "N/A"; }
 
-                RepositoryPortGalon RPG = new RepositoryPortGalon();
-                reporte.PortaGalones = pedido[i].CanPorGalon.ToString() +
-                    RPG.GetGaloneraByID(pedido[i].IdPorGalon.Value).First().Tipo;
+                if (pedido[i].IdPorGalon != null && pedido[i].CanPorGalon != null)
+                {
+                    RepositoryPortGalon RPG = new RepositoryPortGalon();
+                    reporte.PortaGalones = pedido[i].CanPorGalon.ToString() +
+                        RPG.GetGaloneraByID(pedido[i].IdPorGalon.Value).First().Tipo;
+                }
+                else { reporte.PortaGalones = "N/A"; }
 
-                reporte.CantidadConsumibles = pedido[i].CanCepInBas.Value;
+                if (pedido[i].CanCepInBas != null) { reporte.CantidadConsumibles = pedido[i].CanCepInBas.Value; }
+
                 #endregion
-                string saltoLinea = "" + Environment.NewLine;
 
-                reporte.ProductosQuimicos = pedido[i].ProdQuim.Replace(".",saltoLinea);
-                reporte.DosificadoresLavavajillas = pedido[i].DosLav.Replace(".",saltoLinea);
+                if (pedido[i].ProdQuim.Length != 0 && pedido[i].ProdQuim != null)
+                {
+                    reporte.ProductosQuimicos = pedido[i].ProdQuim.Replace(".", Environment.NewLine);
+                }
+
+                if (pedido[i].DosLav.Length != 0 && pedido[i].DosLav != null)
+                {
+                    reporte.DosificadoresLavavajillas = pedido[i].DosLav.Replace(".", Environment.NewLine);
+                }
 
                 reporte.id = pedido[i].id;
 
@@ -61,8 +90,7 @@ namespace AppSoftClean.Data.Repository
 
             return ListaReportes;
         }
-
-
+        
         private List<string> getProductos(string cadena)
         {
             List<string> quimicosList = new List<string>();
