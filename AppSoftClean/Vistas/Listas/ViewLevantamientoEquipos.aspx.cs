@@ -17,6 +17,7 @@ namespace AppSoftClean.Vistas.Listas
         private RepositoryProdQuim RPQ = new RepositoryProdQuim();
         private RepositoryReportes RR = new RepositoryReportes();
         private RepositoryPedidosArea RPA = new RepositoryPedidosArea();
+        private ControlDeStocks CDS = new ControlDeStocks();
         
 
         protected void Page_Load(object sender, EventArgs e)
@@ -157,6 +158,10 @@ namespace AppSoftClean.Vistas.Listas
 
             PedidosArea pedidoArea = new PedidosArea();
 
+            //Area
+            pedidoArea.AreaIns = TextAreaInstalacion.Text;
+
+
             //Modelo Equipo Dosificador
             pedidoArea.IdModEqDos = int.Parse(DDL_ModEqDos.SelectedValue);
             pedidoArea.CanModEqDos = int.Parse(DDL_CanModEqDos.SelectedValue);
@@ -165,7 +170,11 @@ namespace AppSoftClean.Vistas.Listas
             pedidoArea.CanDosEstLim = int.Parse(CanDosEstLim.SelectedValue);
 
             //Productos quimicos
-            pedidoArea.ProdQuim = LBProdQuim.Text;
+            for (int i = 0; i < LBProdQuim.Items.Count; i++)
+            {
+                pedidoArea.ProdQuim += LBProdQuim.Items[i].ToString();
+
+            }
 
             //Modelo Jabonero
             pedidoArea.IdModJab = int.Parse(DDL_ModJab.SelectedValue);
@@ -175,7 +184,27 @@ namespace AppSoftClean.Vistas.Listas
             pedidoArea.CanCepInBas = int.Parse(TextCanConsumibles.Text);
 
             //Tipo MaqTav
+            pedidoArea.IdTipMaqLav = int.Parse(DDL_TipMaqLav.SelectedValue);
+            pedidoArea.CanTipMaqLav = int.Parse(TextCanTipMaqLav.Text);
 
+            //DosificadorLav
+            for (int i = 0; i < LBDosLav.Items.Count; i++)
+            {
+                pedidoArea.DosLav += LBDosLav.Items[i].ToString();
+            }
+            
+
+            //Porta Galon
+            pedidoArea.IdPorGalon = int.Parse(DDL_PorGalon.SelectedValue);
+            pedidoArea.CanPorGalon = int.Parse(TextCanPorGalon.Text);
+
+            //id
+            pedidoArea.IdLevantamientoEquipo = Int32.Parse(Request.QueryString["id"]);
+
+            if (string.IsNullOrEmpty(CDS.ComenzarPedido(pedidoArea)))
+            {
+                this.eleccionCargaDeDatos();
+            }
 
 
         }

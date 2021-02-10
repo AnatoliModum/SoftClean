@@ -88,8 +88,6 @@
                             <asp:BoundField HeaderText="Dosificador para Lavavajillas" DataField="DosificadoresLavavajillas" ItemStyle-Font-Size="10" />
                             <asp:BoundField HeaderText="Porta Galón" DataField="PortaGalones" ItemStyle-Font-Size="10" />
 
-                            <asp:BoundField HeaderText="No. Hoja" DataField="NumeroDeHoja" ItemStyle-Font-Size="10" />
-
                             <asp:TemplateField HeaderText="Editar">
                                 <ItemTemplate>
                                     <asp:ImageButton ID="ImgEditar" runat="server" ImageUrl="~/Imagenes/editar.png"
