@@ -75,12 +75,12 @@ namespace AppSoftClean.Data.Repository
 
                 if (pedido[i].ProdQuim.Length != 0 && pedido[i].ProdQuim != null)
                 {
-                    reporte.ProductosQuimicos = pedido[i].ProdQuim.Replace(".", Environment.NewLine);
+                    reporte.ProductosQuimicos = pedido[i].ProdQuim.Replace(".", Environment.NewLine) + " . ";
                 }
 
                 if (pedido[i].DosLav.Length != 0 && pedido[i].DosLav != null)
                 {
-                    reporte.DosificadoresLavavajillas = pedido[i].DosLav.Replace(".", Environment.NewLine);
+                    reporte.DosificadoresLavavajillas = pedido[i].DosLav.Replace(".", Environment.NewLine + " . ");
                 }
 
                 reporte.id = pedido[i].id;
@@ -90,7 +90,7 @@ namespace AppSoftClean.Data.Repository
 
             return ListaReportes;
         }
-        
+
         private List<string> getProductos(string cadena)
         {
             List<string> quimicosList = new List<string>();
@@ -103,7 +103,10 @@ namespace AppSoftClean.Data.Repository
 
                 foreach (var item in quimicos)
                 {
-                    quimicosList.Add(item);
+                    if (!string.IsNullOrEmpty(item))
+                    {
+                        quimicosList.Add(item);
+                    }
 
                 }
 

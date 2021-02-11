@@ -58,6 +58,7 @@
                     </div>
                 </div>
             </div>
+            <asp:Label ID="lblResultados" runat="server" Text="lblResultado"></asp:Label>
 
             <%-- DataGrid de Levantamiento de Equipos --%>
             <div class="x_content">

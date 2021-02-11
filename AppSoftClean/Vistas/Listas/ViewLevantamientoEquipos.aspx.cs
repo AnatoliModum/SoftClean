@@ -19,7 +19,6 @@ namespace AppSoftClean.Vistas.Listas
         private RepositoryPedidosArea RPA = new RepositoryPedidosArea();
         private ControlDeStocks CDS = new ControlDeStocks();
         
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack == false)
@@ -89,7 +88,7 @@ namespace AppSoftClean.Vistas.Listas
 
             equipoObj = REP.GetLevantamientoByID(id).First();
 
-            TextFecha.Text = Convert.ToDateTime(equipoObj.dteFecha.ToString()).ToString("dd/MM/yyyy");
+            TextFecha.Text = equipoObj.dteFecha.ToString();
             TextNumHoja.Text = equipoObj.NumHoja.ToString();
             DDL_Division.Items.Clear();
             this.FillDropDownListDivision();
@@ -107,12 +106,61 @@ namespace AppSoftClean.Vistas.Listas
 
         protected void BtnCrear_Click(object sender, EventArgs e)
         {
+            btnCrear_Modal.Text = "Crear";
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "MyModalCreate();", true);
         }
 
         protected void dgvDatos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            switch (e.CommandName)
+            {
+                case "Editar":
+                    RepositoryPedidosArea RPA = new RepositoryPedidosArea();
+                    PedidosArea pedido = new PedidosArea();
+                    List<string> listaGenerica = new List<string>();
+                    int index = Convert.ToInt32(e.CommandArgument.ToString());
+                    int idPedido = Int32.Parse( dgvDatos.Rows[index].Cells[0].Text ) ;
 
+                    pedido = RPA.GetPedidoByID(idPedido).First();
+                    Session["idPerma"] = idPedido;
+
+                    TextAreaInstalacion.Text = pedido.AreaIns;
+
+                    DDL_CanModEqDos.SelectedValue = pedido.CanModEqDos.ToString();
+                    DDL_ModEqDos.SelectedValue = pedido.IdModEqDos.ToString();
+
+                    CanDosEstLim.SelectedValue = pedido.CanDosEstLim.ToString();
+                    DDL_DosEstLim.SelectedValue = pedido.IdDosEstLim.ToString();
+
+                    DDL_ModJab.SelectedValue = pedido.IdModJab.ToString();
+                    TextCanModJab.Text = pedido.CanModJab.ToString();
+
+                    TextCanConsumibles.Text = pedido.CanCepInBas.ToString();
+
+                    TextCanTipMaqLav.Text = pedido.CanTipMaqLav.ToString();
+                    DDL_TipMaqLav.SelectedValue = pedido.IdTipMaqLav.ToString();
+
+                    TextCanPorGalon.Text = pedido.CanPorGalon.ToString();
+                    DDL_PorGalon.SelectedValue = pedido.IdPorGalon.ToString();
+
+                    listaGenerica = this.getProductos(pedido.ProdQuim);
+                    for(int i = 0; i < listaGenerica.Count; i++)
+                    {
+                        LBProdQuim.Items.Add(listaGenerica[i] + ".");
+                        this.UpdateProdQuimAgregar.Update();
+                    }
+
+                    listaGenerica = this.getProductos(pedido.DosLav);
+                    for (int i = 0; i < listaGenerica.Count; i++)
+                    {
+                        LBDosLav.Items.Add(listaGenerica[i] + ".");
+                        this.UpdateDosLavCargar.Update();
+                    }
+
+                    btnCrear_Modal.Text = "Actualizar";
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "MyModalCreate();", true);
+                    break;
+            }
         }
 
         protected void BtnAgregar_Click(object sender, EventArgs e)
@@ -201,11 +249,41 @@ namespace AppSoftClean.Vistas.Listas
             //id
             pedidoArea.IdLevantamientoEquipo = Int32.Parse(Request.QueryString["id"]);
 
-            if (string.IsNullOrEmpty(CDS.ComenzarPedido(pedidoArea)))
-            {
-                this.eleccionCargaDeDatos();
+            if (btnCrear_Modal.Text != "Actualizar") { lblResultados.Text = CDS.ComenzarPedido(pedidoArea); }
+            else {
+                pedidoArea.id = (Int32) Session["idPerma"];
+                lblResultados.Text = CDS.ActualizarPedido(pedidoArea);
             }
 
+            this.eleccionCargaDeDatos();
+            
+        }
+
+        private List<string> getProductos(string cadena)
+        {
+            List<string> quimicosList = new List<string>();
+            string[] quimicos = null;
+
+            if (cadena != "")
+            {
+
+                quimicos = cadena.Split('.');
+
+                foreach (var item in quimicos)
+                {
+                    if (!string.IsNullOrEmpty(item))
+                    {
+                        quimicosList.Add(item);
+                    }
+
+                }
+
+                return quimicosList;
+            }
+            else
+            {
+                return null;
+            }
 
         }
     }
