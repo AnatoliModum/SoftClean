@@ -84,6 +84,22 @@ namespace AppSoftClean.Data.Repository
             return dosificadorObj;
         }
 
+        public List<AdmDosLav> GetDosificadoresByName(string name)
+        {
+            List<AdmDosLav> dosificadorObj = null;
+            try
+            {
+                dosificadorObj = conn.AdmDosLav.Where(c => c.Equipo == name).ToList<AdmDosLav>();
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+            return dosificadorObj;
+        }
+
+
+
         public bool InsertarDosificador(AdmDosLav Dosificador)
         {
             bool res = false;

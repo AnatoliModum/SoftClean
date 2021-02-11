@@ -91,6 +91,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.Categorias">
+        <MappingFragment StoreEntitySet="Categorias">
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="LevantamientoEquipos">
       <EntityTypeMapping TypeName="ServiceForHotelModel.LevantamientoEquipos">
         <MappingFragment StoreEntitySet="LevantamientoEquipos">
@@ -104,31 +112,23 @@
     <EntitySetMapping Name="PedidosArea">
       <EntityTypeMapping TypeName="ServiceForHotelModel.PedidosArea">
         <MappingFragment StoreEntitySet="PedidosArea">
+          <ScalarProperty Name="IdLevantamientoEquipo" ColumnName="IdLevantamientoEquipo" />
           <ScalarProperty Name="CanPorGalon" ColumnName="CanPorGalon" />
           <ScalarProperty Name="IdPorGalon" ColumnName="IdPorGalon" />
-          <ScalarProperty Name="CanDosLav" ColumnName="CanDosLav" />
+          <ScalarProperty Name="DosLav" ColumnName="DosLav" />
           <ScalarProperty Name="IdDosLav" ColumnName="IdDosLav" />
           <ScalarProperty Name="CanTipMaqLav" ColumnName="CanTipMaqLav" />
           <ScalarProperty Name="IdTipMaqLav" ColumnName="IdTipMaqLav" />
           <ScalarProperty Name="CanCepInBas" ColumnName="CanCepInBas" />
-          <ScalarProperty Name="IdCepInBas" ColumnName="IdCepInBas" />
           <ScalarProperty Name="CanModJab" ColumnName="CanModJab" />
           <ScalarProperty Name="IdModJab" ColumnName="IdModJab" />
-          <ScalarProperty Name="CanProdQuim" ColumnName="CanProdQuim" />
+          <ScalarProperty Name="ProdQuim" ColumnName="ProdQuim" />
           <ScalarProperty Name="IdProdQuim" ColumnName="IdProdQuim" />
           <ScalarProperty Name="CanDosEstLim" ColumnName="CanDosEstLim" />
           <ScalarProperty Name="IdDosEstLim" ColumnName="IdDosEstLim" />
           <ScalarProperty Name="CanModEqDos" ColumnName="CanModEqDos" />
           <ScalarProperty Name="IdModEqDos" ColumnName="IdModEqDos" />
           <ScalarProperty Name="AreaIns" ColumnName="AreaIns" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Categorias">
-      <EntityTypeMapping TypeName="ServiceForHotelModel.Categorias">
-        <MappingFragment StoreEntitySet="Categorias">
-          <ScalarProperty Name="categoria" ColumnName="categoria" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
