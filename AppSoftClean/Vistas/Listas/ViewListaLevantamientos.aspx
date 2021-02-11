@@ -116,7 +116,27 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-4">
-                            <asp:Label ID="lblErrorDDL" runat="server" Visible="false" Text="Seleccione una División" ForeColor="Red"></asp:Label>
+                            <asp:UpdatePanel ID="UpdateValidacionModal" runat="server" UpdateMode="Conditional">
+                                <ContentTemplate>
+                                    <asp:UpdatePanel ID="UpdateValidacion" runat="server" UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                            <asp:Label ID="lblErrorDDL" runat="server" Visible="false" Style="padding-bottom: 1px" CssClass="label label-danger" Text="Seleccione una División"></asp:Label>
+                                            <asp:Label ID="lblMargen" runat="server" Style="padding-bottom: 1px" CssClass="label label-success" Text="Por Favor Elija una Opción"></asp:Label>
+                                        </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="DDL_Divisiones" EventName="SelectedIndexChanged" />
+                                        </Triggers>
+                                    </asp:UpdatePanel>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="btnCrear_Modal" EventName="Click" />
+                                </Triggers>
+                            </asp:UpdatePanel>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon3"><span><i class="fas fa-bookmark"></i></span></span>
+                                <asp:DropDownList ID="DDL_Divisiones" runat="server" CssClass="form-control" AutoPostBack="true" AppendDataBoundItems="true" OnSelectedIndexChanged="DDL_Divisiones_SelectedIndexChanged">
+                                </asp:DropDownList>
+                            </div>
                         </div>
                         <div class="col-lg-4">
                             <asp:RequiredFieldValidator ID="rfvFecha" runat="server" ValidationGroup="VDLevanEqui"
@@ -124,41 +144,11 @@
                                 ErrorMessage="La Fecha es Requerida"
                                 ForeColor="Red">
                             </asp:RequiredFieldValidator>
-                        </div>
-                        <div class="col-lg-4">
-                            <asp:RequiredFieldValidator ID="rfvNumHoja" runat="server" ValidationGroup="VDLevanEqui"
-                                ControlToValidate="TextNumHoja"
-                                ErrorMessage="El Número de Hoja es Requerido"
-                                ForeColor="Red">
-                            </asp:RequiredFieldValidator>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon3"><span><i class="fas fa-bookmark"></i></span></span>
-                                <asp:DropDownList ID="DDL_Divisiones" runat="server" CssClass="form-control" AppendDataBoundItems="true" OnSelectedIndexChanged="DDL_Divisiones_SelectedIndexChanged">
-                                </asp:DropDownList>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon15"><span><i class="far fa-calendar-alt"></i></span></span>
                                 <asp:TextBox ID="TextFecha" runat="server" CssClass="form-control" placeholder="Elige una Fecha"></asp:TextBox>
                                 <ajaxToolkit:CalendarExtender TargetControlID="TextFecha" ID="CalendarExtender" runat="server" Format="dd/MM/yyyy" ClearTime="True" />
                             </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon2"><span><i class="fas fa-bookmark"></i></span></span>
-                                <asp:TextBox ID="TextNumHoja" runat="server" CssClass="form-control" placeholder="Equipos Disponibles"></asp:TextBox>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4">
-                        </div>
-                        <div class="col-lg-4">
                             <asp:RegularExpressionValidator ID="revQuimico" runat="server" ValidationGroup="VDLevanEqui"
                                 ErrorMessage="Ingrese un Formato de Fecha Valido"
                                 ValidationExpression="^(?:3[01]|[12][0-9]|0?[1-9])([/])(0?[1-9]|1[1-2])\1\d{4}$"
@@ -167,6 +157,15 @@
                             </asp:RegularExpressionValidator>
                         </div>
                         <div class="col-lg-4">
+                            <asp:RequiredFieldValidator ID="rfvNumHoja" runat="server" ValidationGroup="VDLevanEqui"
+                                ControlToValidate="TextNumHoja"
+                                ErrorMessage="El Número de Hoja es Requerido"
+                                ForeColor="Red">
+                            </asp:RequiredFieldValidator>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon2"><span><i class="fas fa-bookmark"></i></span></span>
+                                <asp:TextBox ID="TextNumHoja" runat="server" CssClass="form-control" placeholder="Equipos Disponibles"></asp:TextBox>
+                            </div>
                             <asp:RegularExpressionValidator ID="revNumHoja" runat="server" ValidationGroup="VDLevanEqui"
                                 ErrorMessage="Solo Ingrese Números entre 1 a 20"
                                 ValidationExpression="\d*\.?\d*"

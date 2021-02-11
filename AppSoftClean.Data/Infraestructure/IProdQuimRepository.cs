@@ -12,7 +12,6 @@ namespace AppSoftClean.Data.Infraestructure
         bool InsertarQuimico(AdmProdQuim Quimico);
         List<AdmProdQuim> GetAllQuimicos();
         List<AdmProdQuim> GetAllQuimicosCocina();
-        List<AdmProdQuim> GetAllQuimicosAmaLlaves();
         List<AdmProdQuim> GetQuimicoByID(int id);
         bool EliminarQuimico(int id);
         bool ActualizarQuimico(AdmProdQuim Quimico);

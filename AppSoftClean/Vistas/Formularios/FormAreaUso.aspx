@@ -26,37 +26,17 @@
             <h3 class="panel-title"><span><i class="fas fa-pencil-alt"></i></span>&nbsp; Registrar Información </h3>
         </div>
         <div class="panel-body">
-             <div class="row">
+            <div class="row">
                 <div class="col-lg-4">
                     <asp:RequiredFieldValidator ID="rfvArea" runat="server" ValidationGroup="VDArea"
                         ControlToValidate="TextArea"
                         ErrorMessage="El Nombre del Área es Requerido"
                         ForeColor="Red">
                     </asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1"><span><i class="fas fa-tag"></i></span></span>
-                        <asp:TextBox ID="TextArea" runat="server" CssClass="form-control" placeholder="Área"></asp:TextBox>
+                        <span class="input-group-addon icono-color-azul input-group-azul" id="basic-addon1"><span><i class="fas fa-tag"></i></span></span>
+                        <asp:TextBox ID="TextArea" runat="server" CssClass="form-control text-border-azul" placeholder="Área"></asp:TextBox>
                     </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon2"><span><i class="fas fa-bookmark"></i></span></span>
-                        <asp:TextBox ID="TextDescripcion" runat="server" class="form-control" Rows="1" placeholder="Descripción"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="col-lg-1">
-                    <asp:Button ID="btnGuardar" class="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="VDArea" />
-                </div>
-                <div class="col-lg-2">
-                    <asp:Button ID="btnCancelar" class="btn btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
                     <asp:RegularExpressionValidator ID="revArea" runat="server" ValidationGroup="VDArea"
                         ErrorMessage="Solo Ingrese Letras"
                         ValidationExpression="^[a-zA-ZÀ-ÿ ]*$"
@@ -64,14 +44,24 @@
                         ForeColor="Red">
                     </asp:RegularExpressionValidator>
                 </div>
-                  <div class="col-lg-5">
+                <div class="col-lg-5">
+                    <div class="input-group margen">
+                        <span class="input-group-addon icono-color-azul input-group-azul" id="basic-addon2"><span><i class="fas fa-bookmark"></i></span></span>
+                        <asp:TextBox ID="TextDescripcion" runat="server" class="form-control text-border-azul" Rows="1" placeholder="Descripción"></asp:TextBox>
+                    </div>
                     <asp:RegularExpressionValidator ID="revDescripcion" runat="server" ValidationGroup="VDArea"
                         ErrorMessage="Solo Ingrese Letras y Números"
                         ValidationExpression="^[A-Z0-9À-ÿ a-z]*$"
                         ControlToValidate="TextDescripcion"
                         ForeColor="Red">
                     </asp:RegularExpressionValidator>
-                 </div>
+                </div>
+                <div class="col-lg-1 margen">
+                    <asp:Button ID="btnGuardar" class="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="VDArea" />
+                </div>
+                <div class="col-lg-2 margen">
+                    <asp:Button ID="btnCancelar" class="btn btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+                </div>
             </div>
         </div>
     </div>

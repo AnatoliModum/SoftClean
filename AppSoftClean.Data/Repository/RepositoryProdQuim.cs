@@ -71,20 +71,6 @@ namespace AppSoftClean.Data.Repository
             return quimicoObj;
         }
 
-        public List<AdmProdQuim> GetAllQuimicosAmaLlaves()
-        {
-            List<AdmProdQuim> quimicoObj = null;
-            try
-            {
-                quimicoObj = conn.AdmProdQuim.Where(c => c.IdAreaUso == 2).ToList<AdmProdQuim>();
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
-            return quimicoObj;
-        }
-
         public List<AdmProdQuim> GetAllQuimicosCocina()
         {
             List<AdmProdQuim> quimicoObj = null;

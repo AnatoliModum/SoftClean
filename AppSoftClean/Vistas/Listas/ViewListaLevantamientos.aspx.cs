@@ -97,7 +97,8 @@ namespace AppSoftClean.Vistas.Listas
             if (DDL_Divisiones.Text == "Selecciona una División")
             {
                 lblErrorDDL.Visible = true;
-                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "MyModalCreate();", true);
+                lblMargen.Visible = false;
+                this.UpdateValidacionModal.Update();
             }
             else
             {
@@ -142,13 +143,14 @@ namespace AppSoftClean.Vistas.Listas
             if (DDL_Divisiones.Text == "Selecciona una División")
             {
                 lblErrorDDL.Visible = true;
-                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "MyModalCreate();", true);
+                lblMargen.Visible = false;
             }
             else
             {
                 lblErrorDDL.Visible = false;
-                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "MyModalCreate();", true);
+                lblMargen.Visible = true;
             }
+            this.UpdateValidacion.Update();
         }
         #endregion
 

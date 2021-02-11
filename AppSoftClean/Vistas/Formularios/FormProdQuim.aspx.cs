@@ -42,6 +42,7 @@ namespace AppSoftClean.Vistas
             if(DDL_AreaUso.Text== "Selecciona un Área de Uso")
             {
                 lblErrorDDL.Visible = true;
+                lblMargen.Visible = false;
             }
             else
             {
@@ -136,6 +137,21 @@ namespace AppSoftClean.Vistas
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect(direcciones.ViewProdQuim);
+        }
+
+        protected void DDL_AreaUso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DDL_AreaUso.Text == "Selecciona un Área de Uso")
+            {
+                lblErrorDDL.Visible = true;
+                lblMargen.Visible = false;
+            }
+            else
+            {
+                lblErrorDDL.Visible = false;
+                lblMargen.Visible = true;
+            }
+            this.UpdateValidacion.Update();
         }
     }
 }

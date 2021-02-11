@@ -1,15 +1,12 @@
-﻿body {
-}
-
-.panel-inicial {
+﻿.panel-inicial {
     margin-top: 17px;
 }
 
 .margen-titulo {
-    margin-top: 0px!important;
+    margin-top: 0px;
 }
 
-.icono {    
+.icono {
     height: 27px;
     margin-top: -8px;
 }
@@ -45,4 +42,21 @@
     border-top-right-radius: 5px;
     margin-right: -1px;
     margin-top: -1px;
+}
+
+.margen {
+    margin-top: 19px;
+}
+
+.icono-color-azul {
+    color: #31708F;
+}
+
+.input-group-azul {
+    background: #D9EDF7;
+    border-color: #D9EDF7;
+}
+
+.text-border-azul {
+    border-color: #D9EDF7;
 }

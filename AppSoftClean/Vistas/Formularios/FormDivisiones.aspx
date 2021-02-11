@@ -1,14 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormDivisiones.aspx.cs" Inherits="AppSoftClean.Vistas.Formularios.FormDivisiones" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Encabezado" runat="server">
-    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
-    <script src="../Scripts/bootstrap.min.js"></script>
-    <script src="../Scripts/jquery-3.3.1.min.js"></script>
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/jquery-3.3.1.min.js"></script>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
     <link href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.8.1/css/solid.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/Style.css" type="text/css">
+    <link rel="stylesheet" href="../../css/Style.css" type="text/css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
@@ -31,33 +31,25 @@
                         ErrorMessage="El Nombre de la División es Requerido"
                         ForeColor="Red">
                     </asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1"><span><i class="fas fa-tag"></i></span></span>
-                        <asp:TextBox ID="TextDivision" runat="server" CssClass="form-control" placeholder="Nombre de la División"></asp:TextBox>
+                        <span class="input-group-addon icono-color-azul input-group-azul" id="basic-addon1"><span><i class="fas fa-tag"></i></span></span>
+                        <asp:TextBox ID="TextDivision" runat="server" CssClass="form-control text-border-azul" placeholder="Nombre de la División"></asp:TextBox>
                     </div>
-                </div>
-                <div class="col-lg-5">
-                   
-                </div>
-                <div class="col-lg-1">
-                    <asp:Button ID="btnGuardar" class="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="VDDivisiones" />
-                </div>
-                <div class="col-lg-2">
-                    <asp:Button ID="btnCancelar" class="btn btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
                     <asp:RegularExpressionValidator ID="revDivision" runat="server" ValidationGroup="VDDivisiones"
                         ErrorMessage="Solo Ingrese Letras"
                         ValidationExpression="^[a-zA-ZÀ-ÿ& ]*$"
                         ControlToValidate="TextDivision"
                         ForeColor="Red">
                     </asp:RegularExpressionValidator>
+                </div>
+                <div class="col-lg-5">
+                   
+                </div>
+                <div class="col-lg-1 margen">
+                    <asp:Button ID="btnGuardar" class="btn btn-success" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="VDDivisiones" />
+                </div>
+                <div class="col-lg-2 margen">
+                    <asp:Button ID="btnCancelar" class="btn btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
                 </div>
             </div>
         </div>

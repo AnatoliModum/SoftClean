@@ -31,15 +31,6 @@ namespace AppSoftClean.Vistas {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvModelo;
         
         /// <summary>
-        /// Control rfvStock.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStock;
-        
-        /// <summary>
         /// Control TextModelo.
         /// </summary>
         /// <remarks>
@@ -49,6 +40,24 @@ namespace AppSoftClean.Vistas {
         protected global::System.Web.UI.WebControls.TextBox TextModelo;
         
         /// <summary>
+        /// Control revModelo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revModelo;
+        
+        /// <summary>
+        /// Control rfvStock.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStock;
+        
+        /// <summary>
         /// Control TextStock.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace AppSoftClean.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextStock;
+        
+        /// <summary>
+        /// Control revStock.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revStock;
         
         /// <summary>
         /// Control btnGuardar.
@@ -74,23 +92,5 @@ namespace AppSoftClean.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
-        
-        /// <summary>
-        /// Control revModelo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revModelo;
-        
-        /// <summary>
-        /// Control revStock.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revStock;
     }
 }

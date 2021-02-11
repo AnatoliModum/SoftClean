@@ -85,6 +85,24 @@ namespace AppSoftClean.Vistas.Listas {
         protected global::System.Web.UI.WebControls.Button BtnEliminar;
         
         /// <summary>
+        /// Control UpdateValidacionModal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdateValidacionModal;
+        
+        /// <summary>
+        /// Control UpdateValidacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdateValidacion;
+        
+        /// <summary>
         /// Control lblErrorDDL.
         /// </summary>
         /// <remarks>
@@ -94,22 +112,13 @@ namespace AppSoftClean.Vistas.Listas {
         protected global::System.Web.UI.WebControls.Label lblErrorDDL;
         
         /// <summary>
-        /// Control rfvFecha.
+        /// Control lblMargen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFecha;
-        
-        /// <summary>
-        /// Control rfvNumHoja.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNumHoja;
+        protected global::System.Web.UI.WebControls.Label lblMargen;
         
         /// <summary>
         /// Control DDL_Divisiones.
@@ -119,6 +128,15 @@ namespace AppSoftClean.Vistas.Listas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Divisiones;
+        
+        /// <summary>
+        /// Control rfvFecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFecha;
         
         /// <summary>
         /// Control TextFecha.
@@ -139,15 +157,6 @@ namespace AppSoftClean.Vistas.Listas {
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender;
         
         /// <summary>
-        /// Control TextNumHoja.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextNumHoja;
-        
-        /// <summary>
         /// Control revQuimico.
         /// </summary>
         /// <remarks>
@@ -155,6 +164,24 @@ namespace AppSoftClean.Vistas.Listas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator revQuimico;
+        
+        /// <summary>
+        /// Control rfvNumHoja.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNumHoja;
+        
+        /// <summary>
+        /// Control TextNumHoja.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextNumHoja;
         
         /// <summary>
         /// Control revNumHoja.
