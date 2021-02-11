@@ -112,15 +112,17 @@ namespace AppSoftClean.Vistas.Listas
 
         protected void dgvDatos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            int index = Convert.ToInt32(e.CommandArgument.ToString());
+            int idPedido = Int32.Parse(dgvDatos.Rows[index].Cells[0].Text);
+
             switch (e.CommandName)
             {
+                #region Boton Editar
                 case "Editar":
                     RepositoryPedidosArea RPA = new RepositoryPedidosArea();
                     PedidosArea pedido = new PedidosArea();
                     List<string> listaGenerica = new List<string>();
-                    int index = Convert.ToInt32(e.CommandArgument.ToString());
-                    int idPedido = Int32.Parse( dgvDatos.Rows[index].Cells[0].Text ) ;
-
+                    
                     pedido = RPA.GetPedidoByID(idPedido).First();
                     Session["idPerma"] = idPedido;
 
@@ -163,6 +165,14 @@ namespace AppSoftClean.Vistas.Listas
                     btnCrear_Modal.Text = "Actualizar";
                     ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "MyModalCreate();", true);
                     break;
+                #endregion
+
+                case "Eliminar":
+                    RPA = new RepositoryPedidosArea();
+                    CDS.EliminarPedido(RPA.GetPedidoByID(idPedido).First());
+                    this.eleccionCargaDeDatos();
+                break;
+
             }
         }
 
