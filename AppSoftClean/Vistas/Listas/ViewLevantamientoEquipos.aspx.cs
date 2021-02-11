@@ -143,6 +143,8 @@ namespace AppSoftClean.Vistas.Listas
                     TextCanPorGalon.Text = pedido.CanPorGalon.ToString();
                     DDL_PorGalon.SelectedValue = pedido.IdPorGalon.ToString();
 
+
+                    LBProdQuim.Items.Clear();
                     listaGenerica = this.getProductos(pedido.ProdQuim);
                     for(int i = 0; i < listaGenerica.Count; i++)
                     {
@@ -150,6 +152,7 @@ namespace AppSoftClean.Vistas.Listas
                         this.UpdateProdQuimAgregar.Update();
                     }
 
+                    LBDosLav.Items.Clear();
                     listaGenerica = this.getProductos(pedido.DosLav);
                     for (int i = 0; i < listaGenerica.Count; i++)
                     {

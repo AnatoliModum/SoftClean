@@ -52,21 +52,23 @@ namespace AppSoftClean.Data.Repository
             String res = "";
             ComprobacionDePedidos com = this.ValidacionUpdate(PedidoNuevo);
             RepositoryPedidosArea RPA = new RepositoryPedidosArea();
-            PedidosArea PedidoAntiguo = RPA.GetPedidoByID(PedidoNuevo.id).First();
+            PedidosArea PedidoAntiguo = new PedidosArea();
+            PedidoAntiguo = RPA.GetPedidoByID(PedidoNuevo.id).First();
 
             if (com._CepInBasStock && com._DosEstLimStock && com._DosLavStock && com._ModEqDos &&
                 com._ModJabStock && com._PorGalon && com._QuimicosStock && com._TipMaqLavStock)
             {
-                if (RPA.ActualizarPedido(PedidoNuevo))
+                if (this.ModificadorStockUpdate(PedidoNuevo, PedidoAntiguo))
                 {
-                    if (!this.ModificadorStockUpdate(PedidoNuevo , PedidoAntiguo))
+                    if (RPA.ActualizarPedido(PedidoNuevo))
                     {
-                        res = "Pedido creado exitosamente, error al modificar el stock";
+                        res = "Pedido creado exitosamente";
                     }
+                    else { res = "Error al actualizar el pedido"; }
                 }
                 else
                 {
-                    res = "Error al actualizar el pedido";
+                    res = "Error al actualizar el stock";
                 }
             }
             else

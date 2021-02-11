@@ -284,3 +284,5 @@ C:\Users\Antonio\RepositoriosFinem\SoftClean\SoftClean\AppSoftClean\obj\Debug\Ap
 C:\Users\Antonio\RepositoriosFinem\SoftClean\SoftClean\AppSoftClean\obj\Debug\AppSoftClean.csproj.CopyComplete
 C:\Users\Antonio\RepositoriosFinem\SoftClean\SoftClean\AppSoftClean\obj\Debug\AppSoftClean.dll
 C:\Users\Antonio\RepositoriosFinem\SoftClean\SoftClean\AppSoftClean\obj\Debug\AppSoftClean.pdb
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AjaxControlToolkit.dll
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\Gat.Controls.MessageBox.dll

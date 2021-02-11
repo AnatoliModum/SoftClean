@@ -91,16 +91,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LevantamientoEquipos">
-      <EntityTypeMapping TypeName="ServiceForHotelModel.LevantamientoEquipos">
-        <MappingFragment StoreEntitySet="LevantamientoEquipos">
-          <ScalarProperty Name="NumHoja" ColumnName="NumHoja" />
-          <ScalarProperty Name="dteFecha" ColumnName="dteFecha" />
-          <ScalarProperty Name="IdDivision" ColumnName="IdDivision" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Categorias">
       <EntityTypeMapping TypeName="ServiceForHotelModel.Categorias">
         <MappingFragment StoreEntitySet="Categorias">
@@ -109,13 +99,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Usuarios">
-      <EntityTypeMapping TypeName="ServiceForHotelModel.Usuarios">
-        <MappingFragment StoreEntitySet="Usuarios">
-          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
-          <ScalarProperty Name="correo" ColumnName="correo" />
-          <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
-          <ScalarProperty Name="usuario" ColumnName="usuario" />
+    <EntitySetMapping Name="LevantamientoEquipos">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.LevantamientoEquipos">
+        <MappingFragment StoreEntitySet="LevantamientoEquipos">
+          <ScalarProperty Name="NumHoja" ColumnName="NumHoja" />
+          <ScalarProperty Name="dteFecha" ColumnName="dteFecha" />
+          <ScalarProperty Name="IdDivision" ColumnName="IdDivision" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -140,6 +129,17 @@
           <ScalarProperty Name="CanModEqDos" ColumnName="CanModEqDos" />
           <ScalarProperty Name="IdModEqDos" ColumnName="IdModEqDos" />
           <ScalarProperty Name="AreaIns" ColumnName="AreaIns" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

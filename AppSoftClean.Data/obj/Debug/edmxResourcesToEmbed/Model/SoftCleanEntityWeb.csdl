@@ -11,22 +11,14 @@
     <EntitySet Name="AdmProdQuim" EntityType="ServiceForHotelModel.AdmProdQuim" />
     <EntitySet Name="AdmTipMaqLav" EntityType="ServiceForHotelModel.AdmTipMaqLav" />
     <EntitySet Name="AreaUso" EntityType="ServiceForHotelModel.AreaUso" />
+    <EntitySet Name="Categorias" EntityType="ServiceForHotelModel.Categorias" />
     <EntitySet Name="LevantamientoEquipos" EntityType="ServiceForHotelModel.LevantamientoEquipos" />
+    <EntitySet Name="PedidosArea" EntityType="ServiceForHotelModel.PedidosArea" />
+    <EntitySet Name="Usuarios" EntityType="ServiceForHotelModel.Usuarios" />
     <AssociationSet Name="FK_Division" Association="ServiceForHotelModel.FK_Division">
       <End Role="AdmDivisiones" EntitySet="AdmDivisiones" />
       <End Role="LevantamientoEquipos" EntitySet="LevantamientoEquipos" />
     </AssociationSet>
-    <AssociationSet Name="FK_AreaDeUso" Association="ServiceForHotelModel.FK_AreaDeUso">
-      <End Role="AreaUso" EntitySet="AreaUso" />
-      <End Role="AdmProdQuim" EntitySet="AdmProdQuim" />
-    </AssociationSet>
-    <EntitySet Name="Categorias" EntityType="ServiceForHotelModel.Categorias" />
-    <EntitySet Name="Usuarios" EntityType="ServiceForHotelModel.Usuarios" />
-    <AssociationSet Name="FK_Categoria" Association="ServiceForHotelModel.FK_Categoria">
-      <End Role="Categorias" EntitySet="Categorias" />
-      <End Role="Usuarios" EntitySet="Usuarios" />
-    </AssociationSet>
-    <EntitySet Name="PedidosArea" EntityType="ServiceForHotelModel.PedidosArea" />
     <AssociationSet Name="FK_DosEstacionLimpieza" Association="ServiceForHotelModel.FK_DosEstacionLimpieza">
       <End Role="AdmDosEstLim" EntitySet="AdmDosEstLim" />
       <End Role="PedidosArea" EntitySet="PedidosArea" />
@@ -47,6 +39,10 @@
       <End Role="AdmPortGalon" EntitySet="AdmPortGalon" />
       <End Role="PedidosArea" EntitySet="PedidosArea" />
     </AssociationSet>
+    <AssociationSet Name="FK_AreaDeUso" Association="ServiceForHotelModel.FK_AreaDeUso">
+      <End Role="AreaUso" EntitySet="AreaUso" />
+      <End Role="AdmProdQuim" EntitySet="AdmProdQuim" />
+    </AssociationSet>
     <AssociationSet Name="FK_ProductosQuimicos" Association="ServiceForHotelModel.FK_ProductosQuimicos">
       <End Role="AdmProdQuim" EntitySet="AdmProdQuim" />
       <End Role="PedidosArea" EntitySet="PedidosArea" />
@@ -54,6 +50,10 @@
     <AssociationSet Name="FK_MaquinasLavavajillas" Association="ServiceForHotelModel.FK_MaquinasLavavajillas">
       <End Role="AdmTipMaqLav" EntitySet="AdmTipMaqLav" />
       <End Role="PedidosArea" EntitySet="PedidosArea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categoria" Association="ServiceForHotelModel.FK_Categoria">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
     </AssociationSet>
     <AssociationSet Name="FK_LevantamientoEquipos" Association="ServiceForHotelModel.FK_LevantamientoEquipos">
       <End Role="LevantamientoEquipos" EntitySet="LevantamientoEquipos" />
@@ -150,6 +150,14 @@
     <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="AdmProdQuim" Relationship="ServiceForHotelModel.FK_AreaDeUso" FromRole="AreaUso" ToRole="AdmProdQuim" />
   </EntityType>
+  <EntityType Name="Categorias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoria" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuarios" Relationship="ServiceForHotelModel.FK_Categoria" FromRole="Categorias" ToRole="Usuarios" />
+  </EntityType>
   <EntityType Name="LevantamientoEquipos">
     <Key>
       <PropertyRef Name="id" />
@@ -161,61 +169,6 @@
     <NavigationProperty Name="AdmDivisiones" Relationship="ServiceForHotelModel.FK_Division" FromRole="LevantamientoEquipos" ToRole="AdmDivisiones" />
     <NavigationProperty Name="PedidosArea" Relationship="ServiceForHotelModel.FK_LevantamientoEquipos" FromRole="LevantamientoEquipos" ToRole="PedidosArea" />
   </EntityType>
-  <Association Name="FK_Division">
-    <End Type="ServiceForHotelModel.AdmDivisiones" Role="AdmDivisiones" Multiplicity="0..1" />
-    <End Type="ServiceForHotelModel.LevantamientoEquipos" Role="LevantamientoEquipos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AdmDivisiones">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="LevantamientoEquipos">
-        <PropertyRef Name="IdDivision" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AreaDeUso">
-    <End Type="ServiceForHotelModel.AreaUso" Role="AreaUso" Multiplicity="0..1" />
-    <End Type="ServiceForHotelModel.AdmProdQuim" Role="AdmProdQuim" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AreaUso">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="AdmProdQuim">
-        <PropertyRef Name="IdAreaUso" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="Categorias">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="categoria" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Usuarios" Relationship="ServiceForHotelModel.FK_Categoria" FromRole="Categorias" ToRole="Usuarios" />
-  </EntityType>
-  <EntityType Name="Usuarios">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="usuario" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-    <Property Name="contrasenia" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="correo" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-    <Property Name="idCategoria" Type="Int32" />
-    <NavigationProperty Name="Categorias" Relationship="ServiceForHotelModel.FK_Categoria" FromRole="Usuarios" ToRole="Categorias" />
-  </EntityType>
-  <Association Name="FK_Categoria">
-    <End Type="ServiceForHotelModel.Categorias" Role="Categorias" Multiplicity="0..1" />
-    <End Type="ServiceForHotelModel.Usuarios" Role="Usuarios" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Categorias">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Usuarios">
-        <PropertyRef Name="idCategoria" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="PedidosArea">
     <Key>
       <PropertyRef Name="id" />
@@ -247,6 +200,29 @@
     <NavigationProperty Name="AdmTipMaqLav" Relationship="ServiceForHotelModel.FK_MaquinasLavavajillas" FromRole="PedidosArea" ToRole="AdmTipMaqLav" />
     <NavigationProperty Name="LevantamientoEquipos" Relationship="ServiceForHotelModel.FK_LevantamientoEquipos" FromRole="PedidosArea" ToRole="LevantamientoEquipos" />
   </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="contrasenia" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="idCategoria" Type="Int32" />
+    <NavigationProperty Name="Categorias" Relationship="ServiceForHotelModel.FK_Categoria" FromRole="Usuarios" ToRole="Categorias" />
+  </EntityType>
+  <Association Name="FK_Division">
+    <End Type="ServiceForHotelModel.AdmDivisiones" Role="AdmDivisiones" Multiplicity="0..1" />
+    <End Type="ServiceForHotelModel.LevantamientoEquipos" Role="LevantamientoEquipos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdmDivisiones">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="LevantamientoEquipos">
+        <PropertyRef Name="IdDivision" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_DosEstacionLimpieza">
     <End Type="ServiceForHotelModel.AdmDosEstLim" Role="AdmDosEstLim" Multiplicity="0..1" />
     <End Type="ServiceForHotelModel.PedidosArea" Role="PedidosArea" Multiplicity="*" />
@@ -307,6 +283,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_AreaDeUso">
+    <End Type="ServiceForHotelModel.AreaUso" Role="AreaUso" Multiplicity="0..1" />
+    <End Type="ServiceForHotelModel.AdmProdQuim" Role="AdmProdQuim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AreaUso">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AdmProdQuim">
+        <PropertyRef Name="IdAreaUso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ProductosQuimicos">
     <End Type="ServiceForHotelModel.AdmProdQuim" Role="AdmProdQuim" Multiplicity="0..1" />
     <End Type="ServiceForHotelModel.PedidosArea" Role="PedidosArea" Multiplicity="*" />
@@ -328,6 +316,18 @@
       </Principal>
       <Dependent Role="PedidosArea">
         <PropertyRef Name="IdTipMaqLav" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categoria">
+    <End Type="ServiceForHotelModel.Categorias" Role="Categorias" Multiplicity="0..1" />
+    <End Type="ServiceForHotelModel.Usuarios" Role="Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="idCategoria" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
