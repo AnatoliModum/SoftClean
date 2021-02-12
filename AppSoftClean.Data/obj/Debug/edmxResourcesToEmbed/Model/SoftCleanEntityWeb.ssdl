@@ -107,17 +107,17 @@
     <Property Name="IdDosEstLim" Type="int" />
     <Property Name="CanDosEstLim" Type="int" />
     <Property Name="IdProdQuim" Type="int" />
-    <Property Name="CanProdQuim" Type="int" />
+    <Property Name="ProdQuim" Type="text" />
     <Property Name="IdModJab" Type="int" />
     <Property Name="CanModJab" Type="int" />
-    <Property Name="IdCepInBas" Type="int" />
     <Property Name="CanCepInBas" Type="int" />
     <Property Name="IdTipMaqLav" Type="int" />
     <Property Name="CanTipMaqLav" Type="int" />
     <Property Name="IdDosLav" Type="int" />
-    <Property Name="CanDosLav" Type="int" />
+    <Property Name="DosLav" Type="text" />
     <Property Name="IdPorGalon" Type="int" />
     <Property Name="CanPorGalon" Type="int" />
+    <Property Name="IdLevantamientoEquipo" Type="int" />
   </EntityType>
   <EntityType Name="Usuarios">
     <Key>
@@ -150,18 +150,6 @@
       </Principal>
       <Dependent Role="Usuarios">
         <PropertyRef Name="idCategoria" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CepillosInsertosYBases">
-    <End Role="AdmCepInBas" Type="Self.AdmCepInBas" Multiplicity="0..1" />
-    <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AdmCepInBas">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="PedidosArea">
-        <PropertyRef Name="IdCepInBas" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -198,6 +186,18 @@
       </Principal>
       <Dependent Role="PedidosArea">
         <PropertyRef Name="IdDosLav" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LevantamientoEquipos">
+    <End Role="LevantamientoEquipos" Type="Self.LevantamientoEquipos" Multiplicity="0..1" />
+    <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LevantamientoEquipos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PedidosArea">
+        <PropertyRef Name="IdLevantamientoEquipo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -284,10 +284,6 @@
       <End Role="Categorias" EntitySet="Categorias" />
       <End Role="Usuarios" EntitySet="Usuarios" />
     </AssociationSet>
-    <AssociationSet Name="FK_CepillosInsertosYBases" Association="Self.FK_CepillosInsertosYBases">
-      <End Role="AdmCepInBas" EntitySet="AdmCepInBas" />
-      <End Role="PedidosArea" EntitySet="PedidosArea" />
-    </AssociationSet>
     <AssociationSet Name="FK_Division" Association="Self.FK_Division">
       <End Role="AdmDivisiones" EntitySet="AdmDivisiones" />
       <End Role="LevantamientoEquipos" EntitySet="LevantamientoEquipos" />
@@ -298,6 +294,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_DosificadoresLavavajillas" Association="Self.FK_DosificadoresLavavajillas">
       <End Role="AdmDosLav" EntitySet="AdmDosLav" />
+      <End Role="PedidosArea" EntitySet="PedidosArea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LevantamientoEquipos" Association="Self.FK_LevantamientoEquipos">
+      <End Role="LevantamientoEquipos" EntitySet="LevantamientoEquipos" />
       <End Role="PedidosArea" EntitySet="PedidosArea" />
     </AssociationSet>
     <AssociationSet Name="FK_MaquinasLavavajillas" Association="Self.FK_MaquinasLavavajillas">

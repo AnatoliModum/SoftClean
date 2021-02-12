@@ -1,0 +1,3 @@
+﻿Archivo de modelo generado: SoftCleanEntityWeb.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:02.1542702.
+La generación del modelo tardó 00:00:03.7293704.
