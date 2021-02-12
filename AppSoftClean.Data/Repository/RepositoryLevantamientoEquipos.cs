@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Repository
 {
-    class RepositoryLevantamientoEquipos : ILevantamientoEquiposRepository
+    public class RepositoryLevantamientoEquipos : ILevantamientoEquiposRepository
     {
         private ServiceForHotelEntities conn = new ServiceForHotelEntities();
 
@@ -18,7 +18,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                LevantamientoEquipos levantamientoObj = conn.LevantamientoEquipos.Where(c => c.IdLevantamientosEquipos == Levantamiento.IdLevantamientosEquipos).FirstOrDefault<LevantamientoEquipos>();
+                LevantamientoEquipos levantamientoObj = conn.LevantamientoEquipos.Where(c => c.id == Levantamiento.id).FirstOrDefault<LevantamientoEquipos>();
 
                 levantamientoObj.IdDivision = Levantamiento.IdDivision;
                 levantamientoObj.dteFecha = Levantamiento.dteFecha;
@@ -44,7 +44,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                LevantamientoEquipos levantamientoObj = conn.LevantamientoEquipos.Where(c => c.IdLevantamientosEquipos == id).FirstOrDefault<LevantamientoEquipos>();
+                LevantamientoEquipos levantamientoObj = conn.LevantamientoEquipos.Where(c => c.id == id).FirstOrDefault<LevantamientoEquipos>();
                 conn.LevantamientoEquipos.Remove(levantamientoObj);
                 conn.SaveChanges();
                 res = true;
@@ -76,7 +76,7 @@ namespace AppSoftClean.Data.Repository
             List<LevantamientoEquipos> levantamientoObj = null;
             try
             {
-                levantamientoObj = conn.LevantamientoEquipos.Where(c => c.IdLevantamientosEquipos == id).ToList<LevantamientoEquipos>();
+                levantamientoObj = conn.LevantamientoEquipos.Where(c => c.id == id).ToList<LevantamientoEquipos>();
             }
             catch (Exception ex)
             {

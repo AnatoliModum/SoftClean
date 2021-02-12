@@ -1,5 +1,6 @@
 using System.Web;
-
+using AppSoftClean.Data.Infraestructure;
+using AppSoftClean.Data.Repository;
 using Microsoft.Practices.Unity;
 using Unity.WebForms;
 
@@ -32,7 +33,20 @@ namespace AppSoftClean.App_Start
 		/// <param name="container">Instance of the container to populate.</param>
 		private static void RegisterDependencies( IUnityContainer container )
 		{
-			// TODO: Add any dependencies needed here
-		}
+            container.RegisterType<IAreaUsoRepository, RepositoryAreaUso>();
+            container.RegisterType<ICepInBasRepository, RepositoryCepInsBas>();
+            container.RegisterType<IDivisionesRepository, RepositoryDivisiones>();
+            container.RegisterType<IDosEstLimRepository, RepositoryDosEstLimp>();
+            container.RegisterType<IDosLavRepository, RepositoryDosLav>();
+            container.RegisterType<ILevantamientoEquiposRepository, RepositoryLevantamientoEquipos>();
+            container.RegisterType<IModEqDosRepository, RepositoryModEqDos>();
+            container.RegisterType<IModJabRepository, RepositoryModJab>();
+            container.RegisterType<IPedidosAreaRepository, RepositoryPedidosArea>();
+            container.RegisterType<IPortGalonRepository, RepositoryPortGalon>();
+            container.RegisterType<IProdQuimRepository, RepositoryProdQuim>();
+            container.RegisterType<ITipMaqLavRepository, RepositoryTipMaqLav>();
+            container.RegisterType<IUsuariosRepository, RepositoryUsuarios>();
+            container.RegisterType<ICategoriasRepository, RepositoryCategorias>();
+        }
 	}
 }

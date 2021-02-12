@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Repository
 {
-    class RepositoryCepInsBas : ICepInBasRepository
+    public class RepositoryCepInsBas : ICepInBasRepository
     {
         private ServiceForHotelEntities conn = new ServiceForHotelEntities();
 
@@ -18,7 +18,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmCepInBas consumibleObj = conn.AdmCepInBas.Where(c => c.IdAdmCepInBas == Consumibles.IdAdmCepInBas).FirstOrDefault<AdmCepInBas>();
+                AdmCepInBas consumibleObj = conn.AdmCepInBas.Where(c => c.id == Consumibles.id).FirstOrDefault<AdmCepInBas>();
 
                 consumibleObj.Objeto = Consumibles.Objeto;
                 consumibleObj.Stock = Consumibles.Stock;
@@ -43,7 +43,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmCepInBas consumibleObj = conn.AdmCepInBas.Where(c => c.IdAdmCepInBas == id).FirstOrDefault<AdmCepInBas>();
+                AdmCepInBas consumibleObj = conn.AdmCepInBas.Where(c => c.id == id).FirstOrDefault<AdmCepInBas>();
                 conn.AdmCepInBas.Remove(consumibleObj);
                 conn.SaveChanges();
                 res = true;
@@ -75,7 +75,7 @@ namespace AppSoftClean.Data.Repository
             List<AdmCepInBas> consumibleObj = null;
             try
             {
-                consumibleObj = conn.AdmCepInBas.Where(c => c.IdAdmCepInBas == id).ToList<AdmCepInBas>();
+                consumibleObj = conn.AdmCepInBas.Where(c => c.id == id).ToList<AdmCepInBas>();
             }
             catch (Exception ex)
             {

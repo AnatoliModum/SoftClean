@@ -16,10 +16,11 @@ namespace AppSoftClean.Data.Repository
         public bool ActualizarAreaUso(AreaUso Area)
         {
             bool res = false;
+            String areaTest = Area.Area.ToString();
 
             try
             {
-                AreaUso areaObj = conn.AreaUso.Where(c => c.IdAreaUso == Area.IdAreaUso).FirstOrDefault<AreaUso>();
+                AreaUso areaObj = conn.AreaUso.Where(c => c.id == Area.id).FirstOrDefault<AreaUso>();
 
                 areaObj.Area = Area.Area;
                 areaObj.Descripcion = Area.Descripcion;
@@ -44,7 +45,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AreaUso areaObj = conn.AreaUso.Where(c => c.IdAreaUso == id).FirstOrDefault<AreaUso>();
+                AreaUso areaObj = conn.AreaUso.Where(c => c.id == id).FirstOrDefault<AreaUso>();
                 conn.AreaUso.Remove(areaObj);
                 conn.SaveChanges();
                 res = true;
@@ -75,7 +76,7 @@ namespace AppSoftClean.Data.Repository
             List<AreaUso> areaObj = null;
             try
             {
-                areaObj = conn.AreaUso.Where(c => c.IdAreaUso == id).ToList<AreaUso>();
+                areaObj = conn.AreaUso.Where(c => c.id == id).ToList<AreaUso>();
             }
             catch (Exception ex)
             {

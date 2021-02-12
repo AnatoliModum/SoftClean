@@ -73,8 +73,8 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Infraestructure\IAreaUsoRepository.cs" />
+    <Compile Include="Infraestructure\ICategoriasRepository.cs" />
     <Compile Include="Infraestructure\ICepInBasRepository.cs" />
-    <Compile Include="Infraestructure\IDetalleLevantamientoRepository.cs" />
     <Compile Include="Infraestructure\IDivisionesRepository.cs" />
     <Compile Include="Infraestructure\IDosEstLimRepository.cs" />
     <Compile Include="Infraestructure\IDosLavRepository.cs" />
@@ -85,6 +85,7 @@
     <Compile Include="Infraestructure\IPortGalonRepository.cs" />
     <Compile Include="Infraestructure\IProdQuimRepository.cs" />
     <Compile Include="Infraestructure\ITipMaqLavRepository.cs" />
+    <Compile Include="Infraestructure\IUsuariosRepository.cs" />
     <Compile Include="Model\AdmCepInBas.cs">
       <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
     </Compile>
@@ -115,15 +116,17 @@
     <Compile Include="Model\AreaUso.cs">
       <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DetalleLevantamiento.cs">
+    <Compile Include="Model\Categorias.cs">
       <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\ComprobacionDePedidos.cs" />
     <Compile Include="Model\LevantamientoEquipos.cs">
       <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PedidosArea.cs">
       <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Reportes.cs" />
     <Compile Include="Model\SoftCleanEntityWeb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -139,10 +142,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SoftCleanEntityWeb.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Usuarios.cs">
+      <DependentUpon>SoftCleanEntityWeb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recursos\direcciones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>direcciones.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\ControlDeStocks.cs" />
     <Compile Include="Repository\RepositoryAreaUso.cs" />
+    <Compile Include="Repository\RepositoryCategorias.cs" />
     <Compile Include="Repository\RepositoryCepInsBas.cs" />
-    <Compile Include="Repository\RepositoryDetalleLevantamiento.cs" />
     <Compile Include="Repository\RepositoryDivisiones.cs" />
     <Compile Include="Repository\RepositoryDosEstLimp.cs" />
     <Compile Include="Repository\RepositoryDosLav.cs" />
@@ -152,7 +164,9 @@
     <Compile Include="Repository\RepositoryPedidosArea.cs" />
     <Compile Include="Repository\RepositoryPortGalon.cs" />
     <Compile Include="Repository\RepositoryProdQuim.cs" />
+    <Compile Include="Repository\RepositoryReportes.cs" />
     <Compile Include="Repository\RepositoryTipMaqLav.cs" />
+    <Compile Include="Repository\RepositoryUsuarios.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -181,6 +195,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Recursos\direcciones.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>direcciones.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

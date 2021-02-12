@@ -46,14 +46,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\OneDrive\Documentos\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+      <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Gat.Controls.MessageBox, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MessageBox.2.1.0\lib\net461\Gat.Controls.MessageBox.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -74,6 +76,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -155,6 +158,24 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Imagenes\brush.png" />
+    <Content Include="Imagenes\bucket.png" />
+    <Content Include="Imagenes\cleaning.png" />
+    <Content Include="Imagenes\dishwasher.png" />
+    <Content Include="Imagenes\edificio.png" />
+    <Content Include="Imagenes\editar.png" />
+    <Content Include="Imagenes\eliminar.png" />
+    <Content Include="Imagenes\gallon.png" />
+    <Content Include="Imagenes\Imagen.png" />
+    <Content Include="Imagenes\lista.png" />
+    <Content Include="Imagenes\new.png" />
+    <Content Include="Imagenes\promo.png" />
+    <Content Include="Imagenes\shops.png" />
+    <Content Include="Imagenes\soap.png" />
+    <Content Include="Imagenes\spray.png" />
+    <Content Include="Imagenes\tienda.png" />
+    <Content Include="Imagenes\trash.png" />
+    <Content Include="Imagenes\type-dishwasher.png" />
     <Content Include="login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -186,15 +207,30 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Vistas\FormAreaUso.aspx" />
-    <Content Include="Vistas\FormCepInBas.aspx" />
-    <Content Include="Vistas\FormDosEstLim.aspx" />
-    <Content Include="Vistas\FormDosLav.aspx" />
-    <Content Include="Vistas\FormModEqDos.aspx" />
-    <Content Include="Vistas\FormModJab.aspx" />
-    <Content Include="Vistas\FormPorGalon.aspx" />
-    <Content Include="Vistas\FormProdQuim.aspx" />
-    <Content Include="Vistas\FormTipMaqLav.aspx" />
+    <Content Include="Vistas\Formularios\FormAreaUso.aspx" />
+    <Content Include="Vistas\Formularios\FormCepInBas.aspx" />
+    <Content Include="Vistas\Formularios\FormDivisiones.aspx" />
+    <Content Include="Vistas\Formularios\FormDosEstLim.aspx" />
+    <Content Include="Vistas\Formularios\FormDosLav.aspx" />
+    <Content Include="Vistas\Formularios\FormModEqDos.aspx" />
+    <Content Include="Vistas\Formularios\FormModJab.aspx" />
+    <Content Include="Vistas\Formularios\FormPorGalon.aspx" />
+    <Content Include="Vistas\Formularios\FormProdQuim.aspx" />
+    <Content Include="Vistas\Formularios\FormTipMaqLav.aspx" />
+    <Content Include="Vistas\Listas\ViewDivisiones.aspx" />
+    <Content Include="Vistas\Listas\ViewLevantamientoEquipos.aspx" />
+    <Content Include="Vistas\Listas\ViewListaLevantamientos.aspx" />
+    <Content Include="Vistas\Listas\ViewAreaUso.aspx" />
+    <Content Include="Vistas\Listas\ViewCepInBas.aspx" />
+    <Content Include="Vistas\Formularios\popupFailed.aspx" />
+    <Content Include="Vistas\Formularios\popupSuccesful.aspx" />
+    <Content Include="Vistas\Listas\ViewDosEstLim.aspx" />
+    <Content Include="Vistas\Listas\ViewDosLav.aspx" />
+    <Content Include="Vistas\Listas\ViewModEqDos.aspx" />
+    <Content Include="Vistas\Listas\ViewModJab.aspx" />
+    <Content Include="Vistas\Listas\ViewPorGalon.aspx" />
+    <Content Include="Vistas\Listas\ViewProdQuim.aspx" />
+    <Content Include="Vistas\Listas\ViewTipMaqLav.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -256,68 +292,173 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FormAreaUso.aspx.cs">
+    <Compile Include="Vistas\Formularios\FormAreaUso.aspx.cs">
       <DependentUpon>FormAreaUso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\FormAreaUso.aspx.designer.cs">
+    <Compile Include="Vistas\Formularios\FormAreaUso.aspx.designer.cs">
       <DependentUpon>FormAreaUso.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FormCepInBas.aspx.cs">
+    <Compile Include="Vistas\Formularios\FormCepInBas.aspx.cs">
       <DependentUpon>FormCepInBas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\FormCepInBas.aspx.designer.cs">
+    <Compile Include="Vistas\Formularios\FormCepInBas.aspx.designer.cs">
       <DependentUpon>FormCepInBas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FormDosEstLim.aspx.cs">
+    <Compile Include="Vistas\Formularios\FormDivisiones.aspx.cs">
+      <DependentUpon>FormDivisiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Formularios\FormDivisiones.aspx.designer.cs">
+      <DependentUpon>FormDivisiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Formularios\FormDosEstLim.aspx.cs">
       <DependentUpon>FormDosEstLim.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\FormDosEstLim.aspx.designer.cs">
+    <Compile Include="Vistas\Formularios\FormDosEstLim.aspx.designer.cs">
       <DependentUpon>FormDosEstLim.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FormDosLav.aspx.cs">
+    <Compile Include="Vistas\Formularios\FormDosLav.aspx.cs">
       <DependentUpon>FormDosLav.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\FormDosLav.aspx.designer.cs">
+    <Compile Include="Vistas\Formularios\FormDosLav.aspx.designer.cs">
       <DependentUpon>FormDosLav.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FormModEqDos.aspx.cs">
+    <Compile Include="Vistas\Formularios\FormModEqDos.aspx.cs">
       <DependentUpon>FormModEqDos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\FormModEqDos.aspx.designer.cs">
+    <Compile Include="Vistas\Formularios\FormModEqDos.aspx.designer.cs">
       <DependentUpon>FormModEqDos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FormModJab.aspx.cs">
+    <Compile Include="Vistas\Formularios\FormModJab.aspx.cs">
       <DependentUpon>FormModJab.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\FormModJab.aspx.designer.cs">
+    <Compile Include="Vistas\Formularios\FormModJab.aspx.designer.cs">
       <DependentUpon>FormModJab.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FormPorGalon.aspx.cs">
+    <Compile Include="Vistas\Formularios\FormPorGalon.aspx.cs">
       <DependentUpon>FormPorGalon.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\FormPorGalon.aspx.designer.cs">
+    <Compile Include="Vistas\Formularios\FormPorGalon.aspx.designer.cs">
       <DependentUpon>FormPorGalon.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FormProdQuim.aspx.cs">
+    <Compile Include="Vistas\Formularios\FormProdQuim.aspx.cs">
       <DependentUpon>FormProdQuim.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\FormProdQuim.aspx.designer.cs">
+    <Compile Include="Vistas\Formularios\FormProdQuim.aspx.designer.cs">
       <DependentUpon>FormProdQuim.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FormTipMaqLav.aspx.cs">
+    <Compile Include="Vistas\Formularios\FormTipMaqLav.aspx.cs">
       <DependentUpon>FormTipMaqLav.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\FormTipMaqLav.aspx.designer.cs">
+    <Compile Include="Vistas\Formularios\FormTipMaqLav.aspx.designer.cs">
       <DependentUpon>FormTipMaqLav.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewDivisiones.aspx.cs">
+      <DependentUpon>ViewDivisiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewDivisiones.aspx.designer.cs">
+      <DependentUpon>ViewDivisiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewLevantamientoEquipos.aspx.cs">
+      <DependentUpon>ViewLevantamientoEquipos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewLevantamientoEquipos.aspx.designer.cs">
+      <DependentUpon>ViewLevantamientoEquipos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewListaLevantamientos.aspx.cs">
+      <DependentUpon>ViewListaLevantamientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewListaLevantamientos.aspx.designer.cs">
+      <DependentUpon>ViewListaLevantamientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewAreaUso.aspx.cs">
+      <DependentUpon>ViewAreaUso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewAreaUso.aspx.designer.cs">
+      <DependentUpon>ViewAreaUso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewCepInBas.aspx.cs">
+      <DependentUpon>ViewCepInBas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewCepInBas.aspx.designer.cs">
+      <DependentUpon>ViewCepInBas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Formularios\popupFailed.aspx.cs">
+      <DependentUpon>popupFailed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Formularios\popupFailed.aspx.designer.cs">
+      <DependentUpon>popupFailed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Formularios\popupSuccesful.aspx.cs">
+      <DependentUpon>popupSuccesful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Formularios\popupSuccesful.aspx.designer.cs">
+      <DependentUpon>popupSuccesful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewDosEstLim.aspx.cs">
+      <DependentUpon>ViewDosEstLim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewDosEstLim.aspx.designer.cs">
+      <DependentUpon>ViewDosEstLim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewDosLav.aspx.cs">
+      <DependentUpon>ViewDosLav.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewDosLav.aspx.designer.cs">
+      <DependentUpon>ViewDosLav.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewModEqDos.aspx.cs">
+      <DependentUpon>ViewModEqDos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewModEqDos.aspx.designer.cs">
+      <DependentUpon>ViewModEqDos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewModJab.aspx.cs">
+      <DependentUpon>ViewModJab.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewModJab.aspx.designer.cs">
+      <DependentUpon>ViewModJab.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewPorGalon.aspx.cs">
+      <DependentUpon>ViewPorGalon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewPorGalon.aspx.designer.cs">
+      <DependentUpon>ViewPorGalon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewProdQuim.aspx.cs">
+      <DependentUpon>ViewProdQuim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewProdQuim.aspx.designer.cs">
+      <DependentUpon>ViewProdQuim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewTipMaqLav.aspx.cs">
+      <DependentUpon>ViewTipMaqLav.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Listas\ViewTipMaqLav.aspx.designer.cs">
+      <DependentUpon>ViewTipMaqLav.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -333,6 +474,19 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppSoftClean.Data\AppSoftClean.Data.csproj">
+      <Project>{203d8c9a-1947-4f50-a454-5a5523c227db}</Project>
+      <Name>AppSoftClean.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppSoftClean.Web\AppSoftClean.Web.csproj">
+      <Project>{ca6d44a3-d371-4cd1-a571-e0f850aa287e}</Project>
+      <Name>AppSoftClean.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

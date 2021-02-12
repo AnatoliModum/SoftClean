@@ -20,7 +20,7 @@ namespace AppSoftClean.Data.Model
             this.AdmProdQuim = new HashSet<AdmProdQuim>();
         }
     
-        public int IdAreaUso { get; set; }
+        public int id { get; set; }
         public string Area { get; set; }
         public string Descripcion { get; set; }
     

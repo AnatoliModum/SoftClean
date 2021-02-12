@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Repository
 {
-    class RepositoryPortGalon : IPortGalonRepository
+    public class RepositoryPortGalon : IPortGalonRepository
     {
         private ServiceForHotelEntities conn = new ServiceForHotelEntities();
 
@@ -18,7 +18,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmPortGalon galoneraObj = conn.AdmPortGalon.Where(c => c.IdAdmPortGalon == Galonera.IdAdmPortGalon).FirstOrDefault<AdmPortGalon>();
+                AdmPortGalon galoneraObj = conn.AdmPortGalon.Where(c => c.id == Galonera.id).FirstOrDefault<AdmPortGalon>();
 
                 galoneraObj.Tipo = Galonera.Tipo;
                 galoneraObj.Stock = Galonera.Stock;
@@ -43,7 +43,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmPortGalon galonObj = conn.AdmPortGalon.Where(c => c.IdAdmPortGalon == id).FirstOrDefault<AdmPortGalon>();
+                AdmPortGalon galonObj = conn.AdmPortGalon.Where(c => c.id == id).FirstOrDefault<AdmPortGalon>();
                 conn.AdmPortGalon.Remove(galonObj);
                 conn.SaveChanges();
                 res = true;
@@ -75,7 +75,7 @@ namespace AppSoftClean.Data.Repository
             List<AdmPortGalon> galonObj = null;
             try
             {
-                galonObj = conn.AdmPortGalon.Where(c => c.IdAdmPortGalon == id).ToList<AdmPortGalon>();
+                galonObj = conn.AdmPortGalon.Where(c => c.id == id).ToList<AdmPortGalon>();
             }
             catch (Exception ex)
             {

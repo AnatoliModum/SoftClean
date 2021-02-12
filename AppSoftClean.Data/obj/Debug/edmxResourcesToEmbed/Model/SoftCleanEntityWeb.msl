@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ServiceForHotelModelStoreContainer" CdmEntityContainer="ServiceForHotelEntities">
+    <EntitySetMapping Name="AdmCepInBas">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmCepInBas">
+        <MappingFragment StoreEntitySet="AdmCepInBas">
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Objeto" ColumnName="Objeto" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmDivisiones">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmDivisiones">
+        <MappingFragment StoreEntitySet="AdmDivisiones">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmDosEstLim">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmDosEstLim">
+        <MappingFragment StoreEntitySet="AdmDosEstLim">
+          <ScalarProperty Name="EqDisponibles" ColumnName="EqDisponibles" />
+          <ScalarProperty Name="DosEstLimp" ColumnName="DosEstLimp" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmDosLav">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmDosLav">
+        <MappingFragment StoreEntitySet="AdmDosLav">
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Equipo" ColumnName="Equipo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmModEqDos">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmModEqDos">
+        <MappingFragment StoreEntitySet="AdmModEqDos">
+          <ScalarProperty Name="EqDisponibles" ColumnName="EqDisponibles" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmModJab">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmModJab">
+        <MappingFragment StoreEntitySet="AdmModJab">
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmPortGalon">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmPortGalon">
+        <MappingFragment StoreEntitySet="AdmPortGalon">
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmProdQuim">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmProdQuim">
+        <MappingFragment StoreEntitySet="AdmProdQuim">
+          <ScalarProperty Name="IdAreaUso" ColumnName="IdAreaUso" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Quimico" ColumnName="Quimico" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmTipMaqLav">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AdmTipMaqLav">
+        <MappingFragment StoreEntitySet="AdmTipMaqLav">
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AreaUso">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.AreaUso">
+        <MappingFragment StoreEntitySet="AreaUso">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.Categorias">
+        <MappingFragment StoreEntitySet="Categorias">
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LevantamientoEquipos">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.LevantamientoEquipos">
+        <MappingFragment StoreEntitySet="LevantamientoEquipos">
+          <ScalarProperty Name="NumHoja" ColumnName="NumHoja" />
+          <ScalarProperty Name="dteFecha" ColumnName="dteFecha" />
+          <ScalarProperty Name="IdDivision" ColumnName="IdDivision" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PedidosArea">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.PedidosArea">
+        <MappingFragment StoreEntitySet="PedidosArea">
+          <ScalarProperty Name="IdLevantamientoEquipo" ColumnName="IdLevantamientoEquipo" />
+          <ScalarProperty Name="CanPorGalon" ColumnName="CanPorGalon" />
+          <ScalarProperty Name="IdPorGalon" ColumnName="IdPorGalon" />
+          <ScalarProperty Name="DosLav" ColumnName="DosLav" />
+          <ScalarProperty Name="IdDosLav" ColumnName="IdDosLav" />
+          <ScalarProperty Name="CanTipMaqLav" ColumnName="CanTipMaqLav" />
+          <ScalarProperty Name="IdTipMaqLav" ColumnName="IdTipMaqLav" />
+          <ScalarProperty Name="CanCepInBas" ColumnName="CanCepInBas" />
+          <ScalarProperty Name="CanModJab" ColumnName="CanModJab" />
+          <ScalarProperty Name="IdModJab" ColumnName="IdModJab" />
+          <ScalarProperty Name="ProdQuim" ColumnName="ProdQuim" />
+          <ScalarProperty Name="IdProdQuim" ColumnName="IdProdQuim" />
+          <ScalarProperty Name="CanDosEstLim" ColumnName="CanDosEstLim" />
+          <ScalarProperty Name="IdDosEstLim" ColumnName="IdDosEstLim" />
+          <ScalarProperty Name="CanModEqDos" ColumnName="CanModEqDos" />
+          <ScalarProperty Name="IdModEqDos" ColumnName="IdModEqDos" />
+          <ScalarProperty Name="AreaIns" ColumnName="AreaIns" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="ServiceForHotelModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

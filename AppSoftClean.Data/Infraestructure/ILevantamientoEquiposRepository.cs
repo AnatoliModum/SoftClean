@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Infraestructure
 {
-    interface ILevantamientoEquiposRepository
+    public interface ILevantamientoEquiposRepository
     {
         bool InsertarLevantamiento(LevantamientoEquipos Levantamiento);
         List<LevantamientoEquipos> GetAllLevantamientos();

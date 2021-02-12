@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Repository
 {
-    class RepositoryTipMaqLav : ITipMaqLavRepository
+    public class RepositoryTipMaqLav : ITipMaqLavRepository
     {
         private ServiceForHotelEntities conn = new ServiceForHotelEntities();
 
@@ -18,7 +18,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmTipMaqLav lavavajillasObj = conn.AdmTipMaqLav.Where(c => c.IdAdmTipMaqLav == Lavavajillas.IdAdmTipMaqLav).FirstOrDefault<AdmTipMaqLav>();
+                AdmTipMaqLav lavavajillasObj = conn.AdmTipMaqLav.Where(c => c.id == Lavavajillas.id).FirstOrDefault<AdmTipMaqLav>();
 
                 lavavajillasObj.Tipo = Lavavajillas.Tipo;
                 lavavajillasObj.Stock = Lavavajillas.Stock;
@@ -43,7 +43,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmTipMaqLav lavavajillasObj = conn.AdmTipMaqLav.Where(c => c.IdAdmTipMaqLav == id).FirstOrDefault<AdmTipMaqLav>();
+                AdmTipMaqLav lavavajillasObj = conn.AdmTipMaqLav.Where(c => c.id == id).FirstOrDefault<AdmTipMaqLav>();
                 conn.AdmTipMaqLav.Remove(lavavajillasObj);
                 conn.SaveChanges();
                 res = true;
@@ -75,7 +75,7 @@ namespace AppSoftClean.Data.Repository
             List<AdmTipMaqLav> lavavajillaObj = null;
             try
             {
-                lavavajillaObj = conn.AdmTipMaqLav.Where(c => c.IdAdmTipMaqLav == id).ToList<AdmTipMaqLav>();
+                lavavajillaObj = conn.AdmTipMaqLav.Where(c => c.id == id).ToList<AdmTipMaqLav>();
             }
             catch (Exception ex)
             {

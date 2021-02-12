@@ -86,6 +86,14 @@ C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\obj\Debug\AppSoftCl
 C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\obj\Debug\AppSoftClean.csproj.CopyComplete
 C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\obj\Debug\AppSoftClean.dll
 C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\obj\Debug\AppSoftClean.pdb
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\roslyn\System.ValueTuple.dll
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AppSoftClean.Data.dll
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AppSoftClean.Data.pdb
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AppSoftClean.Data.dll.config
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AppSoftClean.Web.dll
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AppSoftClean.Web.pdb
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AppSoftClean.Web.dll.config
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AppSoftClean.dll.config
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AppSoftClean.dll
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AppSoftClean.pdb
@@ -124,8 +132,6 @@ C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\roslyn\System.Security.Cr
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\roslyn\System.Security.Cryptography.Primitives.dll
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\roslyn\System.Security.Principal.Windows.dll
-C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\roslyn\System.ValueTuple.dll
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\roslyn\System.Xml.ReaderWriter.dll
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\roslyn\System.Xml.XmlDocument.dll
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\roslyn\System.Xml.XPath.dll
@@ -135,7 +141,10 @@ C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\roslyn\vbc.exe.config
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\roslyn\vbc.rsp
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\roslyn\VBCSCompiler.exe
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AjaxControlToolkit.dll
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\Antlr3.Runtime.dll
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AppSoftClean.Data.dll
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AppSoftClean.Web.dll
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AspNet.ScriptManager.bootstrap.dll
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AspNet.ScriptManager.jQuery.dll
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\EntityFramework.dll
@@ -155,6 +164,10 @@ C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\System.Web.Optimization.d
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\Unity.WebForms.dll
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\WebActivatorEx.dll
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\WebGrease.dll
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AppSoftClean.Data.pdb
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AppSoftClean.Data.dll.config
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AppSoftClean.Web.pdb
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AppSoftClean.Web.dll.config
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\EntityFramework.xml
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\EntityFramework.SqlServer.xml
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\Microsoft.Practices.ServiceLocation.pdb
@@ -174,4 +187,6 @@ C:\Users\aeder\source\repos\SoftClean\AppSoftClean\obj\Debug\AppSoftClean.csproj
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\obj\Debug\AppSoftClean.csproj.CopyComplete
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\obj\Debug\AppSoftClean.dll
 C:\Users\aeder\source\repos\SoftClean\AppSoftClean\obj\Debug\AppSoftClean.pdb
-C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\AjaxControlToolkit.dll
+C:\Users\aeder\source\repos\SoftClean\AppSoftClean\bin\Gat.Controls.MessageBox.dll
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\AjaxControlToolkit.dll
+C:\Users\AnatoliModum\source\repos\AppSoftClean\AppSoftClean\bin\Gat.Controls.MessageBox.dll

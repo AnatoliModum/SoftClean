@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Infraestructure
 {
-    interface IPedidosAreaRepository
+    public interface IPedidosAreaRepository
     {
         bool InsertarPedido(PedidosArea Pedido);
         List<PedidosArea> GetAllPedidos();

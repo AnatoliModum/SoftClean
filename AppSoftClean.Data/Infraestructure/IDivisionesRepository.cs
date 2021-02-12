@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Infraestructure
 {
-    interface IDivisionesRepository
+    public interface IDivisionesRepository
     {
         bool InsertarDivision(AdmDivisiones Division);
         List<AdmDivisiones> GetAllDivisiones();

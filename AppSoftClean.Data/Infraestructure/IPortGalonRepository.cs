@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Infraestructure
 {
-    interface IPortGalonRepository
+    public interface IPortGalonRepository
     {
         bool InsertarGalonera(AdmPortGalon Galonera);
         List<AdmPortGalon> GetAllGaloneras();

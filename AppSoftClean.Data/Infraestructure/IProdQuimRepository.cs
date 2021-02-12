@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Infraestructure
 {
-    interface IProdQuimRepository
+    public interface IProdQuimRepository
     {
         bool InsertarQuimico(AdmProdQuim Quimico);
         List<AdmProdQuim> GetAllQuimicos();
+        List<AdmProdQuim> GetAllQuimicosCocina();
         List<AdmProdQuim> GetQuimicoByID(int id);
         bool EliminarQuimico(int id);
         bool ActualizarQuimico(AdmProdQuim Quimico);

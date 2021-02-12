@@ -14,17 +14,8 @@ namespace AppSoftClean.Data.Model
     
     public partial class AdmCepInBas
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AdmCepInBas()
-        {
-            this.PedidosArea = new HashSet<PedidosArea>();
-        }
-    
-        public int IdAdmCepInBas { get; set; }
+        public int id { get; set; }
         public string Objeto { get; set; }
         public Nullable<int> Stock { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PedidosArea> PedidosArea { get; set; }
     }
 }

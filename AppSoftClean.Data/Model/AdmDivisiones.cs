@@ -20,7 +20,7 @@ namespace AppSoftClean.Data.Model
             this.LevantamientoEquipos = new HashSet<LevantamientoEquipos>();
         }
     
-        public int IdAdmDivisiones { get; set; }
+        public int id { get; set; }
         public string Nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

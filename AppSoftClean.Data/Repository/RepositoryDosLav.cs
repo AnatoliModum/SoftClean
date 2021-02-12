@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Repository
 {
-    class RepositoryDosLav : IDosLavRepository
+    public class RepositoryDosLav : IDosLavRepository
     {
         private ServiceForHotelEntities conn = new ServiceForHotelEntities();
 
@@ -18,7 +18,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmDosLav dosificadorObj = conn.AdmDosLav.Where(c => c.IdAdmDosLav == Dosificador.IdAdmDosLav).FirstOrDefault<AdmDosLav>();
+                AdmDosLav dosificadorObj = conn.AdmDosLav.Where(c => c.id == Dosificador.id).FirstOrDefault<AdmDosLav>();
 
                 dosificadorObj.Equipo = Dosificador.Equipo;
                 dosificadorObj.Stock = Dosificador.Stock;
@@ -43,8 +43,8 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmDosEstLim estacionObj = conn.AdmDosEstLim.Where(c => c.IdAdmDosEstLim == id).FirstOrDefault<AdmDosEstLim>();
-                conn.AdmDosEstLim.Remove(estacionObj);
+                AdmDosLav estacionObj = conn.AdmDosLav.Where(c => c.id == id).FirstOrDefault<AdmDosLav>();
+                conn.AdmDosLav.Remove(estacionObj);
                 conn.SaveChanges();
                 res = true;
             }
@@ -75,7 +75,7 @@ namespace AppSoftClean.Data.Repository
             List<AdmDosLav> dosificadorObj = null;
             try
             {
-                dosificadorObj = conn.AdmDosLav.Where(c => c.IdAdmDosLav == id).ToList<AdmDosLav>();
+                dosificadorObj = conn.AdmDosLav.Where(c => c.id == id).ToList<AdmDosLav>();
             }
             catch (Exception ex)
             {
@@ -83,6 +83,22 @@ namespace AppSoftClean.Data.Repository
             }
             return dosificadorObj;
         }
+
+        public List<AdmDosLav> GetDosificadoresByName(string name)
+        {
+            List<AdmDosLav> dosificadorObj = null;
+            try
+            {
+                dosificadorObj = conn.AdmDosLav.Where(c => c.Equipo == name).ToList<AdmDosLav>();
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+            return dosificadorObj;
+        }
+
+
 
         public bool InsertarDosificador(AdmDosLav Dosificador)
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Infraestructure
 {
-    interface IDosEstLimRepository
+    public interface IDosEstLimRepository
     {
         bool InsertarEstacion(AdmDosEstLim Estacion);
         List<AdmDosEstLim> GetAllEstaciones();

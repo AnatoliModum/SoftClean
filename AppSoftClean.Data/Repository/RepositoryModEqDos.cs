@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Repository
 {
-    class RepositoryModEqDos : IModEqDosRepository
+    public class RepositoryModEqDos : IModEqDosRepository
     {
         private ServiceForHotelEntities conn = new ServiceForHotelEntities();
 
@@ -18,7 +18,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmModEqDos equipoObj = conn.AdmModEqDos.Where(c => c.IdAdmModEqDos == EquipoDosificador.IdAdmModEqDos).FirstOrDefault<AdmModEqDos>();
+                AdmModEqDos equipoObj = conn.AdmModEqDos.Where(c => c.id == EquipoDosificador.id).FirstOrDefault<AdmModEqDos>();
 
                 equipoObj.Modelo = EquipoDosificador.Modelo;
                 equipoObj.EqDisponibles = EquipoDosificador.EqDisponibles;
@@ -43,7 +43,7 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                AdmModEqDos equipoOnj = conn.AdmModEqDos.Where(c => c.IdAdmModEqDos == id).FirstOrDefault<AdmModEqDos>();
+                AdmModEqDos equipoOnj = conn.AdmModEqDos.Where(c => c.id == id).FirstOrDefault<AdmModEqDos>();
                 conn.AdmModEqDos.Remove(equipoOnj);
                 conn.SaveChanges();
                 res = true;
@@ -75,7 +75,7 @@ namespace AppSoftClean.Data.Repository
             List<AdmModEqDos> equipoObj = null;
             try
             {
-                equipoObj = conn.AdmModEqDos.Where(c => c.IdAdmModEqDos == id).ToList<AdmModEqDos>();
+                equipoObj = conn.AdmModEqDos.Where(c => c.id == id).ToList<AdmModEqDos>();
             }
             catch (Exception ex)
             {

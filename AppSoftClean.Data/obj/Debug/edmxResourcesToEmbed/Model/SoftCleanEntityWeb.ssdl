@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ServiceForHotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdmCepInBas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Objeto" Type="varchar" MaxLength="100" />
+    <Property Name="Stock" Type="int" />
+  </EntityType>
+  <EntityType Name="AdmDivisiones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="AdmDosEstLim">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DosEstLimp" Type="varchar" MaxLength="100" />
+    <Property Name="EqDisponibles" Type="int" />
+  </EntityType>
+  <EntityType Name="AdmDosLav">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Equipo" Type="varchar" MaxLength="100" />
+    <Property Name="Stock" Type="int" />
+  </EntityType>
+  <EntityType Name="AdmModEqDos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Modelo" Type="varchar" MaxLength="100" />
+    <Property Name="EqDisponibles" Type="int" />
+  </EntityType>
+  <EntityType Name="AdmModJab">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Modelo" Type="varchar" MaxLength="100" />
+    <Property Name="Stock" Type="int" />
+  </EntityType>
+  <EntityType Name="AdmPortGalon">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="100" />
+    <Property Name="Stock" Type="int" />
+  </EntityType>
+  <EntityType Name="AdmProdQuim">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quimico" Type="varchar" MaxLength="100" />
+    <Property Name="Stock" Type="int" />
+    <Property Name="IdAreaUso" Type="int" />
+  </EntityType>
+  <EntityType Name="AdmTipMaqLav">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="100" />
+    <Property Name="Stock" Type="int" />
+  </EntityType>
+  <EntityType Name="AreaUso">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Area" Type="varchar" MaxLength="100" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Categorias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoria" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="LevantamientoEquipos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdDivision" Type="int" />
+    <Property Name="dteFecha" Type="date" />
+    <Property Name="NumHoja" Type="int" />
+  </EntityType>
+  <EntityType Name="PedidosArea">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AreaIns" Type="varchar" MaxLength="100" />
+    <Property Name="IdModEqDos" Type="int" />
+    <Property Name="CanModEqDos" Type="int" />
+    <Property Name="IdDosEstLim" Type="int" />
+    <Property Name="CanDosEstLim" Type="int" />
+    <Property Name="IdProdQuim" Type="int" />
+    <Property Name="ProdQuim" Type="text" />
+    <Property Name="IdModJab" Type="int" />
+    <Property Name="CanModJab" Type="int" />
+    <Property Name="CanCepInBas" Type="int" />
+    <Property Name="IdTipMaqLav" Type="int" />
+    <Property Name="CanTipMaqLav" Type="int" />
+    <Property Name="IdDosLav" Type="int" />
+    <Property Name="DosLav" Type="text" />
+    <Property Name="IdPorGalon" Type="int" />
+    <Property Name="CanPorGalon" Type="int" />
+    <Property Name="IdLevantamientoEquipo" Type="int" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="contrasenia" Type="text" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idCategoria" Type="int" />
+  </EntityType>
+  <Association Name="FK_AreaDeUso">
+    <End Role="AreaUso" Type="Self.AreaUso" Multiplicity="0..1" />
+    <End Role="AdmProdQuim" Type="Self.AdmProdQuim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AreaUso">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AdmProdQuim">
+        <PropertyRef Name="IdAreaUso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categoria">
+    <End Role="Categorias" Type="Self.Categorias" Multiplicity="0..1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Division">
+    <End Role="AdmDivisiones" Type="Self.AdmDivisiones" Multiplicity="0..1" />
+    <End Role="LevantamientoEquipos" Type="Self.LevantamientoEquipos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdmDivisiones">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="LevantamientoEquipos">
+        <PropertyRef Name="IdDivision" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DosEstacionLimpieza">
+    <End Role="AdmDosEstLim" Type="Self.AdmDosEstLim" Multiplicity="0..1" />
+    <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdmDosEstLim">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PedidosArea">
+        <PropertyRef Name="IdDosEstLim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DosificadoresLavavajillas">
+    <End Role="AdmDosLav" Type="Self.AdmDosLav" Multiplicity="0..1" />
+    <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdmDosLav">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PedidosArea">
+        <PropertyRef Name="IdDosLav" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LevantamientoEquipos">
+    <End Role="LevantamientoEquipos" Type="Self.LevantamientoEquipos" Multiplicity="0..1" />
+    <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LevantamientoEquipos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PedidosArea">
+        <PropertyRef Name="IdLevantamientoEquipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaquinasLavavajillas">
+    <End Role="AdmTipMaqLav" Type="Self.AdmTipMaqLav" Multiplicity="0..1" />
+    <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdmTipMaqLav">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PedidosArea">
+        <PropertyRef Name="IdTipMaqLav" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ModeloEquipoDosificador">
+    <End Role="AdmModEqDos" Type="Self.AdmModEqDos" Multiplicity="0..1" />
+    <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdmModEqDos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PedidosArea">
+        <PropertyRef Name="IdModEqDos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ModeloJabonera">
+    <End Role="AdmModJab" Type="Self.AdmModJab" Multiplicity="0..1" />
+    <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdmModJab">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PedidosArea">
+        <PropertyRef Name="IdModJab" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PortaGalones">
+    <End Role="AdmPortGalon" Type="Self.AdmPortGalon" Multiplicity="0..1" />
+    <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdmPortGalon">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PedidosArea">
+        <PropertyRef Name="IdPorGalon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductosQuimicos">
+    <End Role="AdmProdQuim" Type="Self.AdmProdQuim" Multiplicity="0..1" />
+    <End Role="PedidosArea" Type="Self.PedidosArea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdmProdQuim">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PedidosArea">
+        <PropertyRef Name="IdProdQuim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ServiceForHotelModelStoreContainer">
+    <EntitySet Name="AdmCepInBas" EntityType="Self.AdmCepInBas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdmDivisiones" EntityType="Self.AdmDivisiones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdmDosEstLim" EntityType="Self.AdmDosEstLim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdmDosLav" EntityType="Self.AdmDosLav" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdmModEqDos" EntityType="Self.AdmModEqDos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdmModJab" EntityType="Self.AdmModJab" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdmPortGalon" EntityType="Self.AdmPortGalon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdmProdQuim" EntityType="Self.AdmProdQuim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdmTipMaqLav" EntityType="Self.AdmTipMaqLav" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AreaUso" EntityType="Self.AreaUso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categorias" EntityType="Self.Categorias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LevantamientoEquipos" EntityType="Self.LevantamientoEquipos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PedidosArea" EntityType="Self.PedidosArea" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AreaDeUso" Association="Self.FK_AreaDeUso">
+      <End Role="AreaUso" EntitySet="AreaUso" />
+      <End Role="AdmProdQuim" EntitySet="AdmProdQuim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categoria" Association="Self.FK_Categoria">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Division" Association="Self.FK_Division">
+      <End Role="AdmDivisiones" EntitySet="AdmDivisiones" />
+      <End Role="LevantamientoEquipos" EntitySet="LevantamientoEquipos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DosEstacionLimpieza" Association="Self.FK_DosEstacionLimpieza">
+      <End Role="AdmDosEstLim" EntitySet="AdmDosEstLim" />
+      <End Role="PedidosArea" EntitySet="PedidosArea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DosificadoresLavavajillas" Association="Self.FK_DosificadoresLavavajillas">
+      <End Role="AdmDosLav" EntitySet="AdmDosLav" />
+      <End Role="PedidosArea" EntitySet="PedidosArea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LevantamientoEquipos" Association="Self.FK_LevantamientoEquipos">
+      <End Role="LevantamientoEquipos" EntitySet="LevantamientoEquipos" />
+      <End Role="PedidosArea" EntitySet="PedidosArea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaquinasLavavajillas" Association="Self.FK_MaquinasLavavajillas">
+      <End Role="AdmTipMaqLav" EntitySet="AdmTipMaqLav" />
+      <End Role="PedidosArea" EntitySet="PedidosArea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ModeloEquipoDosificador" Association="Self.FK_ModeloEquipoDosificador">
+      <End Role="AdmModEqDos" EntitySet="AdmModEqDos" />
+      <End Role="PedidosArea" EntitySet="PedidosArea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ModeloJabonera" Association="Self.FK_ModeloJabonera">
+      <End Role="AdmModJab" EntitySet="AdmModJab" />
+      <End Role="PedidosArea" EntitySet="PedidosArea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PortaGalones" Association="Self.FK_PortaGalones">
+      <End Role="AdmPortGalon" EntitySet="AdmPortGalon" />
+      <End Role="PedidosArea" EntitySet="PedidosArea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductosQuimicos" Association="Self.FK_ProductosQuimicos">
+      <End Role="AdmProdQuim" EntitySet="AdmProdQuim" />
+      <End Role="PedidosArea" EntitySet="PedidosArea" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

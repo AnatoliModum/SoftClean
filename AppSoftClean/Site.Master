@@ -4,6 +4,7 @@
 
 <html lang="en">
 <head runat="server">
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,7 +15,7 @@
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Imagenes/cleaning.png" rel="shortcut icon" type="image/x-icon" />
 
     <asp:ContentPlaceHolder ID="Encabezado" runat="server">
     </asp:ContentPlaceHolder>
@@ -52,11 +53,47 @@
                     </button>
                     <a class="navbar-brand" runat="server" href="~/">Hotel Gran Regina</a>
                 </div>
-                <div class="navbar-collapse collapse">
+                <div class="navbar-collapse collapse" id=”menu_wrapper”>
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Inicio</a></li>
-                        <li><a runat="server" href="~/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/Contact">Contacto</a></li>
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Levantamientos<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../Listas/ViewDivisiones.aspx">Divisiones</a></li>
+                                <li><a href="../Listas/ViewListaLevantamientos.aspx">Lista Levantamientos</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quimicos<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../Listas/ViewProdQuim.aspx">Productos quimicos</a></li>
+                                <li><a href="../Listas/ViewAreaUso.aspx">Areas de uso</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consumibles<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../Listas/ViewCepInBas.aspx">Cepillos, Insertos y Bases</a></li>
+                                <li><a href="../Listas/ViewModJab.aspx">Modelo Jabonera</a></li>
+                                <li><a href="../Listas/ViewPorGalon.aspx">Porta Galones</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dosificadores<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../Listas/ViewDosEstLim.aspx">Estacion de Limpieza</a></li>
+                                <li><a href="../Listas/ViewDosLav.aspx">Lavavajillas</a></li>     
+                                <li><a href="../Listas/ViewModEqDos.aspx">Modelo Equipo</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="../Listas/ViewTipMaqLav.aspx">Tipo Maquina Lavavajillas</a>
+                        </li>
+
                     </ul>
                 </div>
             </div>

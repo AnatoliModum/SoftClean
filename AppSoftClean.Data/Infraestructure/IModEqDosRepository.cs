@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Infraestructure
 {
-    interface IModEqDosRepository
+    public interface IModEqDosRepository
     {
         bool InsertarEquipoDosificador(AdmModEqDos EquipoDosificador);
         List<AdmModEqDos> GetAllEquiposDosificadores();

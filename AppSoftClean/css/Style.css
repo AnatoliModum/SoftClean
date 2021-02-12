@@ -1,6 +1,62 @@
-﻿body {
+﻿.panel-inicial {
+    margin-top: 17px;
 }
 
-.panel-inicial {
-    margin-top: 17px;
+.margen-titulo {
+    margin-top: 0px;
+}
+
+.icono {
+    height: 27px;
+    margin-top: -8px;
+}
+
+.icono-modal {
+    margin-top: -5px;
+    height: 17px;
+    margin-right: -5px;
+}
+
+.icono-modal-levantamiento {
+    height: 18px;
+    margin-top: -2px;
+}
+
+.modal-header-danger {
+    color: #fff;
+    padding: 9px 15px;
+    border-bottom: 1px solid #eee;
+    background-color: #d9534f;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-right: -1px;
+    margin-top: -1px;
+}
+
+.modal-header-success {
+    color: #fff;
+    padding: 9px 15px;
+    border-bottom: 1px solid #eee;
+    background-color: #5cb85c;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-right: -1px;
+    margin-top: -1px;
+}
+
+.margen {
+    margin-top: 19px;
+}
+
+.icono-color-azul {
+    color: #31708F;
+}
+
+.input-group-azul {
+    background: #D9EDF7;
+    border-color: #D9EDF7;
+}
+
+.text-border-azul {
+    border-color: #D9EDF7;
 }

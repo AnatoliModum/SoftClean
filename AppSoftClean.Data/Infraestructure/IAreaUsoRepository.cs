@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppSoftClean.Data.Infraestructure
 {
-    interface IAreaUsoRepository
+    public interface IAreaUsoRepository
     {
         bool InsertarAreaUso(AreaUso Area);
         List<AreaUso> GetAllAreasUso();
