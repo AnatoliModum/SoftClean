@@ -444,7 +444,7 @@ namespace AppSoftClean.Data.Repository
             #endregion
 
             #region Quimicos
-            if (Pedido.ProdQuim.Length > 1 && Pedido.ProdQuim != null)
+            if (Pedido.ProdQuim != null)
             {
                 RepositoryProdQuim quimico = new RepositoryProdQuim();
                 AdmProdQuim ProductoQuimico = new AdmProdQuim();
@@ -460,7 +460,7 @@ namespace AppSoftClean.Data.Repository
             #endregion
 
             #region DosLav
-            if (Pedido.DosLav.Length > 1 && Pedido.DosLav != null)
+            if (Pedido.DosLav != null)
             {
                 AdmDosLav Dosificador = new AdmDosLav();
                 List<String> listaDosificadores = getProductos(Pedido.DosLav);

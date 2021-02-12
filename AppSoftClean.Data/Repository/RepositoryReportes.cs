@@ -73,12 +73,12 @@ namespace AppSoftClean.Data.Repository
 
                 #endregion
 
-                if (pedido[i].ProdQuim.Length != 0 && pedido[i].ProdQuim != null)
+                if (pedido[i].ProdQuim != null)
                 {
                     reporte.ProductosQuimicos = pedido[i].ProdQuim.Replace(".", Environment.NewLine + " . ");
                 }
 
-                if (pedido[i].DosLav.Length != 0 && pedido[i].DosLav != null)
+                if (pedido[i].DosLav != null)
                 {
                     reporte.DosificadoresLavavajillas = pedido[i].DosLav.Replace(".", Environment.NewLine + " . ");
                 }

@@ -224,47 +224,61 @@ namespace AppSoftClean.Vistas.Listas
 
         protected void btnCrear_Modal_Click(object sender, EventArgs e)
         {
+
             PedidosArea pedidoArea = new PedidosArea();
 
             //Area
-            pedidoArea.AreaIns = TextAreaInstalacion.Text;
+            pedidoArea.AreaIns = !string.IsNullOrEmpty(TextAreaInstalacion.Text) ? TextAreaInstalacion.Text : null;
 
 
             //Modelo Equipo Dosificador
-            pedidoArea.IdModEqDos = int.Parse(DDL_ModEqDos.SelectedValue);
-            pedidoArea.CanModEqDos = int.Parse(DDL_CanModEqDos.SelectedValue);
+            pedidoArea.IdModEqDos = (DDL_ModEqDos.SelectedIndex >= 1) ? int.Parse(DDL_ModEqDos.SelectedValue) : (int?)null;
+            pedidoArea.CanModEqDos = pedidoArea.IdModEqDos != null ? int.Parse(DDL_CanModEqDos.SelectedValue) : (int?)null;
             //Dosificador de limpieza
-            pedidoArea.IdDosEstLim = int.Parse(DDL_DosEstLim.SelectedValue);
-            pedidoArea.CanDosEstLim = int.Parse(CanDosEstLim.SelectedValue);
+            pedidoArea.IdDosEstLim = DDL_DosEstLim.SelectedIndex >= 1 ? int.Parse(DDL_DosEstLim.SelectedValue) : (int?)null;
+            pedidoArea.CanDosEstLim = pedidoArea.IdDosEstLim != null ? int.Parse(CanDosEstLim.SelectedValue) : (int?)null;
 
             //Productos quimicos
-            for (int i = 0; i < LBProdQuim.Items.Count; i++)
+            if (LBProdQuim.Items.Count > 0)
             {
-                pedidoArea.ProdQuim += LBProdQuim.Items[i].ToString();
+                for (int i = 0; i < LBProdQuim.Items.Count; i++)
+                {
+                    pedidoArea.ProdQuim += LBProdQuim.Items[i].ToString();
 
+                }
             }
-
+            else
+            {
+                pedidoArea.ProdQuim = null;
+            }
+        
             //Modelo Jabonero
-            pedidoArea.IdModJab = int.Parse(DDL_ModJab.SelectedValue);
-            pedidoArea.CanModJab = int.Parse(TextCanModJab.Text);
+            pedidoArea.IdModJab = DDL_ModJab.SelectedIndex >= 1 ? int.Parse(DDL_ModJab.SelectedValue) : (int?)null;
+            pedidoArea.CanModJab = !string.IsNullOrEmpty(TextCanModJab.Text) ? int.Parse(TextCanModJab.Text) : (int?)null;
 
             //Cepillo Inserto Base
-            pedidoArea.CanCepInBas = int.Parse(TextCanConsumibles.Text);
+            pedidoArea.CanCepInBas = !string.IsNullOrEmpty(TextCanConsumibles.Text) ? int.Parse(TextCanConsumibles.Text) : (int?)null;
 
             //Tipo MaqTav
-            pedidoArea.IdTipMaqLav = int.Parse(DDL_TipMaqLav.SelectedValue);
-            pedidoArea.CanTipMaqLav = int.Parse(TextCanTipMaqLav.Text);
+            pedidoArea.IdTipMaqLav = DDL_TipMaqLav.SelectedIndex >= 1 ? int.Parse(DDL_TipMaqLav.SelectedValue) : (int?)null;
+            pedidoArea.CanTipMaqLav = !string.IsNullOrEmpty(TextCanTipMaqLav.Text) ? int.Parse(TextCanTipMaqLav.Text) : (int?)null;
 
             //DosificadorLav
-            for (int i = 0; i < LBDosLav.Items.Count; i++)
+            if (LBDosLav.Items.Count > 0)
             {
-                pedidoArea.DosLav += LBDosLav.Items[i].ToString();
+                for (int i = 0; i < LBDosLav.Items.Count; i++)
+                {
+                    pedidoArea.DosLav += LBDosLav.Items[i].ToString();
+                }
+            }
+            else
+            {
+                pedidoArea.DosLav = null;
             }
 
-
             //Porta Galon
-            pedidoArea.IdPorGalon = int.Parse(DDL_PorGalon.SelectedValue);
-            pedidoArea.CanPorGalon = int.Parse(TextCanPorGalon.Text);
+            pedidoArea.IdPorGalon = DDL_PorGalon.SelectedIndex >= 1 ? int.Parse(DDL_PorGalon.SelectedValue) : (int?)null;
+            pedidoArea.CanPorGalon = !string.IsNullOrEmpty(TextCanPorGalon.Text) ? int.Parse(TextCanPorGalon.Text) : (int?)null;
 
             //id
             pedidoArea.IdLevantamientoEquipo = Int32.Parse(Request.QueryString["id"]);
@@ -275,7 +289,6 @@ namespace AppSoftClean.Vistas.Listas
                 pedidoArea.id = (Int32)Session["idPerma"];
                 lblResultados.Text = CDS.ActualizarPedido(pedidoArea);
             }
-
             this.eleccionCargaDeDatos();
 
         }
