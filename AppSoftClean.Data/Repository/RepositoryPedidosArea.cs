@@ -1,5 +1,6 @@
 ﻿using AppSoftClean.Data.Infraestructure;
 using AppSoftClean.Data.Model;
+using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,29 +13,50 @@ namespace AppSoftClean.Data.Repository
     {
         private ServiceForHotelEntities conn = new ServiceForHotelEntities();
 
+        //[Dependency]
+        //private IDosEstLimRepository RDEL { get; set; }
+        //private IModEqDosRepository RME = new RepositoryModEqDos();
+        //private IModJabRepository RMJ = new RepositoryModJab();
+        //private ICepInBasRepository RCIB = new RepositoryCepInsBas();
+        //private ITipMaqLavRepository RTML = new RepositoryTipMaqLav();
+
+        public RepositoryDosEstLimp RDEL = null;
+        public RepositoryModEqDos RME = null;
+        public RepositoryModJab RMJ = null;
+        public RepositoryCepInsBas RCIB = null;
+        public RepositoryTipMaqLav RTML = null;
+
         public bool ActualizarPedido(PedidosArea Pedido)
         {
             bool res = false;
-
+            
             try
             {
                 PedidosArea pedidoObj = conn.PedidosArea.Where(c => c.id == Pedido.id).FirstOrDefault<PedidosArea>();
 
                 pedidoObj.AreaIns = Pedido.AreaIns;
+
                 pedidoObj.IdModEqDos = Pedido.IdModEqDos;
                 pedidoObj.IdDosEstLim = Pedido.IdDosEstLim;
-                pedidoObj.IdProdQuim = Pedido.IdProdQuim;
                 pedidoObj.IdModJab = Pedido.IdModJab;
-                pedidoObj.IdCepInBas = Pedido.IdCepInBas;
                 pedidoObj.IdTipMaqLav = Pedido.IdTipMaqLav;
-                pedidoObj.IdDosLav = Pedido.IdDosLav;
                 pedidoObj.IdPorGalon = Pedido.IdPorGalon;
 
-                conn.PedidosArea.Attach(pedidoObj);
-                conn.Entry(pedidoObj).State = System.Data.Entity.EntityState.Modified;
-                conn.SaveChanges();
+                pedidoObj.ProdQuim = Pedido.ProdQuim;
+                pedidoObj.DosLav = Pedido.DosLav;
 
-                res = true;
+                pedidoObj.CanModEqDos = Pedido.CanModEqDos;
+                pedidoObj.CanDosEstLim = Pedido.CanDosEstLim;
+                pedidoObj.CanModJab = Pedido.CanModJab;
+                pedidoObj.CanCepInBas = Pedido.CanCepInBas;
+                pedidoObj.CanTipMaqLav = Pedido.CanTipMaqLav;
+
+
+                conn.PedidosArea.Attach(pedidoObj);
+                    conn.Entry(pedidoObj).State = System.Data.Entity.EntityState.Modified;
+                    conn.SaveChanges();
+                    res = true;
+              
             }
             catch (Exception ex)
             {
@@ -91,9 +113,24 @@ namespace AppSoftClean.Data.Repository
             return pedidoObj;
         }
 
+        public List<PedidosArea> GetPedidoByIDLevantamiento(int idLevantanmiento)
+        {
+            List<PedidosArea> pedidoObj = null;
+            try
+            {
+                pedidoObj = conn.PedidosArea.Where(c => c.IdLevantamientoEquipo == idLevantanmiento).ToList<PedidosArea>();
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+            return pedidoObj;
+        }
+
         public bool InsertarPedido(PedidosArea Pedido)
         {
             bool res = false;
+            
             try
             {
                 conn.PedidosArea.Add(Pedido);
