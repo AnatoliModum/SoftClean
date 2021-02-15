@@ -6,33 +6,16 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link href="bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
     <script src="../../Scripts/bootstrap.min.js"></script>
-    <script src="../../Scripts/modernizr-2.8.3.js"></script>
-    <script src="../../Scripts/bootstrap.js"></script>
+    <script src="../../Scripts/jquery-3.3.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+    <link href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.8.1/css/solid.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/Style.css" type="text/css" />
     <style>
-body {
-width: 100%;
-margin: 5px;
-}
-
-.table-condensed tr th {
-border: 0px solid #6e7bd9;
-color: white;
-background-color: #6e7bd9;
-}
-
-.table-condensed, .table-condensed tr td {
-border: 0px solid #000;
-}
-
-tr:nth-child(even) {
-background: #f8f7ff
-}
-
-tr:nth-child(odd) {
-background: #fff;
-}
 </style>
 </head>
 <body>
@@ -41,7 +24,7 @@ background: #fff;
 
             <div class="row">
                 <div class="col-md-3 col-md-offset-4">
-                    <div class="page-header">
+                    <div>
                         <h1>Reporte de Pedidos Por Área</h1>
                     </div>
                 </div>
@@ -49,7 +32,7 @@ background: #fff;
 
             <div class="row">
                 <div class="col-md-4 col-md-offset-8">
-                    <div class="page-header">
+                    <div>
                         <h6>Folio de Levantamiento</h6>
                         <asp:Label ID="txtIdLevantamiento" runat="server" Text=""></asp:Label>
                     </div>
@@ -58,7 +41,7 @@ background: #fff;
 
             <div class="row">
                 <div class="col-md-4 col-md-offset-8">
-                    <div class="page-header">
+                    <div>
                         <h6>División</h6>
                         <asp:Label ID="txtDivision" runat="server" Text=""></asp:Label>
                     </div>
@@ -67,7 +50,7 @@ background: #fff;
 
             <div class="row">
                 <div class="col-md-4 col-md-offset-8">
-                    <div class="page-header">
+                    <div>
                         <h6>Numero de Hoja</h6>
                         <asp:Label ID="txtNoHoja" runat="server" Text=""></asp:Label>
                     </div>
@@ -76,7 +59,7 @@ background: #fff;
 
             <div class="row">
                 <div class="col-md-4 col-md-offset-8">
-                    <div class="page-header">
+                    <div>
                         <h6>Fecha de Levantamiento</h6>
                         <asp:Label ID="txtFechaLevantamiento" runat="server" Text=""></asp:Label>
                     </div>

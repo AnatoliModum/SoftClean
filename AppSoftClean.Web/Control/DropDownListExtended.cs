@@ -32,6 +32,17 @@ namespace AppSoftClean.Web.Control
             _control.DataBind();
         }
 
+        public static void getCatalogoCategorias(this DropDownList _control)
+        {
+            CtrlGeneric ctrl = new CtrlGeneric();
+            List<Categorias> lista = ctrl.GetCatalogoGenericEntity<Categorias>();
+            _control.Items.Insert(0, "Selecciona una categoria");
+            _control.DataTextField = "categoria";
+            _control.DataValueField = "id";
+            _control.DataSource = lista;
+            _control.DataBind();
+        }
+
         public static void getCatalogoPorGalon(this DropDownList _control)
         {
             CtrlGeneric ctrl = new CtrlGeneric();
