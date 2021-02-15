@@ -1,4 +1,5 @@
 ﻿using AppSoftClean.Data.Model;
+using AppSoftClean.Data.Recursos;
 using AppSoftClean.Data.Repository;
 using AppSoftClean.Web.Control;
 using System;
@@ -321,5 +322,10 @@ namespace AppSoftClean.Vistas.Listas
 
         }
 
+        protected void btnImprimir_Click(object sender, EventArgs e)
+        {
+            int idObjeto = Int32.Parse(Request.QueryString["id"]);
+            Response.Redirect("~/Vistas/Listas/ViewDiseñoReportes.aspx?id=" + idObjeto);
+        }
     }
 }

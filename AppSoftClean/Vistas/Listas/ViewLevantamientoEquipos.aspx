@@ -105,6 +105,8 @@
                 </div>
             </div>
 
+            <asp:Button ID="btnImprimir" runat="server" Text="Imprimir" OnClick="btnImprimir_Click" />
+
         </div>
     </div>
 
@@ -321,4 +323,5 @@
             </div>
         </div>
     </div>
+
 </asp:Content>
