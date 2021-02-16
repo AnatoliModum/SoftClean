@@ -30,7 +30,8 @@
                 <br>
                 <div class="row">
                     <div class="col-lg-10">
-                        <h2 style="margin-top: 0px"><asp:Image ID="ImgLista" CssClass="icono" ImageUrl="~/Imagenes/lista.png" runat="server" />&nbsp Lista de Usuarios</h2>
+                        <h2 style="margin-top: 0px">
+                            <asp:Image ID="ImgLista" CssClass="icono" ImageUrl="~/Imagenes/lista.png" runat="server" />&nbsp Lista de Usuarios</h2>
                     </div>
                     <div class="col-lg-1">
                         <asp:Button ID="BtnCrear" class="btn btn-info" runat="server" Text="Crear" OnClick="BtnCrear_Click" />
@@ -40,46 +41,46 @@
                     </div>
                 </div>
             </div>
-                    <div class="x_content">
-                        <div class="form-horizontal form-label-left input_mask">
-                            <asp:GridView ID="dgvDatos" runat="server" AllowPaging="True" AutoGenerateColumns="False"
-                                PageSize="10" Width="100%" CssClass="table table-bordered bs-table" DataKeyNames="id"
-                                EmptyDataText="No Existen Datos del Área Aún." OnRowCommand="dgvDatos_RowCommand">
-                                <HeaderStyle BackColor="#5bc0de" Font-Size="9" ForeColor="White" />
-                                <%--Configuracion de la cabecera--%>
-                                <AlternatingRowStyle BackColor="#c0e7f9" Font-Size="10" ForeColor="#4C4C4C" />
-                                <%--Configuracion de Filas Alternativas--%>
-                                <EmptyDataRowStyle BackColor="#F7F7F7" BorderColor="#1ABB9C" Font-Size="11" BorderWidth="1" />
-                                <%--Configuracion de filas vacias--%>
-                                <FooterStyle BackColor="#4C4C4C" />
-                                <%--Configuración del footer --%>
-                                <RowStyle BackColor="White" Font-Size="9" />
-                                <%--Configuración de la fila--%>
-                                <%--configuramos las columnas del grid--%>
-                                <Columns>
-                                    <asp:BoundField HeaderText="Identidicador" DataField="id" ItemStyle-Font-Size="10" />
-                                    <asp:BoundField HeaderText="Usuario" DataField="usuario" ItemStyle-Font-Size="10" />
-                                    <asp:BoundField HeaderText="Correo" DataField="correo" DataFormatString="{0:dd/MM/yyyy}" ItemStyle-Font-Size="10" />
-                                    <asp:TemplateField HeaderText="Editar">
-                                        <ItemTemplate>
-                                            <asp:ImageButton ID="ImgEditar" runat="server" ImageUrl="~/Imagenes/editar.png"
-                                                CommandArgument='<%#((GridViewRow)Container).RowIndex %>' CommandName="Editar" />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Eliminar">
-                                        <ItemTemplate>
-                                            <asp:ImageButton ID="ImgEliminar" runat="server" ImageUrl="~/Imagenes/eliminar.png"
-                                                CommandArgument='<%#((GridViewRow)Container).RowIndex %>' CommandName="Eliminar" />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                </Columns>
-                            </asp:GridView>
-                        </div>
-                    </div>
+            <div class="x_content">
+                <div class="form-horizontal form-label-left input_mask">
+                    <asp:GridView ID="dgvDatos" runat="server" AllowPaging="True" AutoGenerateColumns="False"
+                        PageSize="10" Width="100%" CssClass="table table-bordered bs-table" DataKeyNames="id"
+                        EmptyDataText="No Existen Datos del Área Aún." OnRowCommand="dgvDatos_RowCommand">
+                        <HeaderStyle BackColor="#5bc0de" Font-Size="9" ForeColor="White" />
+                        <%--Configuracion de la cabecera--%>
+                        <AlternatingRowStyle BackColor="#c0e7f9" Font-Size="10" ForeColor="#4C4C4C" />
+                        <%--Configuracion de Filas Alternativas--%>
+                        <EmptyDataRowStyle BackColor="#F7F7F7" BorderColor="#1ABB9C" Font-Size="11" BorderWidth="1" />
+                        <%--Configuracion de filas vacias--%>
+                        <FooterStyle BackColor="#4C4C4C" />
+                        <%--Configuración del footer --%>
+                        <RowStyle BackColor="White" Font-Size="9" />
+                        <%--Configuración de la fila--%>
+                        <%--configuramos las columnas del grid--%>
+                        <Columns>
+                            <asp:BoundField HeaderText="Identidicador" DataField="id" ItemStyle-Font-Size="10" />
+                            <asp:BoundField HeaderText="Usuario" DataField="usuario" ItemStyle-Font-Size="10" />
+                            <asp:BoundField HeaderText="Correo" DataField="correo" DataFormatString="{0:dd/MM/yyyy}" ItemStyle-Font-Size="10" />
+                            <asp:TemplateField HeaderText="Editar">
+                                <ItemTemplate>
+                                    <asp:ImageButton ID="ImgEditar" runat="server" ImageUrl="~/Imagenes/editar.png"
+                                        CommandArgument='<%#((GridViewRow)Container).RowIndex %>' CommandName="Editar" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Eliminar">
+                                <ItemTemplate>
+                                    <asp:ImageButton ID="ImgEliminar" runat="server" ImageUrl="~/Imagenes/eliminar.png"
+                                        CommandArgument='<%#((GridViewRow)Container).RowIndex %>' CommandName="Eliminar" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                </div>
+            </div>
         </div>
     </div>
 
-    <%--Modal que se encarga de elimianr los datos--%>
+    <%--Modal que se encarga de eliminar los datos--%>
     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="MyModaldata">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -88,10 +89,11 @@
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">×</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel"><asp:Image ID="Image1" CssClass="icono-modal" ImageUrl="~/Imagenes/trash.png" runat="server" />&nbsp Eliminar</h4>
+                    <h4 class="modal-title" id="myModalLabel">
+                        <asp:Image ID="Image1" CssClass="icono-modal" ImageUrl="~/Imagenes/trash.png" runat="server" />&nbsp Eliminar</h4>
                 </div>
                 <div class="modal-body">
-                    <h4>Confirme para eliminar el registro número&nbsp<span class="label label-danger"><asp:Label ID="lblID" runat="server" Text="Label"></asp:Label></span>&nbsp llamado &nbsp<span class="label label-danger"><asp:Label ID="lblFecha" runat="server" Text="Label"></asp:Label></span></h4>
+                    <h4>Confirme para eliminar el registro número&nbsp<span class="label label-danger"><asp:Label ID="lblID" runat="server" Text="Label"></asp:Label></span>&nbsp llamado &nbsp<span class="label label-danger"><asp:Label ID="lblUsuario" runat="server" Text="Label"></asp:Label></span></h4>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -99,7 +101,7 @@
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
 
     <%--Modal que se encarga de crear los datos--%>
     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="MyModalCreate">
@@ -114,7 +116,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <asp:UpdatePanel ID="UpdateValidacionModal" runat="server" UpdateMode="Conditional">
                                 <ContentTemplate>
                                     <asp:UpdatePanel ID="UpdateValidacion" runat="server" UpdateMode="Conditional">
@@ -137,20 +139,31 @@
                                 </asp:DropDownList>
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon15"><span><i class="far fa-user-alt"></i></span></span>
                                 <asp:TextBox ID="TextUser" runat="server" CssClass="form-control" placeholder="Nombre de Usuario"></asp:TextBox>
-                                
+
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon4"><span><i class="fas fa-user-alt"></i></span></span>
+                                <asp:TextBox ID="TextCorreo" runat="server" CssClass="form-control" placeholder="Correo electronico"></asp:TextBox>
+                            </div>
+                        </div>
+                  
+                        <div class="col-lg-6">
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon2"><span><i class="fas fa-bookmark"></i></span></span>
                                 <asp:TextBox ID="TextPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Contraseña"></asp:TextBox>
                             </div>
                         </div>
-                    </div>
+                     </div>
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -159,4 +172,5 @@
             </div>
         </div>
     </div>
+    
 </asp:Content>

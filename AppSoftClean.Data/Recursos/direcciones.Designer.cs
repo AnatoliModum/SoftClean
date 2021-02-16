@@ -257,5 +257,14 @@ namespace AppSoftClean.Data.Recursos {
                 return ResourceManager.GetString("ViewTipMaqLav", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ~/Vistas/Listas/ViewUsuarios.aspx.
+        /// </summary>
+        public static string ViewUsuarios {
+            get {
+                return ResourceManager.GetString("ViewUsuarios", resourceCulture);
+            }
+        }
     }
 }

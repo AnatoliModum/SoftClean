@@ -67,13 +67,13 @@ namespace AppSoftClean.Vistas.Listas {
         protected global::System.Web.UI.WebControls.Label lblID;
         
         /// <summary>
-        /// Control lblFecha.
+        /// Control lblUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFecha;
+        protected global::System.Web.UI.WebControls.Label lblUsuario;
         
         /// <summary>
         /// Control BtnEliminar.
@@ -137,6 +137,15 @@ namespace AppSoftClean.Vistas.Listas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextUser;
+        
+        /// <summary>
+        /// Control TextCorreo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextCorreo;
         
         /// <summary>
         /// Control TextPassword.

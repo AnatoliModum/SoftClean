@@ -133,39 +133,47 @@ namespace AppSoftClean.Vistas.Listas
 
                     TextAreaInstalacion.Text = pedido.AreaIns;
 
-                    DDL_CanModEqDos.SelectedValue = pedido.CanModEqDos.ToString();
-                    DDL_ModEqDos.SelectedValue = pedido.IdModEqDos.ToString();
+                    DDL_CanModEqDos.SelectedValue = pedido.IdModEqDos != null?pedido.CanModEqDos.ToString():"0";
+                    DDL_ModEqDos.SelectedValue = pedido.IdModEqDos!=null?pedido.IdModEqDos.ToString():null;
 
-                    CanDosEstLim.SelectedValue = pedido.CanDosEstLim.ToString();
-                    DDL_DosEstLim.SelectedValue = pedido.IdDosEstLim.ToString();
+                    CanDosEstLim.SelectedValue = pedido.IdDosEstLim!=null?pedido.CanDosEstLim.ToString():"0";
+                    DDL_DosEstLim.SelectedValue = pedido.IdDosEstLim!=null?pedido.IdDosEstLim.ToString():null;
 
-                    DDL_ModJab.SelectedValue = pedido.IdModJab.ToString();
-                    TextCanModJab.Text = pedido.CanModJab.ToString();
+                    DDL_ModJab.SelectedValue = pedido.IdModJab!=null?pedido.IdModJab.ToString():null;
+                    TextCanModJab.Text = !string.IsNullOrEmpty(pedido.CanModJab.ToString())?pedido.CanModJab.ToString():"0";
 
-                    TextCanConsumibles.Text = pedido.CanCepInBas.ToString();
+                    TextCanConsumibles.Text = !string.IsNullOrEmpty(pedido.CanCepInBas.ToString())?pedido.CanCepInBas.ToString():"0";
 
-                    TextCanTipMaqLav.Text = pedido.CanTipMaqLav.ToString();
-                    DDL_TipMaqLav.SelectedValue = pedido.IdTipMaqLav.ToString();
+                    TextCanTipMaqLav.Text = !string.IsNullOrEmpty(pedido.CanTipMaqLav.ToString())?pedido.CanTipMaqLav.ToString():"0";
+                    DDL_TipMaqLav.SelectedValue = pedido.IdTipMaqLav!=null?pedido.IdTipMaqLav.ToString():null;
 
-                    TextCanPorGalon.Text = pedido.CanPorGalon.ToString();
-                    DDL_PorGalon.SelectedValue = pedido.IdPorGalon.ToString();
-
+                    TextCanPorGalon.Text = !string.IsNullOrEmpty(pedido.CanPorGalon.ToString())?pedido.CanPorGalon.ToString():"0";
+                    DDL_PorGalon.SelectedValue = pedido.IdPorGalon !=null?pedido.IdPorGalon.ToString():null;
 
                     LBProdQuim.Items.Clear();
-                    listaGenerica = this.getProductos(pedido.ProdQuim);
-                    for (int i = 0; i < listaGenerica.Count; i++)
+                    if (pedido.ProdQuim !=null)
                     {
-                        LBProdQuim.Items.Add(listaGenerica[i] + ".");
-                        this.UpdateProdQuimAgregar.Update();
+                        listaGenerica = this.getProductos(pedido.ProdQuim);
+
+                        for (int i = 0; i < listaGenerica.Count; i++)
+                        {
+                            LBProdQuim.Items.Add(listaGenerica[i] + ".");
+                            this.UpdateProdQuimAgregar.Update();
+                        }
                     }
+                    
 
                     LBDosLav.Items.Clear();
-                    listaGenerica = this.getProductos(pedido.DosLav);
-                    for (int i = 0; i < listaGenerica.Count; i++)
+                    if (pedido.DosLav !=null)
                     {
-                        LBDosLav.Items.Add(listaGenerica[i] + ".");
-                        this.UpdateDosLavCargar.Update();
+                        listaGenerica = this.getProductos(pedido.DosLav);
+                        for (int i = 0; i < listaGenerica.Count; i++)
+                        {
+                            LBDosLav.Items.Add(listaGenerica[i] + ".");
+                            this.UpdateDosLavCargar.Update();
+                        }
                     }
+                    
 
                     btnCrear_Modal.Text = "Actualizar";
                     ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "MyModalCreate();", true);
@@ -234,10 +242,10 @@ namespace AppSoftClean.Vistas.Listas
 
             //Modelo Equipo Dosificador
             pedidoArea.IdModEqDos = (DDL_ModEqDos.SelectedIndex >= 1) ? int.Parse(DDL_ModEqDos.SelectedValue) : (int?)null;
-            pedidoArea.CanModEqDos = pedidoArea.IdModEqDos != null ? int.Parse(DDL_CanModEqDos.SelectedValue) : (int?)null;
+            pedidoArea.CanModEqDos = pedidoArea.IdModEqDos != null ? int.Parse(DDL_CanModEqDos.SelectedValue) : 0;
             //Dosificador de limpieza
             pedidoArea.IdDosEstLim = DDL_DosEstLim.SelectedIndex >= 1 ? int.Parse(DDL_DosEstLim.SelectedValue) : (int?)null;
-            pedidoArea.CanDosEstLim = pedidoArea.IdDosEstLim != null ? int.Parse(CanDosEstLim.SelectedValue) : (int?)null;
+            pedidoArea.CanDosEstLim = pedidoArea.IdDosEstLim != null ? int.Parse(CanDosEstLim.SelectedValue) : 0;
 
             //Productos quimicos
             if (LBProdQuim.Items.Count > 0)
@@ -255,14 +263,14 @@ namespace AppSoftClean.Vistas.Listas
         
             //Modelo Jabonero
             pedidoArea.IdModJab = DDL_ModJab.SelectedIndex >= 1 ? int.Parse(DDL_ModJab.SelectedValue) : (int?)null;
-            pedidoArea.CanModJab = !string.IsNullOrEmpty(TextCanModJab.Text) ? int.Parse(TextCanModJab.Text) : (int?)null;
+            pedidoArea.CanModJab = !string.IsNullOrEmpty(TextCanModJab.Text) ? int.Parse(TextCanModJab.Text) : 0;
 
             //Cepillo Inserto Base
-            pedidoArea.CanCepInBas = !string.IsNullOrEmpty(TextCanConsumibles.Text) ? int.Parse(TextCanConsumibles.Text) : (int?)null;
+            pedidoArea.CanCepInBas = !string.IsNullOrEmpty(TextCanConsumibles.Text) ? int.Parse(TextCanConsumibles.Text) : 0;
 
             //Tipo MaqTav
             pedidoArea.IdTipMaqLav = DDL_TipMaqLav.SelectedIndex >= 1 ? int.Parse(DDL_TipMaqLav.SelectedValue) : (int?)null;
-            pedidoArea.CanTipMaqLav = !string.IsNullOrEmpty(TextCanTipMaqLav.Text) ? int.Parse(TextCanTipMaqLav.Text) : (int?)null;
+            pedidoArea.CanTipMaqLav = !string.IsNullOrEmpty(TextCanTipMaqLav.Text) ? int.Parse(TextCanTipMaqLav.Text) : 0;
 
             //DosificadorLav
             if (LBDosLav.Items.Count > 0)
@@ -279,7 +287,7 @@ namespace AppSoftClean.Vistas.Listas
 
             //Porta Galon
             pedidoArea.IdPorGalon = DDL_PorGalon.SelectedIndex >= 1 ? int.Parse(DDL_PorGalon.SelectedValue) : (int?)null;
-            pedidoArea.CanPorGalon = !string.IsNullOrEmpty(TextCanPorGalon.Text) ? int.Parse(TextCanPorGalon.Text) : (int?)null;
+            pedidoArea.CanPorGalon = !string.IsNullOrEmpty(TextCanPorGalon.Text) ? int.Parse(TextCanPorGalon.Text) : 0;
 
             //id
             pedidoArea.IdLevantamientoEquipo = Int32.Parse(Request.QueryString["id"]);
