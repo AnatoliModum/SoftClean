@@ -24,7 +24,7 @@ namespace AppSoftClean.Data.Repository
                 Usuarios userObj = conn.Usuarios.Where(c => c.id == user.id).FirstOrDefault<Usuarios>();
 
                 userObj.usuario = user.usuario;
-                userObj.contrasenia = user.contrasenia;
+                userObj.contrasenia = !string.IsNullOrEmpty(user.contrasenia)?user.contrasenia:userObj.contrasenia;
                 userObj.correo = user.correo;
                 userObj.idCategoria = user.idCategoria;
 
@@ -95,7 +95,8 @@ namespace AppSoftClean.Data.Repository
 
             try
             {
-                Expression<Func<Usuarios, bool>> predicato = p => p.usuario == usuario && p.contrasenia == password;
+                String contrasena = EncryptarContrasena(password);
+                Expression<Func<Usuarios, bool>> predicato = p => p.usuario == usuario.ToUpper() && p.contrasenia == contrasena;
                 Usuario = conn.Usuarios.Where(predicato.Compile()).FirstOrDefault<Usuarios>();
             }catch (Exception ex)
             {

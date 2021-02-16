@@ -63,7 +63,7 @@ namespace AppSoftClean.Vistas.Listas
 
                     this.DDL_Categorias.SelectedValue = usuario.idCategoria > 0 ?usuario.idCategoria.ToString(): null;
                     this.TextUser.Text = usuario.usuario;
-                    //this.TextCorreo.Text = usuario.correo;
+                    this.TextCorreo.Text = usuario.correo;
 
                     btnCrear_Modal.Text = "Actualizar";
 
