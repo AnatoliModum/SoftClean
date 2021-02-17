@@ -2,6 +2,18 @@
 
 <!DOCTYPE html>
 
+<script language="C#" runat="server">
+
+      protected void btnSalir_Click(object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+            
+            FormsAuthentication.RedirectToLoginPage();
+
+        }
+      
+</script>
+
 <html lang="en">
 <head runat="server">
 
@@ -93,6 +105,15 @@
                         <li>
                             <a href="../Listas/ViewTipMaqLav.aspx">Tipo Maquina Lavavajillas</a>
                         </li>
+
+                        <li>
+                            <a href="../Listas/ViewUsuarios.aspx">Usuarios</a>
+                        </li>
+
+                        <li>
+                            <a href="#" onserverclick="btnSalir_Click" runat="server" >Salir</a>
+                        </li>
+
 
                     </ul>
                 </div>

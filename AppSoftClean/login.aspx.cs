@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -38,6 +39,8 @@ namespace AppSoftClean
                 this.sessionManager.IdUsuarios = this.usuarios.id;
                 this.sessionManager.Parametros["usuario"] = this.usuarios;
                 Session["manager"] = sessionManager;
+                System.Web.Security.FormsAuthentication.SetAuthCookie(TextUser.Text.ToUpper(), true);
+                Response.Redirect("~/Vistas/Listas/ViewListaLevantamientos.aspx");
             }
 
         }
